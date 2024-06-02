@@ -23,6 +23,12 @@ namespace OOP_BIG_PROJECT.Controllers
             return View();
         }
 
+        [HttpPost]
+        public IActionResult Check(User user)
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

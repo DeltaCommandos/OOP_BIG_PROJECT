@@ -5,19 +5,21 @@
 
 body {
     background: #b3d5e4;
-    font-family: 'Montserrat', sans-serif;
+    font-family: Lato Regular, sans-serif;
 }
+
+
+
 
 header {
     width: 100%;
     padding: 15x 10%;
-    color: #769aaa;
+    color: #38794e;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: #769aaa;
     border-bottom: 2px solid #000;
-
 }
 
     header .logo {
@@ -26,16 +28,11 @@ header {
         font-size: 25px;
     }
 
-    header nav a {
-        color: #fff;
-        text-decoration: none;
-        margin-left: 15px;
-    }
 
-header nav a:hover{
-    text-decoration: underline;
 
-}
+
+
+
 
 main {
     width: 100%;
@@ -43,12 +40,54 @@ main {
     margin: 50px 0;
 }
 
+main input:not([type="submit"]) {
+    width: 40%;
+    padding: 10px 14px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid silver;
+    outline: none;
+    margin-top: 7px;
+}
+
+main input:not([type="submit"]):focus {
+    border: 1px solid #52aa70;
+}
+
+    main input[type="submit"] {
+        width: 40%;
+        padding: 10px 0;
+        text-align: center;
+        font-size: 15px;
+        border-radius: 5px;
+        border: 0;
+        margin-top: 7px;
+        background: #38794e;
+        font-weight: bold;
+        color: #6ff19b;
+        cursor: pointer;
+    }
+
+
+    main input[type="submit"]:hover {
+        background: #52aa70;
+    }
+
+
+main form span {
+    color: #52aa70;
+    font-weight: bold;
+    display: block;
+    margin: 5px 0;
+}
+
+
 footer {
     margin-top: 100px;
     width: 100%;
     text-align: center;
     padding: 25px 0;
-    color: #00ff21;
+    color: #38794e;
     background: #769aaa;
     border-top: 2px solid #000
 }
