@@ -6,17 +6,19 @@
 
 <form method="post" asp-controller="Home" asp-action="Check">
 
-    <label asp-for="Name"></label>
+    <label>Введите свой никнейм: </label>
     <p></p>
-    <input asp-for="Name" />
-    <span asp-validation-for="Name"></span>
+    <input asp-for="Login" />
+    <span asp-validation-for="Login"></span>
 
-    <label asp-for="Password"></label>
+    <label>Пароль: </label>
     <p></p>
     <input asp-for="Password" />
     <span asp-validation-for="Password"></span>
 
     <p></p>
     <input type="submit" value="Войти"/>
+    <input type="reg" value="Зарегестрироваться" />
+
 </form>
 
