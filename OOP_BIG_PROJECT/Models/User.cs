@@ -2,8 +2,10 @@
 
 namespace OOP_BIG_PROJECT.Models
 {
-    public class User:Entity
+    public class User
     {
+        public int ID { get; set; }
+
         //[Display(Name="Введите свой никнейм:")]
         //[Required(ErrorMessage ="Вам нужно ввести никнейм!")]
         public string Login { get; set; }
@@ -12,10 +14,14 @@ namespace OOP_BIG_PROJECT.Models
         //[Required(ErrorMessage = "Вам нужно ввести пароль!")]
         public string Password { get; set; }
 
-        public User(string l, string p) {
+        public int Type { get; set; }
 
-            Login = l;
-            Password = p;
-        }
+
+
+        //public User(string l, string p) {
+
+        //    Login = l;
+        //    Password = p;
+        //}
     }
 }

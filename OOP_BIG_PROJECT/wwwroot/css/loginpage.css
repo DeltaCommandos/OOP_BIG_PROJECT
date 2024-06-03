@@ -1,0 +1,353 @@
+@charset "utf-8";
+@import url("MISTRAL/stylesheet.css");
+@import url("Nunito_Medium/stylesheet.css");
+
+div.loginfield
+{
+    clear: none;
+    float: none;
+    position: relative;
+
+	
+}
+body {
+    background-color: #E0E7FF;
+}
+.loginwindow {
+    float: none;
+    border-width: thin;
+    border-style: none;
+    border-radius: 15px;
+    background-color: #FFFFFF;
+    position: relative;
+    width: 350px;
+    height: 450px;
+    margin: 0 auto;
+    top: 50px;
+}
+.logo {
+    position: absolute;
+    width: 300px;
+    border-width: thin;
+    border-style: none;
+    left: 25px;
+
+}
+    .logo p {
+        color: #fc4201;
+        text-align: left;
+        font-family: MISTRAL;
+        font-size: 33pt;
+        font-weight: normal;
+        position: absolute;
+        float: right;
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+        left: 142px;
+        top: 0px;
+    }
+.loginfield {
+    position: absolute;
+    top: 142px;
+    left: 63px;
+}
+.loginwindow .loginfield input {
+    width: 225px;
+    height: 44px;
+    border-radius: 5px;
+    text-align: left;
+    text-indent: 9px;
+    font-size: 26px;
+    font-family: arimo;
+    font-style: normal;
+    font-weight: 400;
+    overflow-x: visible;
+    visibility: visible;
+    background-color: #E9E9E9;
+    border: thin solid #E4E4E4;
+}
+
+.changepasswordfield {
+    position: absolute;
+    top: 142px;
+    left: 63px;
+}
+
+.loginwindow .changepasswordfield input {
+    width: 225px;
+    height: 44px;
+    border-radius: 5px;
+    text-align: left;
+    text-indent: 9px;
+    font-size: 20px;
+    font-family: arimo;
+    font-style: normal;
+    font-weight: 400;
+    overflow-x: visible;
+    visibility: visible;
+    background-color: #E9E9E9;
+    border: thin solid #E4E4E4;
+}
+
+.passwordfield {
+    position: absolute;
+    top: 210px;
+    left: 63px;
+}
+.loginwindow .passwordfield input {
+    width: 225px;
+    height: 44px;
+    border-radius: 5px;
+    text-align: left;
+    text-indent: 9px;
+    font-size: 26px;
+    font-family: arimo;
+    font-style: normal;
+    font-weight: 400;
+    overflow-x: visible;
+    visibility: visible;
+    background-color: #E9E9E9;
+    border: thin solid #E4E4E4;
+}
+.loginbutton {
+    width: 225px;
+    height: 44px;
+    left: 63px;
+    position: absolute;
+    top: 306px;
+    -webkit-box-shadow: 0px 0px;
+    box-shadow: 0px 0px;
+    background-color: #1149FC;
+    color: #FFFFFF;
+    font-family: arimo;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    border-width: thin;
+    border-radius: 5px;
+    border-style: none;
+}
+.loginbutton:hover{
+    background-color: #406CFD;
+}
+
+.loginbutton:active{
+    background-color: #1948E1;
+}
+.registerbutton {
+    text-decoration: none;
+    position: absolute;
+    top: 405px;
+    color: #1149FC;
+    left: 108px;
+}
+
+.loginwindow .passwordfield p {
+    color: #D70003;
+}
+
+.mainbutton {
+    float: none;
+    border-width: thin;
+    border-style: none;
+    border-radius: 15px;
+    background-color: #FFFFFF;
+    position: static;
+    width: 253px;
+    height: 271px;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 0;
+    top: 62px;
+    color: #FF4700;
+    font-family: "Nunito Medium";
+    font-size: 21pt;
+    text-align: center;
+    padding-top: 196px;
+}
+
+    .mainbutton:hover {
+        background-color: #CFCFCF;
+    }
+
+    .mainbutton:active {
+        background-color: #CFCFCF;
+    }
+
+.mypatients {
+    position: absolute;
+    left: 611px;
+    top: 150px;
+}
+
+.schedule {
+    position: absolute;
+    left: 316px;
+    top: 150px;
+}
+
+.mypage {
+    position: absolute;
+    left: 21px;
+    top: 150px;
+}
+
+.mydoctors {
+    position: absolute;
+    left: 611px;
+    top: 150px;
+}
+
+.mydiagnoses {
+    position: absolute;
+    left: 906px;
+    top: 150px;
+}
+
+.mychamber {
+    position: absolute;
+    left: 21px;
+    top: 150px;
+}
+
+.mypatients .mainbutton {
+    background-image: url(https://imageup.ru/img61/4835168/ava0shiz.png);
+    background-size: 180px auto;
+    background-repeat: no-repeat;
+    background-position: 48% 15%;
+}
+
+.mypage .mainbutton {
+    background-image: url(https://imageup.ru/img285/4835159/ava0.png);
+    background-size: 180px auto;
+    background-repeat: no-repeat;
+    background-position: 48% 15%;
+}
+
+.schedule .mainbutton {
+    background-image: url(https://imageup.ru/img165/4835657/chasy1.png);
+    background-size: 190px auto;
+    background-repeat: no-repeat;
+    background-position: 48% 15%;
+}
+
+.mydoctors .mainbutton {
+    background-image: url(https://imageup.ru/img285/4835159/ava0.png);
+    background-size: 180px auto;
+    background-repeat: no-repeat;
+    background-position: 48% 15%;
+}
+
+.shizmypage .mainbutton {
+    background-image: url(https://imageup.ru/img61/4835168/ava0shiz.png);
+    background-size: 180px auto;
+    background-repeat: no-repeat;
+    background-position: 48% 15%;
+}
+
+.mydiagnoses .mainbutton {
+    background-image: url(https://imageup.ru/img88/4835655/novyi-proekt.png);
+    background-size: 180px auto;
+    background-repeat: no-repeat;
+    background-position: 48% 15%;
+}
+
+.mychamber .mainbutton {
+    background-image: url(https://imageup.ru/img61/4835168/ava0shiz.png);
+    background-size: 180px auto;
+    background-repeat: no-repeat;
+    background-position: 48% 15%;
+}
+
+.Greetings h1 {
+    color: #FF4700;
+    font-family: "Nunito Medium";
+    position: absolute;
+    left: 15px;
+    top: 70px
+}
+
+.navbar {
+    margin-top: -8px;
+    margin-right: -10px;
+    margin-left: -10px;
+    height: 85px;
+    background-color: #FFFFFF;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.buttontext {
+    font-family: "Nunito Medium";
+    font-size: 17pt;
+    font-weight: normal;
+    color: black;
+    text-decoration: none;
+}
+
+.navbar .button1 {
+    position: absolute;
+    top: 32px;
+    left: 243px;
+}
+
+.navbar .button2 {
+    position: absolute;
+    top: 32px;
+    left: 345px;
+}
+
+.navbar .button3 {
+    position: absolute;
+    top: 32px;
+    left: 485px;
+}
+
+.navbar .button4 {
+    position: absolute;
+    top: 32px;
+    left: 615px;
+}
+
+.navbar .button5 {
+    position: absolute;
+    top: 32px;
+    left: 785px;
+}
+
+.navbar .mypagenavlink a {
+    float: right;
+    color: #FC4201;
+    font-family: "Nunito Medium";
+    position: relative;
+    top: 32px;
+    right: 20px;
+    font-size: 17pt;
+    text-decoration: underline;
+}
+
+.navbarlogo {
+    position: absolute;
+    width: 300px;
+    border-width: thin;
+    border-style: none;
+    left: 9px;
+    top: -3px;
+}
+
+    .navbarlogo a {
+        color: #fc4201;
+        text-align: left;
+        font-family: MISTRAL;
+        font-size: 23pt;
+        font-weight: normal;
+        position: absolute;
+        float: right;
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+        left: 95px;
+        top: 30px;
+    }
