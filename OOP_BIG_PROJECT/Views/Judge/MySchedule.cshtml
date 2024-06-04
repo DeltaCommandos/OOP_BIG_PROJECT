@@ -1,0 +1,57 @@
+﻿@using OOP_BIG_PROJECT.ViewModels;
+@model AllDoctorViewModel;
+@{
+	Layout = null;
+}
+<body>
+<link rel="stylesheet" href="~/css/tablepage.css" asp-append-version="true" />
+<div class = "navbar">
+	<div class = "navbarlogo">
+	<img src="https://i.ibb.co/T4TT0KL/Chebur-Uslugi.png" alt="" width = "90"/>
+	<a>ШизУслуги</a>
+	</div>
+		<div class = "button1">
+		<a asp-action = "Index" class = "buttontext">Главная</a>
+	</div>
+	<div class = "button2">
+		<a asp-action = "MySchedule" class = "buttontext">Расписание</a>
+	</div>
+	<div class = "button3">
+		<a asp-action = "MyPatients" class = "buttontext">Мои пациенты</a>
+	</div>
+	<div class = "mypagenavlink">
+	<a asp-action="PersonalCab">Личный кабинет</a>
+	</div>
+</div>
+<a asp-action ="Index"class ="backbutton">&lt;-Назад</a>
+<p class = "Header">Моё расписание</p>
+<table class = "table">
+	<thead>
+		<tr>
+			<th>Начало</th>
+			<th>Конец</th>
+			<th>Активность</th>
+			<th>Имя пациента</th>
+		</tr>
+	<tbody>
+			@foreach (Schedule schedule in Model.schedules)
+			{
+			<tr>
+				<td>
+						@schedule.starttime
+				</td>
+				<td>
+						@schedule.endtime
+				</td>
+				<td>
+						@schedule.action
+				</td>
+				<td>
+						@schedule.fighter.surname @schedule.fighter.name[0]. @schedule.fighter.thirdname[0].
+				</td>
+			</tr>
+			}
+	</tbody>
+	</thead>
+</table>
+</body>

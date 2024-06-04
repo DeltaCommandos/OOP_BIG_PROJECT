@@ -2,7 +2,7 @@
 
 namespace OOP_BIG_PROJECT.ViewModels
 {
-	public class AccountViewModel : User
+	public class UserViewModel : User
 	{
 		public bool IsPasswordCorrect { get; set; } = true;
 		public bool IsUserExisting { get; set; } = true;

@@ -2106,7 +2106,7 @@
     };
   }
 
-  // means it doesn't take into account transforms.
+  // means it doesn't take into user transforms.
 
   function getLayoutRect(element) {
     var clientRect = getBoundingClientRect(element); // Use the clientRect sizes if it's not been transformed.
@@ -3336,7 +3336,7 @@
     var scaleY = rect.height / element.offsetHeight || 1;
     return scaleX !== 1 || scaleY !== 1;
   } // Returns the composite rect of an element relative to its offsetParent.
-  // Composite means it takes into account transforms as well as layout.
+  // Composite means it takes into user transforms as well as layout.
 
 
   function getCompositeRect(elementOrVirtualElement, offsetParent, isFixed) {
@@ -5215,7 +5215,7 @@
 
   const DefaultAllowlist = {
     // Global attributes allowed on any supplied element below.
-    '*': ['class', 'dir', 'id', 'lang', 'role', ARIA_ATTRIBUTE_PATTERN],
+    '*': ['class', 'dir', 'ID', 'lang', 'role', ARIA_ATTRIBUTE_PATTERN],
     a: ['target', 'href', 'title', 'rel'],
     area: [],
     b: [],
@@ -5483,7 +5483,7 @@
 
       const tip = this.getTipElement();
       const tipId = getUID(this.constructor.NAME);
-      tip.setAttribute('id', tipId);
+      tip.setAttribute('ID', tipId);
 
       this._element.setAttribute('aria-describedby', tipId);
 

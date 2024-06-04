@@ -14,9 +14,7 @@ namespace OOP_BIG_PROJECT.Models
         //[Required(ErrorMessage = "Вам нужно ввести пароль!")]
         public string Password { get; set; }
 
-        public int Type { get; set; }
-
-
+        public bool Status { get; set; }
 
         //public User(string l, string p) {
 
