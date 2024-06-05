@@ -7,6 +7,6 @@
 
 		public int AccountID { get; set; }
 
-		public User user { get; set; }
+		public user User { get; set; }
 	}
 }

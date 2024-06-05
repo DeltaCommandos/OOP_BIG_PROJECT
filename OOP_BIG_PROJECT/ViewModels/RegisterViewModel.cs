@@ -3,7 +3,7 @@ namespace OOP_BIG_PROJECT.ViewModels
 {
 	public class RegisterViewModel : Judgement
 	{
-		public User user { get; set; }
+		public user username { get; set; }
 		public bool IsUserExisting { get; set; }
 	}
 }

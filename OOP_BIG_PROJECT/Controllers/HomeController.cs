@@ -32,7 +32,7 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpPost]
         public IActionResult Index(UserViewModel A)
         {
-            List<User> accounts = _context.user.Where<User>(a => a.Login == A.Login).ToList();
+            List<user> accounts = _context.user.Where<user>(a => a.Login == A.Login).ToList();
             if (accounts.Count != 0)
             {
                 if (A.Password == accounts[0].Password)
@@ -69,7 +69,7 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpPost]
         public IActionResult Register(RegisterViewModel A)
         {
-            List<User> accounts = _context.user.Where<User>(a => a.Login == A.user.Login).ToList();
+            List<user> accounts = _context.user.Where<user>(a => a.Login == A.username.Login).ToList();
             if (accounts.Count != 0)
             {
                 A.IsUserExisting = true;
@@ -77,9 +77,9 @@ namespace OOP_BIG_PROJECT.Controllers
             }
             else
             {
-                _context.user.Add(new User { Login = A.user.Login, Password = A.user.Password, Status = true });
+                _context.user.Add(new user { Login = A.username.Login, Password = A.username.Password, Status = true });
                 _context.SaveChanges();
-                User user = _context.user.Where<User>(a => a.Login == A.user.Login).ToList()[0];
+                user user = _context.user.Where<user>(a => a.Login == A.username.Login).ToList()[0];
                 _context.judgement.Add(new Judgement
                 {
                     ID = user.ID,

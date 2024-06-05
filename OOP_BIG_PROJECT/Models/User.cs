@@ -2,7 +2,7 @@
 
 namespace OOP_BIG_PROJECT.Models
 {
-    public class User
+    public class user
     {
         public int ID { get; set; }
 

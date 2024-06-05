@@ -12,11 +12,11 @@ namespace OOP_BIG_PROJECT.Models
         public DbSet<MainDB> maindb { get; set; }
         public DbSet<Place> place { get; set; }
         public DbSet<Rules> rules { get; set; }
-        public DbSet<User> user { get; set; }
+        public DbSet<user> user { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=FightClub;Username=postgres;Password=GOOOOOOOOOOOOOOOOOOOL");
+            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=FightClub;Username=postgres;Password=admin1488");
             // Федя -
             // Валера - postgres  GOOOOOOOOOOOOOOOOOOOL
             // Андрей - postgres  GOOOOOOOOOOOOOOOOOOOL
