@@ -1,4 +1,4 @@
-﻿@model User
+﻿@* @model User
 @{
     ViewData["Title"] = "Вход";
 }
@@ -22,5 +22,15 @@
         <type ="reg" value="Зарегестрироваться" />
     </a>
 
-</form>
+</form> *@
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Добро пожаловать!</h1>
+    <p class="lead">Найди своего соперника!</p>
+    <a class="btn btn-primary btn-lg" href="/Account/Register">Get Started</a>
+</div>
 
