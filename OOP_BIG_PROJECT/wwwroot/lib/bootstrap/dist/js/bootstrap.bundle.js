@@ -1309,7 +1309,7 @@
         if (this._config.pause === 'hover') {
           // If it's a touch-enabled device, mouseenter/leave are fired as
           // part of the mouse compatibility events on first tap - the carousel
-          // would stop cycling until user tapped out of it;
+          // would stop cycling until User tapped out of it;
           // here, we listen for touchend, explicitly pause the carousel
           // (as if it's the second time we tap on it, mouseenter compat event
           // is NOT fired) and after a timeout (to allow for mouse compatibility
@@ -2106,7 +2106,7 @@
     };
   }
 
-  // means it doesn't take into user transforms.
+  // means it doesn't take into User transforms.
 
   function getLayoutRect(element) {
     var clientRect = getBoundingClientRect(element); // Use the clientRect sizes if it's not been transformed.
@@ -3336,7 +3336,7 @@
     var scaleY = rect.height / element.offsetHeight || 1;
     return scaleX !== 1 || scaleY !== 1;
   } // Returns the composite rect of an element relative to its offsetParent.
-  // Composite means it takes into user transforms as well as layout.
+  // Composite means it takes into User transforms as well as layout.
 
 
   function getCompositeRect(elementOrVirtualElement, offsetParent, isFixed) {

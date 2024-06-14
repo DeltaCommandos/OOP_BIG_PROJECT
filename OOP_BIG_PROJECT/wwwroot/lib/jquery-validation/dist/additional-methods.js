@@ -122,7 +122,7 @@ $.validator.addMethod( "alphanumeric", function( value, element ) {
 }, "Letters, numbers, and underscores only please." );
 
 /*
- * Dutch bank user numbers (not 'giro' numbers) have 9 digits
+ * Dutch bank User numbers (not 'giro' numbers) have 9 digits
  * and pass the '11 check'.
  * We accept the notation with spaces, as that is common.
  * acceptable: 123456789 or 12 34 56 789
@@ -136,23 +136,23 @@ $.validator.addMethod( "bankaccountNL", function( value, element ) {
 	}
 
 	// Now '11 check'
-	var user = value.replace( / /g, "" ), // Remove spaces
+	var User = value.replace( / /g, "" ), // Remove spaces
 		sum = 0,
-		len = user.length,
+		len = User.length,
 		pos, factor, digit;
 	for ( pos = 0; pos < len; pos++ ) {
 		factor = len - pos;
-		digit = user.substring( pos, pos + 1 );
+		digit = User.substring( pos, pos + 1 );
 		sum = sum + factor * digit;
 	}
 	return sum % 11 === 0;
-}, "Please specify a valid bank user number." );
+}, "Please specify a valid bank User number." );
 
 $.validator.addMethod( "bankorgiroaccountNL", function( value, element ) {
 	return this.optional( element ) ||
 			( $.validator.methods.bankaccountNL.call( this, value, element ) ) ||
 			( $.validator.methods.giroaccountNL.call( this, value, element ) );
-}, "Please specify a valid bank or giro user number." );
+}, "Please specify a valid bank or giro User number." );
 
 /**
  * BIC is the business identifier code (ISO 9362). This BIC check is not a guarantee for authenticity.
@@ -687,11 +687,11 @@ $.validator.addMethod( "extension", function( value, element, param ) {
 }, $.validator.format( "Please enter a value with a valid extension." ) );
 
 /**
- * Dutch giro user numbers (not bank numbers) have max 7 digits
+ * Dutch giro User numbers (not bank numbers) have max 7 digits
  */
 $.validator.addMethod( "giroaccountNL", function( value, element ) {
 	return this.optional( element ) || /^[0-9]{1,7}$/.test( value );
-}, "Please specify a valid giro user number." );
+}, "Please specify a valid giro User number." );
 
 $.validator.addMethod( "greaterThan", function( value, element, param ) {
     var target = $( param );
@@ -718,7 +718,7 @@ $.validator.addMethod( "greaterThanEqual", function( value, element, param ) {
 }, "Please enter a greater value." );
 
 /**
- * IBAN is the international bank user number.
+ * IBAN is the international bank User number.
  * It has a country - specific format, that is checked here too
  *
  * Validation is case-insensitive. Please make sure to normalize input yourself.

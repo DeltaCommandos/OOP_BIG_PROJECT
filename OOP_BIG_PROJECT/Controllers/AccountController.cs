@@ -26,11 +26,11 @@ namespace OOP_BIG_PROJECT.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				var user = new IdentityUser { UserName = model.Email, Email = model.Email };
-				var result = await _userManager.CreateAsync(user, model.Password);
+				var User = new IdentityUser { UserName = model.Username};
+				var result = await _userManager.CreateAsync(User, model.Password);
 				if (result.Succeeded)
 				{
-					await _signInManager.SignInAsync(user, isPersistent: false);
+					await _signInManager.SignInAsync(User, isPersistent: false);
 					return RedirectToAction("Index", "Home");
 				}
 				foreach (var error in result.Errors)
@@ -52,7 +52,7 @@ namespace OOP_BIG_PROJECT.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
+				var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, lockoutOnFailure: false);
 				if (result.Succeeded)
 				{
 					return RedirectToAction("Index", "Home");
