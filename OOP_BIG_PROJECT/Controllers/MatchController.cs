@@ -22,7 +22,7 @@ namespace OOP_BIG_PROJECT.Controllers
 				//UserId1 = User.FindFirstValue(ClaimTypes.NameIdentifier),
 				UserId2 = userId,
 				GameId = gameId,
-				VenueId = venueId,
+				PlaceId = venueId,
 				ScheduledTime = scheduledTime,
 				IsAccepted = false
 			};

@@ -1,36 +1,34 @@
-﻿@* @model User
+﻿
 @{
-    ViewData["Title"] = "Вход";
-}
-<h1>@ViewData["Title"]</h1>
-
-<form method="post" asp-controller="Home" asp-action="Check">
-
-    <label>Введите свой никнейм: </label>
-    <p></p>
-    <input asp-for="Login" />
-    <span asp-validation-for="Login"></span>
-
-    <label>Пароль: </label>
-    <p></p>
-    <input asp-for="Password" />
-    <span asp-validation-for="Password"></span>
-
-    <p></p>
-    <input type="submit" value="Войти"/>
-    <a>
-        <type ="reg" value="Зарегестрироваться" />
-    </a>
-
-</form> *@
-
-@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Главная";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Добро пожаловать!</h1>
+    <h1 class="display-4">Дуэлянт+</h1>
     <p class="lead">Найди своего соперника!</p>
-    <a class="btn btn-primary btn-lg" href="/Account/Register">Get Started</a>
+
+
+
+
+	<form asp-controller="Home" asp-action="Index" method="post">
+
+@*         <a href="/Register">
+        *@        <button class="btn btn-success" href="Account/Register">
+            Я новенький
+            </button>
+@*         </a>
+ *@        
+@*         <a href="/Login">
+        *@        <button class="btn btn-warning" href="Account/Login">Я уже смешарик!</button>
+@*         </a>
+ *@
+@*         <input name="button1" type="submit" class="regbutton" id="button" value="Я новенький">
+        <input name="button2" type="submit" class="loginbutton" id="button" value="Я уже смешарик">*@
+
+	</form>
+
+
+
+
 </div>
 

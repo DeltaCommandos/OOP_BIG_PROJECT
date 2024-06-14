@@ -8,7 +8,7 @@ namespace OOP_BIG_PROJECT.Models
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Game> Games { get; set; }
-        public DbSet<Venue> Venues { get; set; }
+        public DbSet<Place> Places { get; set; }
         public DbSet<Match> Matches { get; set; }
         public DbSet<Message> Messages { get; set; }
 

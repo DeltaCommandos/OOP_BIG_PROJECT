@@ -110,6 +110,8 @@ namespace OOP_BIG_PROJECT.Controllers
 			return View();
 		}
 
+
+
 		// Действие для обработки ошибок
 		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()
