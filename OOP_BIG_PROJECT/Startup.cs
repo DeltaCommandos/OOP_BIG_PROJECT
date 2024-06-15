@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using OOP_BIG_PROJECT.Data;
+using OOP_BIG_PROJECT.Models;
 
 namespace OOP_BIG_PROJECT
 {
@@ -15,12 +15,12 @@ namespace OOP_BIG_PROJECT
 
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddDbContext<ApplicationDbContext>(options =>
+			services.AddDbContext<ApplicationContext>(options =>
 				options.UseSqlServer(
 					Configuration.GetConnectionString("DefaultConnection")));
 
 			services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-				.AddEntityFrameworkStores<ApplicationDbContext>();
+				.AddEntityFrameworkStores<ApplicationContext>();
 
 			services.AddControllersWithViews();
 		}

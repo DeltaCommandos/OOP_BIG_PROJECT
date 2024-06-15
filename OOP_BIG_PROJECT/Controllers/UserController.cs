@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using OOP_BIG_PROJECT.Data;
+
 using OOP_BIG_PROJECT.Models;
 
 namespace OOP_BIG_PROJECT.Controllers
 {
     public class UserController: Controller
 	{
-		private readonly ApplicationDbContext _context;
+		private readonly ApplicationContext _context;
 		private readonly UserManager<IdentityUser> _userManager;
 
-		public UserController(ApplicationDbContext context, UserManager<IdentityUser> userManager)
+		public UserController(ApplicationContext context, UserManager<IdentityUser> userManager)
 		{
 			_context = context;
 			_userManager = userManager;

@@ -81,14 +81,33 @@ main form span {
     margin: 5px 0;
 }
 
+    main .logo {
+        background: #265536;
+    }
 
+    main .TTT {
+        float: none;
+        border-width: thin;
+        border-style: none;
+        border-radius: 15px;
+        background-color: #e6ffc6;
+        position: relative;
+        width: 400px;
+        height: 450px;
+        margin: 0 auto;
+        top: 50px;
+    }
 
-footer {
-    margin-top: 50px;
-    width: 100%;
-    text-align: center;
-    padding: 25px 0;
-    color: #38794e;
-    background: #265536;
-    border-top: 2px solid #000
-}
+    main .ArButs {
+        margin-left: -20px;
+    }
+
+    footer {
+        margin-top: 50px;
+        width: 100%;
+        text-align: center;
+        padding: 25px 0;
+        color: #38794e;
+        background: #265536;
+        border-top: 2px solid #000
+    }
