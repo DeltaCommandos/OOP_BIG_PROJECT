@@ -7,7 +7,7 @@
 		public int UserId2 { get; set; }
 		public int GameId { get; set; }
 		public int PlaceId { get; set; }
-		public DateTime ScheduledTime { get; set; }
+		public TimeSpan ScheduledTime { get; set; }
 		public bool IsAccepted { get; set; }
 
 		public User User1 { get; set; }
