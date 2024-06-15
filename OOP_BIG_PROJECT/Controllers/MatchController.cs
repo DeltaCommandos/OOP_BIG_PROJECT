@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using OOP_BIG_PROJECT.Data;
 using OOP_BIG_PROJECT.Models;
 using System.Security.Claims;
 
@@ -7,9 +6,9 @@ namespace OOP_BIG_PROJECT.Controllers
 {
     public class MatchController : Controller
 	{
-		private readonly ApplicationDbContext _context;
+		private readonly ApplicationContext _context;
 
-		public MatchController(ApplicationDbContext context)
+		public MatchController(ApplicationContext context)
 		{
 			_context = context;
 		}

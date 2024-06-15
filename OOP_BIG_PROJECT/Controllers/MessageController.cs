@@ -1,16 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using OOP_BIG_PROJECT.Models;
-using OOP_BIG_PROJECT.Data;
 
 
 namespace OOP_BIG_PROJECT.Controllers
 {
     public class MessageController : Controller
 	{
-		private readonly ApplicationDbContext _context;
+		private readonly ApplicationContext _context;
 
-		public MessageController(ApplicationDbContext context)
+		public MessageController(ApplicationContext context)
 		{
 			_context = context;
 		}
