@@ -1,0 +1,18 @@
+﻿@model OOP_BIG_PROJECT.ViewModels.RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h2>Register</h2>
+
+<form asp-action="Register" method="post">
+    <div class="form-group">
+        <label asp-for="User.Username">Username</label>
+        <input asp-for="User.Username" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="User.Password">Password</label>
+        <input asp-for="User.Password" type="password" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Register</button>
+</form>

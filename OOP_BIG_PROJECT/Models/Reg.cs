@@ -2,7 +2,7 @@
 
 namespace OOP_BIG_PROJECT.Models
 {
-	public class RegisterViewModel
+	public class Reg
 	{
 		[Required]
 		[EmailAddress]

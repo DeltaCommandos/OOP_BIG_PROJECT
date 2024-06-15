@@ -22,7 +22,7 @@ namespace OOP_BIG_PROJECT.Controllers
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> Register(RegisterViewModel model)
+		public async Task<IActionResult> Register(Reg model)
 		{
 			if (ModelState.IsValid)
 			{

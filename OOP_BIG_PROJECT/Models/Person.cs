@@ -2,11 +2,11 @@
 {
 	public abstract class Person
 	{
-		public int ID { get; set; }
+		public int Id { get; set; }
 		public string Name { get; set; }
 
-		public int AccountID { get; set; }
+		public int AccountId { get; set; }
 
-		public user User { get; set; }
+		public User User { get; set; }
 	}
 }

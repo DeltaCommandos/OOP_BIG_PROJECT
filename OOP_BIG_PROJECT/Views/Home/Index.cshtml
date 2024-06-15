@@ -1,28 +1,12 @@
-﻿@model user
-@{
-    ViewData["Title"] = "Вход";
+﻿@{
+    ViewBag.Title = "Добро пожаловать!";
 }
-<h1>@ViewData["Title"]</h1>
 
-<form method="post" asp-controller="Home" asp-action="Index">
+<h2>@ViewBag.Title</h2>
 
-    <label>Введите свой никнейм: </label>
-    <p></p>
-    <input asp-for="Login" />
-    <span asp-validation-for="Login"></span>
+<p>Добро пожаловать на наш сайт!</p>
 
-    <label>Пароль: </label>
-    <p></p>
-    <input asp-for="Password" />
-    <span asp-validation-for="Password"></span>
-
-    <p></p>
-    <input type="submit" value="Войти"/>
-    <p></p>
-</form>
-<form method="post" asp-controller="Home" asp-action="Register">
-
-<input type="submit" value="Зарегистрироваться" />
-
-</form>
-
+<div>
+    <a asp-controller="Home" asp-action="Login" class="btn btn-primary">Вход</a>
+    <a asp-controller="Home" asp-action="Register" class="btn btn-secondary">Регистрация</a>
+</div>

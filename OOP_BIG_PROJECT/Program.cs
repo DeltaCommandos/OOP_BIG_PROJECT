@@ -1,3 +1,4 @@
+using OOP_BIG_PROJECT.Data;
 using OOP_BIG_PROJECT.Models;
 
 namespace OOP_BIG_PROJECT
@@ -11,7 +12,7 @@ namespace OOP_BIG_PROJECT
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddMvc();
-            builder.Services.AddDbContext<ApplicationContext>();
+            builder.Services.AddDbContext<ApplicationDbContext>();
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

@@ -27,7 +27,7 @@ namespace OOP_BIG_PROJECT.Controllers
 				Timestamp = DateTime.Now
 			};
 
-			_context.Messages.Add(message);
+			_context.Message.Add(message);
 			await _context.SaveChangesAsync();
 
 			return RedirectToAction("Chat", new { receiverId });

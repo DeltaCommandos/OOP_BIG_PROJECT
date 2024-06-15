@@ -2,14 +2,19 @@
 
 namespace OOP_BIG_PROJECT.Models
 {
-    public class user
+    public class User
     {
-		public int UserId { get; set; }
-		public string Username { get; set; }
-		public string Password { get; set; }
-		public string Email { get; set; }
-		public ICollection<Match> Matches { get; set; }
-		public ICollection<Message> Messages { get; set; }
+		public int Id { get; set; }
+		public  string Username { get; set; }
+		public  string Password { get; set; }
+		//public string Username { get; set; }
+		public bool Status { get; set; }
+        public bool AdminStatus { get; set; }
+        public ICollection<Match>? Matches { get; set; }
+		public ICollection<Message>? MessageSend { get; set; }
+        public ICollection<Message>? MessageGot { get; set; }
+        public ICollection<Match> MatchesAsUser1 { get; set; }
+        public ICollection<Match> MatchesAsUser2 { get; set; }
 
-	}
+    }
 }
