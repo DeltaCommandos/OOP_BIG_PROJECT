@@ -22,9 +22,10 @@ namespace OOP_BIG_PROJECT.Controllers
 			{
 				//SenderId = User.FindFirstValue(ClaimTypes.NameIdentifier),
 				ReceiverId = receiverId,
-				Content = content,
-				Timestamp = DateTime.Now
-			};
+				Content = content 
+				//,
+    //            Timestamp = TimeSpan.
+            };
 
 			_context.Messages.Add(message);
 			await _context.SaveChangesAsync();

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NuGet.Packaging.Signing;
 using OOP_BIG_PROJECT.Models;
 using System.Security.Claims;
 
@@ -14,7 +15,7 @@ namespace OOP_BIG_PROJECT.Controllers
 		}
 
 		// Метод для создания матча
-		public async Task<IActionResult> Create(int userId, int gameId, int venueId, DateTime scheduledTime)
+		public async Task<IActionResult> Create(int userId, int gameId, int venueId, TimeSpan scheduledTime)
 		{
 			var match = new Match
 			{
