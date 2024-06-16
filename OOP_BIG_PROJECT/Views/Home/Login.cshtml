@@ -1,28 +1,75 @@
-﻿@model User
-@{
+﻿@model OOP_BIG_PROJECT.ViewModels.UserViewModel
+
+
+
+ <div class="login1">
+
+    <form class="p-4 p-md-5 bg-body-tertiary">
+        <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Вход</h1>
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" asp-for="User.Username">
+            <label for="floatingInput">Никнейм</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" asp-for="User.Password">
+            <label for="floatingPassword">Пароль</label>
+        </div>
+
+        <hr class="my-4">
+
+        <button class="w-100 btn btn-lg btn-warning" type="submit">Войти</button>
+@*         <small class="text-body-secondary">By clicking Sign up, you agree to the terms of use.</small>
+ *@
+        <hr class="my-4">
+
+        <a asp-controller="Home" asp-action="Register" type="text">
+            Зарегистрироваться
+            </a>
+
+    </form>
+</div>
+
+
+
+
+@* @{
     ViewData["Title"] = "Вход";
 }
-<h1>@ViewData["Title"]</h1>
+<h1>@ViewData["Title"]</h1> *@
 
-<form method="post" asp-controller="Home" asp-action="Index">
+@* <div class="login1">
+    <div class="p-5 text-center bg-body-tertiary rounded-3">
 
-    <label>Введите свой никнейм: </label>
-    <p></p>
-    <input asp-for="Username" />
-    <span asp-validation-for="Username"></span>
+        <h1 class="text-body-emphasis">Вход</h1>
 
-    <label>Пароль: </label>
-    <p></p>
-    <input asp-for="Password" />
-    <span asp-validation-for="Password"></span>
+         <p class="col-lg-8 mx-auto fs-5 text-dark">
+            Найди своего соперника!
+        </p>
+        <h1 class="text-body-emphasis">----------------------</h1>
 
-    <p></p>
-    <input type="submit" value="Войти" />
-    <p></p>
-</form>
-<form method="post" asp-controller="Home" asp-action="Register">
 
-    <input type="submit" value="Зарегистрироваться" />
+        <form method="post" asp-controller="Home" asp-action="Index">
 
-</form>
+            <label>Введите свой никнейм: </label>
+            <p></p>
+            <input asp-for="Username" />
+            <span asp-validation-for="Username"></span>
 
+            <label>Пароль: </label>
+            <p></p>
+            <input asp-for="Password" />
+            <span asp-validation-for="Password"></span>
+
+            <p></p>
+            <input type="submit" value="Войти" />
+            <p></p>
+        </form>
+        <form method="post" asp-controller="Home" asp-action="Register">
+
+            <input type="submit" value="Зарегистрироваться" />
+
+        </form>
+    </div>
+</div>
+ *@

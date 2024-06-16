@@ -1,12 +1,27 @@
-﻿@{
-    ViewBag.Title = "Добро пожаловать!";
-}
+﻿
+<div class="home1">
+    <div class="p-5 text-center bg-body-tertiary rounded-3">
 
-<h2>@ViewBag.Title</h2>
+        <img class="logo" src="https://i.ibb.co/wYqgFx9/duel11.png" alt="duel11" border="0" width="240" height="100">
+        <hr class="my-4">
 
-<p>Добро пожаловать на наш сайт!</p>
+        <p class="col-lg-8 mx-auto fs-5 text-dark">
+            Найди своего соперника!
+        </p>
+        <hr class="my-4">
 
-<div>
-    <a asp-controller="Home" asp-action="Login" class="btn btn-primary">Вход</a>
-    <a asp-controller="Home" asp-action="Register" class="btn btn-secondary">Регистрация</a>
+        <div class="ArButs">
+            <div class="d-inline-flex gap-2 mb-5">
+                <a asp-controller="Home" asp-action="Register" class="d-inline-flex align-items-center btn btn-success btn-lg px-4 rounded-pill" type="button">
+                    Я новенький
+                    <svg class="bi ms-2" width="24" height="24"><use xlink:href="#arrow-right-short"></use></svg>
+                </a>
+                <a asp-controller="Home" asp-action="Login" class="d-inline-flex align-items-center btn btn-warning btn-lg px-4 rounded-pill" type="button">
+                    Я уже смешарик!
+                    <svg class="bi ms-2" width="24" height="24"><use xlink:href="#arrow-right-short"></use></svg>
+                </a>
+            </div>
+
+        </div>
+    </div>
 </div>
