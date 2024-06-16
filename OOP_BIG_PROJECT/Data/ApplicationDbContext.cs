@@ -46,7 +46,7 @@ namespace OOP_BIG_PROJECT.Data
                 .HasForeignKey(m => m.ReceiverId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-
         }
+
     }
 }

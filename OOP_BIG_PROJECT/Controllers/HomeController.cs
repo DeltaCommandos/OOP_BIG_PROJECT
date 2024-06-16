@@ -73,30 +73,41 @@ namespace OOP_BIG_PROJECT.Controllers
 			return View(response);
 		}
 		[HttpPost]
-		public IActionResult Register(RegisterViewModel A)
-		{
-			List<User> accounts = _context.User.Where<User>(a => a.Username == A.User.Username).ToList();
+        public IActionResult Register(RegisterViewModel A)
+        {
+            // Проверяем, существует ли пользователь с таким именем
+            List<User> accounts = _context.User.Where<User>(a => a.Username == A.Username).ToList();
 			if (accounts.Count != 0)
 			{
 				A.IsUserExisting = true;
-				return View(A);
+				return View(A); // Возвращаем представление с сообщением об ошибке
 			}
 			else
 			{
-				_context.User.Add(new User { Username = A.User.Username, Password = A.User.Password, Status = true });
+
+
+                // Создаем нового пользователя
+                _context.User.Add(new User { Username = A.User.Username, Password = A.User.Password, Status = true });
+
+				// Добавляем пользователя в контекст и сохраняем изменения
 				_context.SaveChanges();
 
-				User User = _context.User.Where<User>(a => a.Username == A.User.Username).ToList()[0];
-				_context.Fighter.Add(new Fighter
+                // Создаем бойца, связанный с новым пользователем
+                User User = _context.User.Where<User>(a => a.Username == A.User.Username).ToList()[0];
+                _context.Fighter.Add(new Fighter
                 {
-					Id = User.Id,
-					Name = A.Username
-				});
+                    UserId = User.Id,
+                    Name = A.User.Username
+                });
+
+                // Добавляем бойца в контекст и сохраняем изменения
 				_context.SaveChanges();
-				return RedirectToAction("Index");
+
+				return RedirectToAction("Index"); // Перенаправляем на главную страницу или другую страницу по вашему выбору
 			}
-		}
-		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
 		public IActionResult Error()
 		{
 			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
