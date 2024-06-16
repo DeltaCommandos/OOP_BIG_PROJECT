@@ -1,10 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OOP_BIG_PROJECT.Models
 {
     public class User
     {
-		public int Id { get; set; }
+        [Column("Id")]
+        public int Id { get; set; }
 		public  string Username { get; set; }
 		public  string Password { get; set; }
 		//public string Username { get; set; }
