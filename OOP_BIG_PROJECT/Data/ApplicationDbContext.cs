@@ -17,8 +17,8 @@ namespace OOP_BIG_PROJECT.Data
         {
             optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=FightClub;Username=postgres;Password=GOOOOOOOOOOOOOOOOOOOL");
             // Федя - admin1488
-            // Валера - postgres  GOOOOOOOOOOOOOOOOOOOL
-            // Андрей - postgres  GOOOOOOOOOOOOOOOOOOOL
+            // Валера - GOOOOOOOOOOOOOOOOOOOL
+            // Андрей - GOOOOOOOOOOOOOOOOOOOL
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -46,7 +46,7 @@ namespace OOP_BIG_PROJECT.Data
                 .HasForeignKey(m => m.ReceiverId)
                 .OnDelete(DeleteBehavior.Restrict);
 
-
         }
+
     }
 }
