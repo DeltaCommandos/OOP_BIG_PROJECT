@@ -10,5 +10,7 @@ namespace OOP_BIG_PROJECT.ViewModels
 		public string Password1 { get; set; }
 		public string Password2 { get; set; }
 
-	}
+        public User User { get; set; }
+
+    }
 }

@@ -15,10 +15,10 @@ namespace OOP_BIG_PROJECT.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=FightClub;Username=postgres;Password=admin1488");
+            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=FightClub;Username=postgres;Password=GOOOOOOOOOOOOOOOOOOOL");
             // Федя - admin1488
-            // Валера - postgres  GOOOOOOOOOOOOOOOOOOOL
-            // Андрей - postgres  GOOOOOOOOOOOOOOOOOOOL
+            // Валера - GOOOOOOOOOOOOOOOOOOOL
+            // Андрей - GOOOOOOOOOOOOOOOOOOOL
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

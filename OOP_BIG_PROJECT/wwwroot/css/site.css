@@ -4,7 +4,7 @@
 }
 
 body {
-    background: #9fdeb5;
+    background: #a6ff94;
     font-family: Lato Regular, sans-serif;
 }
 
@@ -16,9 +16,9 @@ header {
     padding: 15x 10%;
     color: #38794e;
     display: flex;
-/*   justify-content: space-between;*/
     align-items: center;
-    background: #7db290;
+    background: #38794e;
+    
 }
 
     header .logo {
@@ -29,8 +29,9 @@ header {
     }
 
 
-
-
+header .mainer{
+    margin-left: 100px;
+}
 
 
 
@@ -48,6 +49,57 @@ main input:not([type="submit"]) {
     border: 1px solid silver;
     outline: none;
     margin-top: 7px;
+}
+
+.logo {
+    background: #38794e;
+    float: none;
+    border-width: thin;
+    border-style: none;
+    border-radius: 15px;
+}
+
+.home1 {
+    float: none;
+    border-width: thin;
+    border-style: none;
+    border-radius: 15px;
+    background-color: #38794e48;
+    position: center;
+    width: 450px;
+    height: 450px;
+    margin: 0 auto;
+    margin-left: -30px;
+    top: 50px;
+
+}
+
+.login1 {
+    float: none;
+    border-width: thin;
+    border-style: none;
+    border-radius: 15px;
+    background-color: #38794e48;
+    position: center;
+    width: 450px;
+    height: 450px;
+    margin: 0 auto;
+    margin-left: -30px;
+    top: 50px;
+}
+
+.register1 {
+    float: none;
+    border-width: thin;
+    border-style: none;
+    border-radius: 15px;
+    background-color: #38794e48;
+    position: center;
+    width: 450px;
+    height: 250px;
+    margin: 0 auto;
+    margin-left: -30px;
+    top: 50px;
 }
 
 main input:not([type="submit"]):focus {
@@ -88,6 +140,6 @@ footer {
     text-align: center;
     padding: 25px 0;
     color: #38794e;
-    background: #7db290;
+    background: #38794e;
     border-top: 2px solid #000
 }

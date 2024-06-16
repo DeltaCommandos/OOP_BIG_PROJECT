@@ -1,10 +1,8 @@
 ﻿@model OOP_BIG_PROJECT.ViewModels.RegisterViewModel
-@{
-    ViewData["Title"] = "Register";
-}
 
-<h2>Register</h2>
+@* <div class="register1">
 
+<h2>Регистрация</h2>
 <form asp-action="Register" method="post">
     <div class="form-group">
         <label asp-for="User.Username">Username</label>
@@ -16,3 +14,35 @@
     </div>
     <button type="submit" class="btn btn-primary">Register</button>
 </form>
+
+</div> *@
+
+<div class="login1">
+
+    <form class="p-4 p-md-5 bg-body-tertiary">
+        <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Регистрация</h1>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" asp-for="User.Username">
+            <label for="floatingInput">Никнейм</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" asp-for="User.Password">
+            <label for="floatingPassword">Пароль</label>
+        </div>
+
+        <hr class="my-4">
+
+        <button class="w-100 btn btn-lg btn-warning" type="submit">Зарегестрироваться</button>
+
+        <hr class="my-4">
+
+@*         <small class="text-body-secondary">Нажимая кнопку Зарегестрироваться вы принимаете условия пользовательского соглашения</small>
+ *@
+
+        <a asp-controller="Home" asp-action="Login" type="text">
+            Уже есть аккаунт?
+        </a>
+
+    </form>
+</div>
