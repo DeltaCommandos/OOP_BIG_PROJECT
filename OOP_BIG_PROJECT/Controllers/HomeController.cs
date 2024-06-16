@@ -41,18 +41,26 @@ namespace OOP_BIG_PROJECT.Controllers
 			List<User> accounts = _context.User.Where<User>(a => a.Username == A.Username).ToList();
 			if (accounts.Count != 0)
 			{
-				if (A.Password == accounts[0].Password)
+				if (A.Password1 == accounts[0].Password)
 				{
 					StaticStuff.Status = accounts[0].Status;
-					if (accounts[0].Status)
+					if (!accounts[0].Status)
 					{
-						StaticStuff.Admin = _context.Admin.Where<Admin>(d => d.Id == accounts[0].Id).ToList()[0];
-						return RedirectToAction("Index", "Admin");
-					}
+                        var admin = _context.Admin.FirstOrDefault(d => d.UserId == accounts[0].Id);
+                        if (admin != null)
+                        {
+                            StaticStuff.Admin = admin;
+                            return RedirectToAction("Index", "Account");
+                        }
+                        else
+                        {
+                            return View(A);
+                        }
+                    }
 					else
 					{
-						StaticStuff.Fighter = _context.Fighter.Where<Fighter>(p => p.Id == accounts[0].Id).ToList()[0];
-						return RedirectToAction("Index", "Fighter");
+						StaticStuff.Fighter = _context.Fighter.Where<Fighter>(p => p.UserId == accounts[0].Id).ToList()[0];
+						return RedirectToAction("Index", "Account");
 					}
 				}
 				else
@@ -87,24 +95,25 @@ namespace OOP_BIG_PROJECT.Controllers
 
 
                 // —оздаем нового пользовател€
-                _context.User.Add(new User { Username = A.User.Username, Password = A.User.Password, Status = true });
-
-				// ƒобавл€ем пользовател€ в контекст и сохран€ем изменени€
-				_context.SaveChanges();
+                _context.User.Add(new User { Username = A.Username, Password = A.Password, Status = true });
+				//
+				//A.userViewModel.Password1 = A.Password;
+                // ƒобавл€ем пользовател€ в контекст и сохран€ем изменени€
+                _context.SaveChanges();
 
                 // —оздаем бойца, св€занный с новым пользователем
-                User User = _context.User.Where<User>(a => a.Username == A.User.Username).ToList()[0];
+                User User = _context.User.Where<User>(a => a.Username == A.Username).ToList()[0];
                 _context.Fighter.Add(new Fighter
                 {
                     UserId = User.Id,
-                    Name = A.User.Username
+                    Name = A.Username
                 });
 
                 // ƒобавл€ем бойца в контекст и сохран€ем изменени€
 				_context.SaveChanges();
 
-				return RedirectToAction("Index"); // ѕеренаправл€ем на главную страницу или другую страницу по вашему выбору
-			}
+                return RedirectToAction("Index", "Account"); // ѕеренаправл€ем на главную страницу или другую страницу по вашему выбору
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
