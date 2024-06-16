@@ -6,14 +6,12 @@
         <div class="scroll">
         <form asp-action="Login" class="p-4 p-md-5 bg-body-tertiary">
             <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Введите личную информацию</h1>
-            <small class="text-body-secondary">(Необязательно)</small>
 
 
             <h2>Возраст</h2>
-
+            <small class="text-body-secondary">(Необязательно)</small>
             <div class="form-floating mb-3">
                 <input type="number" class="form-control" id="floatingInput" asp-for="Age">
-                <label for="floatingInput">Скиллы</label>
             </div>
 
             <h2>Пол</h2>
@@ -24,11 +22,11 @@
                 <input type="radio" value="true" name="Sex" />женский
             </p>
 
-            <h2>Увлечение</h2>
+            <h2>Увлечения</h2>
+            <small class="text-body-secondary">(Необязательно)</small>
 
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="floatingInput" asp-for="Skills">
-                <label for="floatingInput">Скиллы</label>
             </div>
 
             <hr class="my-4">
@@ -36,10 +34,6 @@
             <button class="w-100 btn btn-lg btn-warning" type="submit">Сохранить</button>
         
             <hr class="my-4">
-
-            <a asp-controller="Home" asp-action="Register" type="text">
-                Зарегистрироваться
-            </a>
 
         </form>
     </div>

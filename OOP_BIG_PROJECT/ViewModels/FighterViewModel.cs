@@ -18,7 +18,7 @@ namespace OOP_BIG_PROJECT.ViewModels
         public int Age { get; set; }
 
         [Required]
-        public string Skills { get; set; } = "нет";
+        public string Skills { get; set; }
 
         [Required]
         public int UserId { get; set; }
