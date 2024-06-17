@@ -15,7 +15,7 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var response = new UserViewModel();
+            var response = new FighterViewModel();
             return View(response);
         }
     }

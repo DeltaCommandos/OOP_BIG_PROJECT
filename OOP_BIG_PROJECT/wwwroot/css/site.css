@@ -88,19 +88,6 @@ main input:not([type="submit"]) {
     top: 50px;
 }
 
-.register1 {
-    float: none;
-    border-width: thin;
-    border-style: none;
-    border-radius: 15px;
-    background-color: #38794e48;
-    position: center;
-    width: 450px;
-    height: 250px;
-    margin: 0 auto;
-    margin-left: -30px;
-    top: 50px;
-}
 
 main input:not([type="submit"]):focus {
     border: 1px solid #52aa70;
@@ -134,12 +121,88 @@ main form span {
 }
 
 
-footer {
-    margin-top: 100px;
-    width: 100%;
-    text-align: center;
-    padding: 25px 0;
-    color: #38794e;
-    background: #38794e;
-    border-top: 2px solid #000
+
+
+
+
+/*.switcher {*/
+    /*position: absolute;
+    top: 50%;
+    Left: 50%;
+    transform: translate(-50%, -50%);*/
+/*}
+
+input[type="checkbox"] {
+    position: relative;
+    width: 50px;
+    height: 30px;
+    -webkit-appearance: none;
+    outline: none;
+    background: #c6c6c6;
+    border-width: thin;
+    border-style: none;
+    border-radius: 15px;
+    transition: .5s;
+    box-shadow: inset 0 0 5px rgba(0,0,0,.2);
 }
+
+input: checked[type="checkbox"] {
+    background: #40e551;
+}
+
+input[type="checkbox"]:before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border-width: thin;
+    border-style: none;
+    border-radius: 15px;
+    top: 0;
+    left: 0;
+    background: #fff;
+    transition: .5s;
+    transform: scale(1.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,.2);
+}
+
+input: checked[type="checkbox"]:before {
+    left: 40px;
+}*/
+
+.fighter1 {
+    float: none;
+    border-width: thin;
+    border-style: none;
+    border-radius: 15px;
+    background-color: #38794e48;
+    position: center;
+    width: 750px;
+    height: 650px;
+    margin: 0 auto;
+    margin-left: -160px;
+    top: 50px;
+}
+
+.scroll {
+    height: 650px; /* Высота блока */
+    overflow-y: scroll; /* Включаем вертикальную прокрутку */
+    overflow-x: unset
+}
+
+
+
+
+
+
+footer {
+margin-top: 100px;
+width: 100%;
+text-align: center;
+padding: 25px 0;
+color: #38794e;
+background: #38794e;
+border-top: 2px solid #000
+}
+
+
