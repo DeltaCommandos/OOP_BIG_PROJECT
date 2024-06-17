@@ -16,6 +16,6 @@ namespace OOP_BIG_PROJECT.ViewModels
 		public string Password2 { get; set; }
 
         public User User { get; set; }
-
+        //public FighterViewModel FighterViewModel { get; set; }
     }
 }

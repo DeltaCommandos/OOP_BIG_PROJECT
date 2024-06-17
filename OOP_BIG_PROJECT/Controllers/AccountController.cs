@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using OOP_BIG_PROJECT.Data;
+﻿using Microsoft.AspNetCore.Mvc;
 using OOP_BIG_PROJECT.Models;
+using System.Diagnostics;
+using System.Numerics;
+using System.Reflection.Metadata.Ecma335;
 using OOP_BIG_PROJECT.ViewModels;
+using OOP_BIG_PROJECT.Data;
 namespace OOP_BIG_PROJECT.Controllers
 {
 	public class AccountController : Controller
@@ -17,6 +19,22 @@ namespace OOP_BIG_PROJECT.Controllers
         {
             var response = new FighterViewModel();
             return View(response);
+        }
+        [HttpPost]
+        public IActionResult Index(FighterViewModel A)
+        {
+            List<Fighter> accounts = _context.Fighter.Where<Fighter>(a => a.Name == A.Name).ToList();
+            if(accounts.Count!=0)
+            {
+                Fighter fighterToUpdate = accounts[0];
+                fighterToUpdate.Rating = A.Rating;
+                fighterToUpdate.Sex = A.Sex;
+                fighterToUpdate.Age = A.Age;
+                fighterToUpdate.Skills = A.Skills;
+
+                _context.Fighter.Update(fighterToUpdate);
+            }
+            return View(A);
         }
     }
 }
