@@ -1,6 +1,11 @@
 ﻿@model OOP_BIG_PROJECT.ViewModels.UserViewModel
 
+@* <header>
+    <a href="/">
+        <img class="logo" src="https://i.ibb.co/wYqgFx9/duel11.png" alt="duel11" border="0" width="120" height="50">
+    </a>
 
+</header> *@
 
  <div class="login1">
 
@@ -10,11 +15,24 @@
             <input type="text" class="form-control" id="floatingInput" asp-for="Username">
             <label for="floatingInput">Никнейм</label>
         </div>
+        @if (!Model.IsUserExisting)
+        {
+            <div>
+                Пользователь не найден!
+            </div>
+        }
 
         <div class="form-floating mb-3">
             <input type="password" class="form-control" id="floatingPassword" asp-for="Password1">
             <label for="floatingPassword">Пароль</label>
         </div>
+        
+        @if (!Model.IsPasswordCorrect)
+        {
+            <div>
+                Неправильный пароль!
+            </div>
+        }
 
         <hr class="my-4">
 
