@@ -37,18 +37,16 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpPost]
         public IActionResult Index(FighterViewModel A)
         {
-
-
-            _context.SaveChanges();
-            return RedirectToAction("Index", "Account");
-
-
             return View(A);
         }
         [HttpPost]
         public IActionResult Search(FighterViewModel A)
         {
-            return RedirectToAction("Search", "Account");
+            return RedirectToAction("Search", "Match");
+        }
+        public IActionResult Account(FighterViewModel A)
+        {
+            return RedirectToAction("Account", "AccountHome");
         }
 
     }
