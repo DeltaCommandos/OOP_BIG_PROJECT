@@ -18,6 +18,12 @@ namespace OOP_BIG_PROJECT.ViewModels
         public string ConfirmPassword { get; set; }
         public bool IsUserExisting { get; set; }
         public User User { get; set; }
+        public  int ? FighterId { get; set; }
+        public int Rating { get; set; }
+        public bool Sex { get; set; } = false;
+        public int? Age { get; set; }
+        public string? Skills { get; set; }
+        public int UserId { get; set; }
 
     }
 

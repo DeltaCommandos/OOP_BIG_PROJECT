@@ -60,7 +60,12 @@ namespace OOP_BIG_PROJECT.Controllers
 					else
 					{
 						StaticStuff.Fighter = _context.Fighter.Where<Fighter>(p => p.UserId == accounts[0].Id).ToList()[0];
-						return RedirectToAction("Index", "Account");
+                        //
+                        // добавить условие заполненности инфы
+                        //RegisterViewModel fighterViewModel = new RegisterViewModel();
+                        //fighterViewModel.Name = StaticStuff.Fighter.Name;
+                        //
+                        return RedirectToAction("Index", "Account");
 					}
 				}
 				else
@@ -96,23 +101,38 @@ namespace OOP_BIG_PROJECT.Controllers
 
                 // Создаем нового пользователя
                 _context.User.Add(new User { Username = A.Username, Password = A.Password, Status = true });
-				//
-				//A.userViewModel.Password1 = A.Password;
-                // Добавляем пользователя в контекст и сохраняем изменения
-                _context.SaveChanges();
+				if (A.Username == null && A.Password == null)
+				{
+					return View(A);
+					//вывести сообщение об ошибке 
+				}
+				else
+				{
+				
 
-                // Создаем бойца, связанный с новым пользователем
-                User User = _context.User.Where<User>(a => a.Username == A.Username).ToList()[0];
-                _context.Fighter.Add(new Fighter
-                {
-                    UserId = User.Id,
-                    Name = A.Username
-                });
 
-                // Добавляем бойца в контекст и сохраняем изменения
-				_context.SaveChanges();
+					//A.userViewModel.Password1 = A.Password;
+					// Добавляем пользователя в контекст и сохраняем изменения
 
-                return RedirectToAction("Index", "Account"); // Перенаправляем на главную страницу или другую страницу по вашему выбору
+					_context.SaveChanges();
+
+					// Создаем бойца, связанный с новым пользователем
+					User User = _context.User.Where<User>(a => a.Username == A.Username).ToList()[0];
+					_context.Fighter.Add(new Fighter
+					{
+						UserId = User.Id,
+						Name = A.Username,
+
+
+                    });
+
+                    // Добавляем бойца в контекст и сохраняем изменения
+                    _context.SaveChanges();
+					A.FighterId=_context.Fighter.Where( a => a.UserId == User.Id).ToList()[0].Id;
+                    TempData["FighterId"] = A.FighterId;
+
+                    return RedirectToAction("PostRegister"); // Перенаправляем на главную страницу или другую страницу по вашему выбору
+				}
             }
         }
 
@@ -121,8 +141,42 @@ namespace OOP_BIG_PROJECT.Controllers
 		{
 			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
 		}
+        [HttpGet]
+        public IActionResult PostRegister()
+        {
+            var response = new RegisterViewModel();
+            return View(response);
+        }
+        [HttpPost]
+        public IActionResult PostRegister(RegisterViewModel A)
+        {
+            // Получаем FighterId из TempData
+            if (TempData["FighterId"] != null && int.TryParse(TempData["FighterId"].ToString(), out int fighterId))
+            {
+                // Находим бойца по FighterId
+                Fighter fighterToUpdate = _context.Fighter.FirstOrDefault(a => a.Id == fighterId);
 
-	}
+                if (fighterToUpdate != null)
+                {
+                    // Обновляем данные бойца
+                    fighterToUpdate.Rating = A.Rating;
+                    fighterToUpdate.Sex = A.Sex;
+                    fighterToUpdate.Age = A.Age;
+                    fighterToUpdate.Skills = A.Skills;
+                    _context.Fighter.Update(fighterToUpdate);
+                    _context.SaveChanges();
+                    return RedirectToAction("Index", "Account");
+                }
+            }
+			else
+			{
+				// для админа(или не надо)
+			}
+
+            return View(A);
+        }
+
+    }
 }
 
 //	public class HomeController : Controller
