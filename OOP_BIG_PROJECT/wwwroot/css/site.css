@@ -74,6 +74,11 @@ main input:not([type="submit"]) {
 
 }
 
+.search {
+    margin-left: 25%;
+}
+
+
 .login1 {
     float: none;
     border-width: thin;
@@ -196,10 +201,10 @@ input: checked[type="checkbox"]:before {
 
 
 footer {
-margin-top: 100px;
+margin-top: 200%;
 width: 100%;
 text-align: center;
-padding: 25px 0;
+padding: 5% 0;
 color: #38794e;
 background: #38794e;
 border-top: 2px solid #000
