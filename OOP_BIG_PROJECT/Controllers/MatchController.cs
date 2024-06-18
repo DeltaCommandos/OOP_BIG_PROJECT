@@ -16,6 +16,12 @@ namespace OOP_BIG_PROJECT.Controllers
         {
             _context = context;
         }
+
+        public void Likes(FighterViewModel A)
+        {
+           
+        }
+
         [HttpPost]
         public IActionResult Index(FighterViewModel A)
         {
