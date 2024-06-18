@@ -28,6 +28,12 @@ namespace OOP_BIG_PROJECT.Controllers
             var response = new FighterViewModel();
             return View(response);
         }
+        [HttpGet]
+        public IActionResult Accaunt()
+        {
+            var response = new FighterViewModel();
+            return View(response);
+        }
         [HttpPost]
         public IActionResult Index(FighterViewModel A)
         {
