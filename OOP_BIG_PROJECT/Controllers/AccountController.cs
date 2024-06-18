@@ -7,7 +7,9 @@ using OOP_BIG_PROJECT.ViewModels;
 using OOP_BIG_PROJECT.Data;
 namespace OOP_BIG_PROJECT.Controllers
 {
-	public class AccountController : Controller
+    //кнопку "начать поиск". аву в углу сделать. рядом с ней изменить фото. сделать изменить увлечения. меню с предстоящими боями. 
+    // ник указать 
+    public class AccountController : Controller
 	{
 		private readonly ApplicationDbContext _context;
         public AccountController(ApplicationDbContext context)
@@ -35,6 +37,10 @@ namespace OOP_BIG_PROJECT.Controllers
                 _context.Fighter.Update(fighterToUpdate);
             }
             return View(A);
+        }
+        public IActionResult Search()
+        {
+            return RedirectToAction("Index", "Account");
         }
     }
 }
