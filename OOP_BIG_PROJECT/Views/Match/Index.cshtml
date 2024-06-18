@@ -1,5 +1,52 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model OOP_BIG_PROJECT.ViewModels.FighterViewModel
+
+<div class="fighter1">
+    <form asp-action="Index" class="p-4 p-md-5 bg-body-tertiary">
+        @if (Model.SelectedFighter != null)
+        {
+            <p class="col-lg-8 mx-auto fs-5 text-dark">
+                @Model.SelectedFighter.Name
+            </p>
+
+            @if (!Model.SelectedFighter.Sex)
+            {
+                <h1>
+                    мужчина - @Model.SelectedFighter.Age
+                </h1>
+            }
+            else
+            {
+                <h1>
+                    женщина - @Model.SelectedFighter.Age
+                </h1>
+            }
+
+            <hr class="my-4">
+
+            <div class="scroll">
+                <h1>
+                    @Model.SelectedFighter.Skills
+                </h1>
+            </div>
+
+            <hr class="my-4">
+        }
+        else
+        {
+            <p>Выбранный боец не найден.</p>
+        }
+    </form>
+
+    <div class="ArButs">
+        <div class="d-inline-flex gap-2 mb-5">
+            <a asp-controller="Match" asp-action="Search" class="d-inline-flex align-items-center btn btn-success btn-lg px-4 rounded-pill" type="button">
+                Лайк
+                <svg class="bi ms-2" width="24" height="24"><use xlink:href="#arrow-right-short"></use></svg>
+            </a>
+            <a asp-controller="Match" asp-action="Login" class="d-inline-flex align-items-center btn btn-danger btn-lg px-4 rounded-pill" type="button">
+                Дизлайк
+                <svg class="bi ms-2" width="24" height="24"><use xlink:href="#arrow-right-short"></use></svg>
+            </a>
+        </div>
+    </div>
+</div>
