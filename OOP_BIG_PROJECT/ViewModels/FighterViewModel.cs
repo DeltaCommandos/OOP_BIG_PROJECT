@@ -5,8 +5,8 @@ namespace OOP_BIG_PROJECT.ViewModels
 {
     public class FighterViewModel:Fighter
     { 
-        //[Required]
-        //public int UserId { get; set; }
+        public int FighterId { get; set; }
 
+        public int Mode { get; set; }
     }
 }

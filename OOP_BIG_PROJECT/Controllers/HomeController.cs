@@ -65,6 +65,7 @@ namespace OOP_BIG_PROJECT.Controllers
                         //RegisterViewModel fighterViewModel = new RegisterViewModel();
                         //fighterViewModel.Name = StaticStuff.Fighter.Name;
                         //
+                        //TempData["FighterId"] = StaticStuff.Fighter.Id;
                         return RedirectToAction("Index", "Account");
 					}
 				}
@@ -124,14 +125,11 @@ namespace OOP_BIG_PROJECT.Controllers
 						Name = A.Username,
 
 
-                    });
-
+                    });  
                     // Добавляем бойца в контекст и сохраняем изменения
                     _context.SaveChanges();
-					A.FighterId=_context.Fighter.Where( a => a.UserId == User.Id).ToList()[0].Id;
-                    TempData["FighterId"] = A.FighterId;
-
-                    return RedirectToAction("PostRegister"); // Перенаправляем на главную страницу или другую страницу по вашему выбору
+                    StaticStuff.Fighter = _context.Fighter.Where<Fighter>(p => p.UserId == User.Id).ToList()[0];
+                    return RedirectToAction("PostRegister"); 
 				}
             }
         }
@@ -151,10 +149,10 @@ namespace OOP_BIG_PROJECT.Controllers
         public IActionResult PostRegister(RegisterViewModel A)
         {
             // Получаем FighterId из TempData
-            if (TempData["FighterId"] != null && int.TryParse(TempData["FighterId"].ToString(), out int fighterId))
-            {
+            //if (TempData["FighterId"] != null && int.TryParse(TempData["FighterId"].ToString(), out int fighterId))
+            //{
                 // Находим бойца по FighterId
-                Fighter fighterToUpdate = _context.Fighter.FirstOrDefault(a => a.Id == fighterId);
+                Fighter fighterToUpdate = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
 
                 if (fighterToUpdate != null)
                 {
@@ -165,13 +163,16 @@ namespace OOP_BIG_PROJECT.Controllers
                     fighterToUpdate.Skills = A.Skills;
                     _context.Fighter.Update(fighterToUpdate);
                     _context.SaveChanges();
+
+                    TempData["Id"] = fighterToUpdate.Id;
                     return RedirectToAction("Index", "Account");
+
                 }
-            }
-			else
-			{
-				// для админа(или не надо)
-			}
+            //}
+			//else
+			//{
+			//	// для админа(или не надо)
+			//}
 
             return View(A);
         }
