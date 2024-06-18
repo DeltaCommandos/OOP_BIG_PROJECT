@@ -22,26 +22,29 @@ namespace OOP_BIG_PROJECT.Controllers
             var response = new FighterViewModel();
             return View(response);
         }
+        [HttpGet]
+        public IActionResult Search()
+        {
+            var response = new FighterViewModel();
+            return View(response);
+        }
         [HttpPost]
         public IActionResult Index(FighterViewModel A)
         {
-            List<Fighter> accounts = _context.Fighter.Where<Fighter>(a => a.Name == A.Name).ToList();
-            if(accounts.Count!=0)
-            {
-                Fighter fighterToUpdate = accounts[0];
-                fighterToUpdate.Rating = A.Rating;
-                fighterToUpdate.Sex = A.Sex;
-                fighterToUpdate.Age = A.Age;
-                fighterToUpdate.Skills = A.Skills;
 
-                _context.Fighter.Update(fighterToUpdate);
-            }
+
+            _context.SaveChanges();
+            return RedirectToAction("Index", "Account");
+
+
             return View(A);
         }
-        public IActionResult Search()
+        [HttpPost]
+        public IActionResult Search(FighterViewModel A)
         {
-            return RedirectToAction("Index", "Account");
+            return RedirectToAction("Search", "Account");
         }
+
     }
 }
 
