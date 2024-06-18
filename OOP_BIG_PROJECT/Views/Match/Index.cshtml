@@ -1,32 +1,34 @@
 ﻿@model OOP_BIG_PROJECT.ViewModels.FighterViewModel
 
-<div class="fighter1">
+<div class="tinder1">
     <form asp-action="Index" class="p-4 p-md-5 bg-body-tertiary">
         @if (Model.SelectedFighter != null)
         {
-            <p class="col-lg-8 mx-auto fs-5 text-dark">
+
+            <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">
                 @Model.SelectedFighter.Name
-            </p>
+            </h1>
+
 
             @if (!Model.SelectedFighter.Sex)
             {
-                <h1>
+                <p class="col-lg-8 mx-auto fs-5 text-dark">
                     мужчина - @Model.SelectedFighter.Age
-                </h1>
+                </p>
             }
             else
             {
-                <h1>
+                <p class="col-lg-8 mx-auto fs-5 text-dark">
                     женщина - @Model.SelectedFighter.Age
-                </h1>
+                </p>
             }
 
             <hr class="my-4">
 
-            <div class="scroll">
-                <h1>
+            <div class="scroll_t">
+                <p class="col-lg-8 mx-auto fs-5 text-dark">
                     @Model.SelectedFighter.Skills
-                </h1>
+                </p>
             </div>
 
             <hr class="my-4">
@@ -36,16 +38,15 @@
             <p>Выбранный боец не найден.</p>
         }
     </form>
-
-    <div class="ArButs">
+    <div class="text-center">
         <div class="d-inline-flex gap-2 mb-5">
             <a asp-controller="Match" asp-action="Search" class="d-inline-flex align-items-center btn btn-success btn-lg px-4 rounded-pill" type="button">
                 Лайк
-                <svg class="bi ms-2" width="24" height="24"><use xlink:href="#arrow-right-short"></use></svg>
+                <svg class="bi ms-2" width="50" height="50"><use xlink:href="#arrow-right-short"></use></svg>
             </a>
-            <a asp-controller="Match" asp-action="Login" class="d-inline-flex align-items-center btn btn-danger btn-lg px-4 rounded-pill" type="button">
+            <a asp-controller="Match" asp-action="Login" class="d-inline-flex align-items-center btn btn-warning btn-lg px-4 rounded-pill" type="button">
                 Дизлайк
-                <svg class="bi ms-2" width="24" height="24"><use xlink:href="#arrow-right-short"></use></svg>
+                <svg class="bi ms-2" width="50" height="50"><use xlink:href="#arrow-right-short"></use></svg>
             </a>
         </div>
     </div>

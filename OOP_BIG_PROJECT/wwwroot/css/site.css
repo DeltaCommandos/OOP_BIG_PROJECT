@@ -127,7 +127,9 @@ main form span {
 
 
 
-
+.pashalko{
+    margin-top: 90%;
+}
 
 
 /*.switcher {*/
@@ -195,8 +197,27 @@ input: checked[type="checkbox"]:before {
     overflow-x: unset
 }
 
+.scroll_t {
+    height: 300px; /* Высота блока */
+    overflow-y: scroll; /* Включаем вертикальную прокрутку */
+    overflow-x: unset;
+   
+}
 
 
+.tinder1 {
+    float: none;
+    border-width: thin;
+    border-style: none;
+    border-radius: 15px;
+    background-color: #38794e48;
+    position: center;
+    width: 750px;
+    height: 700px;
+    margin: 0 auto;
+    margin-left: -160px;
+    top: 50px;
+}
 
 
 
