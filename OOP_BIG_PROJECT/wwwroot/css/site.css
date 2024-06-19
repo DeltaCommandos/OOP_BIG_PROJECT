@@ -221,7 +221,21 @@ main form span {
     padding: 10px;
 }
 
-
+.changer2 {
+    float: none;
+    border-width: thin;
+    border-style: none;
+    border-radius: 15px;
+    background-color: #38794e48;
+    position: center;
+    width: 780px;
+    height: 450px;
+    margin: 0 auto;
+    margin-left: -160px;
+    /*    top: 50px;
+*/ 
+    padding: 10px;
+}
 
 
 .tinder1 {

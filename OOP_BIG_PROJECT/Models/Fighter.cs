@@ -10,6 +10,8 @@ namespace OOP_BIG_PROJECT.Models
         public string Name { get; set; }
         public int Rating { get; set; }
         public bool Sex { get; set; } = false;
+
+
         
         public int? Age { get; set; }
         public string? Skills { get; set; }
