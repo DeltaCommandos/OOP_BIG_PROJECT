@@ -7,8 +7,8 @@ namespace OOP_BIG_PROJECT.Models
     public class Likes
     {
         public int Id { get; set; }
-        public int Likerld { get; set; }
-        public int LikedUserld { get; set; }
+        public int LikerId { get; set; }
+        public int LikedFighterId { get; set; }
         public bool IsLiked { get; set; }
     }
 }

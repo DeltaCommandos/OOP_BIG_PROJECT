@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using OOP_BIG_PROJECT.Data;
 using OOP_BIG_PROJECT.Models;
 using OOP_BIG_PROJECT.ViewModels;
@@ -32,29 +33,46 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpPost]
         public IActionResult Like(int fighterId)
         {
-            // Обработка лайка - сохранение информации о лайке в базе данных или другая логика
-            // В данном примере, просто перенаправляем на метод Index
+            var Likedfighter = _context.Fighter.FirstOrDefault(a => a.Id == fighterId);
+            if (Likedfighter != null)
+            {
+                var likes = new Likes();
+                likes.LikerId = StaticStuff.Fighter.Id;
+                likes.LikedFighterId = Likedfighter.Id;
+                likes.IsLiked = true;
+                _context.Likes.Add(likes);
+                _context.SaveChanges();
+            }
+            
             return RedirectToAction("Index");
         }
 
         [HttpPost]
         public IActionResult Dislike(int fighterId)
         {
-            // Обработка дизлайка - сохранение информации о дизлайке в базе данных или другая логика
-            // В данном примере, просто перенаправляем на метод Index
+            var Likedfighter = _context.Fighter.FirstOrDefault(a => a.Id == fighterId);
+            if (Likedfighter != null)
+            {
+                var likes = new Likes();
+                likes.LikerId = StaticStuff.Fighter.Id;
+                likes.LikedFighterId = Likedfighter.Id;
+                likes.IsLiked = false;
+                _context.Likes.Add(likes);
+                _context.SaveChanges();
+            }
+
             return RedirectToAction("Index");
         }
 
         private Fighter GetRandomFighter()
         {
-            // Получаем список бойцов, исключая текущего пользователя (если нужно)
+
             List<Fighter> fighters = _context.Fighter.Where(a => a.Id != StaticStuff.Fighter.Id).ToList();
 
             if (fighters.Count == 0)
             {
                 throw new InvalidOperationException("Массив бойцов пуст.");
             }
-
             Random random = new Random();
             int index = random.Next(fighters.Count);
             Fighter selectedFighter = fighters[index];
