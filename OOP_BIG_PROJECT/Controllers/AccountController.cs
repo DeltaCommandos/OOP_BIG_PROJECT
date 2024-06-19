@@ -132,19 +132,31 @@ namespace OOP_BIG_PROJECT.Controllers
                 User userToUpdate = _context.User.FirstOrDefault(a => a.Id == StaticStuff.Fighter.UserId);
                 //меняем имя User
                 userToUpdate.Username=A.Username;
-                _context.Fighter.Update(fighterToUpdate);
-                _context.User.Update(userToUpdate);
-                _context.SaveChanges();
-                return RedirectToAction("AccountHome");
+                if (userToUpdate.Username != null || fighterToUpdate.Name != null)
+                {
+                    _context.Fighter.Update(fighterToUpdate);
+                    _context.User.Update(userToUpdate);
+                    _context.SaveChanges();
+                    return RedirectToAction("AccountHome");
+                }
+                else
+                {
+                    return View(A);
+                }
             }
             
             return View(A);
         }
-        [HttpPost]
-        public IActionResult Back()
-        {
-            return RedirectToAction("ChangeLoginAndPassword","Account");
-        }
+        //[HttpPost]
+        //public IActionResult Back()
+        //{
+        //    return RedirectToAction("Index","Account");
+        //}
+        //[HttpPost]
+        //public IActionResult Back1()
+        //{
+        //    return RedirectToAction("Index", "Account");
+        //}
         [HttpPost]
         public IActionResult ChangePassword(UserViewModel A)
         {
@@ -156,11 +168,18 @@ namespace OOP_BIG_PROJECT.Controllers
             }
 
             user.Password = A.Password1;
+            if (user.Password == null)
+            {
+                return View(A);
+            }
+            else
+            {
+                _context.User.Update(user);
+                _context.SaveChanges();
 
-            _context.User.Update(user);
-            _context.SaveChanges();
 
-            return RedirectToAction("AccountHome");
+                return RedirectToAction("AccountHome");
+            }
         }
         [HttpPost]
         public IActionResult ChangeInfo(FighterViewModel A)
