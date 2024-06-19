@@ -42,14 +42,20 @@ namespace OOP_BIG_PROJECT.Controllers
             var response = new UserViewModel();
             return View(response);
         }
-        //[HttpGet]
-        //public IActionResult ViewMatches()
-        //{
-        //    var response = new FighterViewModel();
-        //    return View(response);
-        //}
         [HttpGet]
         public IActionResult ChangeLoginAndPassword()
+        {
+            var response = new UserViewModel();
+            return View(response);
+        }
+        [HttpGet]
+        public IActionResult ChangePassword()
+        {
+            var response = new UserViewModel();
+            return View(response);
+        }
+        [HttpGet]
+        public IActionResult ChangeLogin()
         {
             var response = new UserViewModel();
             return View(response);
@@ -73,26 +79,21 @@ namespace OOP_BIG_PROJECT.Controllers
         {
             int currentFighterId = StaticStuff.Fighter.Id;
 
-            // Получаем список всех бойцов, кроме текущего
             List<Fighter> fighters = _context.Fighter.Where(a => a.Id != currentFighterId).ToList();
 
-            // Получаем список идентификаторов бойцов, которые понравились текущему бойцу
             List<int> likedFighterIds = _context.Likes
                                               .Where(l => l.LikerId == currentFighterId)
                                               .Select(l => l.LikedFighterId)
                                               .ToList();
 
-            // Сохраняем список идентификаторов в модель для использования в представлении
             A.likedFighterIds = likedFighterIds;
 
-            // Создаем список для хранения пар бойцов, которые лайкнули друг друга
             List<Tuple<Fighter, Fighter>> mutualLikes = new List<Tuple<Fighter, Fighter>>();
 
             foreach (int likedFighterId in likedFighterIds)
             {
                 // Проверяем, лайкнул ли текущий боец бойца с идентификатором likedFighterId
-                bool isMutualLike = _context.Likes
-                                          .Any(l => l.LikerId == likedFighterId && l.LikedFighterId == currentFighterId);
+                bool isMutualLike = _context.Likes.Any(l => l.LikerId == likedFighterId && l.LikedFighterId == currentFighterId);
 
                 if (isMutualLike)
                 {
@@ -100,20 +101,65 @@ namespace OOP_BIG_PROJECT.Controllers
                     Fighter currentFighter = fighters.FirstOrDefault(f => f.Id == likedFighterId);
                     Fighter likedFighter = _context.Fighter.FirstOrDefault(f => f.Id == likedFighterId);
 
-                    // Добавляем пару бойцов в список mutualLikes
+
                     mutualLikes.Add(new Tuple<Fighter, Fighter>(currentFighter, likedFighter));
                 }
             }
-
-            // Сохраняем список пар взаимных лайков в модель для использования в представлении
             A.MutualLikes = mutualLikes;
             return View(A);
         }
         [HttpPost]
-        public IActionResult ChangeLoginAndPassword(UserViewModel A)
+        public IActionResult ChangeLogin(UserViewModel A)
         {
+            Fighter fighterToUpdate = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
+            if (fighterToUpdate == null)
+            {
+
+                return View(A);
+            }
+            else
+            {
+                //меняем имя fighter
+                fighterToUpdate.Name = A.Username;
+                User userToUpdate = _context.User.FirstOrDefault(a => a.Id == StaticStuff.Fighter.UserId);
+                //меняем имя User
+                userToUpdate.Username=A.Username;
+                _context.Fighter.Update(fighterToUpdate);
+                _context.User.Update(userToUpdate);
+                _context.SaveChanges();
+            }
+            
             return View(A);
         }
+        [HttpPost]
+        public IActionResult ChangePassword(UserViewModel A)
+        {
+            User user = _context.User.FirstOrDefault(a => a.Id == StaticStuff.Fighter.UserId);
+
+            if (user == null)
+            {
+                return View(A);
+            }
+
+            user.Password = A.Password1;
+
+            _context.User.Update(user);
+            _context.SaveChanges();
+
+            return RedirectToAction("AccountHome");
+        }
+
+
+        //        var user = _context.Fighter.Where(a => a.UserId == StaticStuff.Fighter.UserId);
+        //                    if (user==null)
+        //                    {
+        //                        return View(A);
+        //    }
+        //                    else 
+        //                    {
+
+        //                    }
+        //return View(A);
 
     }
 }
