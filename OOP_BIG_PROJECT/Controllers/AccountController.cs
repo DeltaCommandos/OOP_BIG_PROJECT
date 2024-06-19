@@ -107,8 +107,10 @@ namespace OOP_BIG_PROJECT.Controllers
                     Fighter currentFighter = fighters.FirstOrDefault(f => f.Id == likedFighterId);
                     Fighter likedFighter = _context.Fighter.FirstOrDefault(f => f.Id == likedFighterId);
 
-
-                    mutualLikes.Add(new Tuple<Fighter, Fighter>(currentFighter, likedFighter));
+                    if (!mutualLikes.Contains(new Tuple<Fighter, Fighter>(currentFighter, likedFighter)))
+                    {
+                        mutualLikes.Add(new Tuple<Fighter, Fighter>(currentFighter, likedFighter));
+                    }
                 }
             }
             A.MutualLikes = mutualLikes;
