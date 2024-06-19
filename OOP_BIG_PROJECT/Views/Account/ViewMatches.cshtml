@@ -1,0 +1,33 @@
+﻿@model OOP_BIG_PROJECT.ViewModels.FighterViewModel
+
+<h1>Мои взаимные симпатии</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            @* <th>Мой боец</th>
+            <th>Пол</th>
+            <th>Возраст</th>
+            <th>Навыки</th> *@
+            <th>Боец, который лайкнул меня</th>
+            <th>Пол</th>
+            <th>Возраст</th>
+            <th>Навыки</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pair in Model.MutualLikes)
+        {
+            <tr>
+                @* <td>@pair.Item1.Name</td>
+                <td>@(pair.Item1.Sex ? "Мужской" : "Женский")</td>
+                <td>@pair.Item1.Age</td>
+                <td>@pair.Item1.Skills</td> *@
+                <td>@pair.Item2.Name</td>
+                <td>@(pair.Item2.Sex ? "Мужской" : "Женский")</td>
+                <td>@pair.Item2.Age</td>
+                <td>@pair.Item2.Skills</td>
+            </tr>
+        }
+    </tbody>
+</table>
