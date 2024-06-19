@@ -2,7 +2,7 @@
 
 
 
-<div class="fighter1">
+<div class="tabler1">
     <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Мои взаимные симпатии</h1>
 
     <table class="table">
@@ -35,16 +35,20 @@
                 </th>
             </tr>
         </thead>
-        <tbody>
-            @foreach (var pair in Model.MutualLikes)
-            {
+        <tbody class="scroll_table">
+            
+                @foreach (var pair in Model.MutualLikes)
+                {
                 <tr>
                     <td>@pair.Item2.Name</td>
                     <td>@(!pair.Item2.Sex ? "Мужской" : "Женский")</td>
                     <td>@pair.Item2.Age</td>
                     <td>@pair.Item2.Skills</td>
                 </tr>
-            }
+                }
+
+            
+
         </tbody>
     </table>
 

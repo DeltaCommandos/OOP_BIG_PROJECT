@@ -155,6 +155,21 @@ main form span {
     top: 50px;
 }
 
+.tabler1 {
+    float: none;
+    border-width: thin;
+    border-style: none;
+    border-radius: 15px;
+    background-color: #38794e48;
+    position: center;
+    width: 750px;
+    height: 85%;
+    margin: 0 auto;
+    margin-left: -160px;
+    top: 50px;
+}
+
+
 .scroll {
     height: 650px; /* Высота блока */
     overflow-y: scroll; /* Включаем вертикальную прокрутку */
@@ -167,6 +182,13 @@ main form span {
     overflow-x: unset;
    
 }
+
+.scroll_table {
+    height: 50px; /* Высота блока */
+    overflow-y: scroll; /* Включаем вертикальную прокрутку */
+    overflow-x: unset;
+}
+
 
 .boba {
     margin-top: 1%;
