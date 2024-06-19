@@ -60,6 +60,12 @@ namespace OOP_BIG_PROJECT.Controllers
             var response = new UserViewModel();
             return View(response);
         }
+        [HttpGet]
+        public IActionResult ChangeInfo()
+        {
+            var response = new FighterViewModel();
+            return View(response);
+        }
         [HttpPost]
         public IActionResult Index(FighterViewModel A)
         {
@@ -127,6 +133,7 @@ namespace OOP_BIG_PROJECT.Controllers
                 _context.Fighter.Update(fighterToUpdate);
                 _context.User.Update(userToUpdate);
                 _context.SaveChanges();
+                return RedirectToAction("AccountHome");
             }
             
             return View(A);
@@ -147,6 +154,23 @@ namespace OOP_BIG_PROJECT.Controllers
             _context.SaveChanges();
 
             return RedirectToAction("AccountHome");
+        }
+        [HttpPost]
+        public IActionResult ChangeInfo(FighterViewModel A)
+        {
+            Fighter fighterToUpdate = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
+            if (fighterToUpdate == null)
+            {
+
+                return View(A);
+            }
+            else
+            {
+                fighterToUpdate.Skills = A.SelectedFighter.Skills;
+                _context.Fighter.Update(fighterToUpdate);
+                _context.SaveChanges();
+                return RedirectToAction("AccountHome");
+            }
         }
 
 

@@ -1,0 +1,13 @@
+﻿@model OOP_BIG_PROJECT.ViewModels.FighterViewModel
+
+<h1>Изменение информации о бойце</h1>
+
+<form asp-action="ChangeInfo" method="post">
+    <div class="form-group">
+        <label asp-for="SelectedFighter.Skills">Навыки бойца:</label>
+        <input asp-for="SelectedFighter.Skills" class="form-control" />
+        <span asp-validation-for="SelectedFighter.Skills" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+</form>
