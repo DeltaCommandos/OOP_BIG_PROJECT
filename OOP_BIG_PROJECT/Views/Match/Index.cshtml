@@ -36,18 +36,24 @@
             <p>Выбранный боец не найден.</p>
         }
     </form>
+    <form asp-controller="Match" asp-action="Back" method="post">
+        <button type="submit" name="fighterId" value="@Model.SelectedFighter.Id" class="d-inline-flex align-items-center btn btn-warning btn-lg px-4 rounded-pill">
+            Назад
+            <svg class="bi ms-2" width="50" height="50"><use xlink:href="#arrow-right-short"></use></svg>
+        </button>
+    </form>
     <div class="text-center">
         <div class="d-inline-flex gap-2 mb-5">
             <form asp-controller="Match" asp-action="Like" method="post">
                 <button type="submit" name="fighterId" value="@Model.SelectedFighter.Id" class="d-inline-flex align-items-center btn btn-success btn-lg px-4 rounded-pill">
-                    Лайк
+                    Боремся
                     <svg class="bi ms-2" width="50" height="50"><use xlink:href="#arrow-right-short"></use></svg>
                 </button>
             </form>
 
             <form asp-controller="Match" asp-action="Dislike" method="post">
                 <button type="submit" name="fighterId" value="@Model.SelectedFighter.Id" class="d-inline-flex align-items-center btn btn-warning btn-lg px-4 rounded-pill">
-                    Дизлайк
+                    Демдальш
                     <svg class="bi ms-2" width="50" height="50"><use xlink:href="#arrow-right-short"></use></svg>
                 </button>
             </form>
