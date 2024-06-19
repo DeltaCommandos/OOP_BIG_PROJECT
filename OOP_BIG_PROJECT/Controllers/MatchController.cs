@@ -52,6 +52,11 @@ namespace OOP_BIG_PROJECT.Controllers
            return RedirectToAction("Index", "Account");
         }
         [HttpPost]
+        public IActionResult Back1()
+        {
+            return RedirectToAction("Account");
+        }
+        [HttpPost]
         public IActionResult Dislike(int fighterId)
         {
             var Likedfighter = _context.Fighter.FirstOrDefault(a => a.Id == fighterId);
