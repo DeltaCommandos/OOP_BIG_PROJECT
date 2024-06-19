@@ -139,6 +139,11 @@ namespace OOP_BIG_PROJECT.Controllers
             return View(A);
         }
         [HttpPost]
+        public IActionResult Back()
+        {
+            return RedirectToAction("ChangeLoginAndPassword","Account");
+        }
+        [HttpPost]
         public IActionResult ChangePassword(UserViewModel A)
         {
             User user = _context.User.FirstOrDefault(a => a.Id == StaticStuff.Fighter.UserId);
