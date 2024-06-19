@@ -14,8 +14,10 @@
     <form asp-action="Index" class="p-4 p-md-5 bg-body-tertiary">
         @if (Model.SelectedFighter != null)
         {
+
             <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">
-                @Model.SelectedFighter.Name
+@*                 @if(Model.)
+ *@                @Model.SelectedFighter.Name
             </h1>
 
             @if (!Model.SelectedFighter.Sex)
