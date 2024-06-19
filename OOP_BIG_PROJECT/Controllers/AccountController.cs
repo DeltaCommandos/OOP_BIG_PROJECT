@@ -147,16 +147,16 @@ namespace OOP_BIG_PROJECT.Controllers
             
             return View(A);
         }
-        //[HttpPost]
-        //public IActionResult Back()
-        //{
-        //    return RedirectToAction("Index","Account");
-        //}
-        //[HttpPost]
-        //public IActionResult Back1()
-        //{
-        //    return RedirectToAction("Index", "Account");
-        //}
+        [HttpPost]
+        public IActionResult Back()
+        {
+            return RedirectToAction("AccountHome", "Account");
+        }
+        [HttpPost]
+        public IActionResult Back1()
+        {
+            return RedirectToAction("Index", "Account");
+        }
         [HttpPost]
         public IActionResult ChangePassword(UserViewModel A)
         {

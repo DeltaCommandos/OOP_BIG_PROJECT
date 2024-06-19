@@ -159,8 +159,12 @@ namespace OOP_BIG_PROJECT.Controllers
                     // Обновляем данные бойца
                     fighterToUpdate.Rating = A.Rating;
                     fighterToUpdate.Sex = A.Sex;
-                    fighterToUpdate.Age = A.Age;
-                    fighterToUpdate.Skills = A.Skills;
+				if (fighterToUpdate.Age <= 0)
+				{
+					return View(A);
+				}
+				fighterToUpdate.Age = A.Age;
+				fighterToUpdate.Skills = A.Skills;
                     _context.Fighter.Update(fighterToUpdate);
                     _context.SaveChanges();
 
