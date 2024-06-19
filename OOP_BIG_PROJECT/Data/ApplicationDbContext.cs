@@ -12,10 +12,10 @@ namespace OOP_BIG_PROJECT.Data
         public DbSet<Place> Venue { get; set; }
         public DbSet<Match> Match { get; set; }
         public DbSet<Message> Message { get; set; }
-
+        public DbSet<Likes> Likes { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=FightClub;Username=postgres;Password=GOOOOOOOOOOOOOOOOOOOL");
+            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=FightClub;Username=postgres;Password=admin1488");
             // Федя - admin1488
             // Валера - GOOOOOOOOOOOOOOOOOOOL
             // Андрей - GOOOOOOOOOOOOOOOOOOOL

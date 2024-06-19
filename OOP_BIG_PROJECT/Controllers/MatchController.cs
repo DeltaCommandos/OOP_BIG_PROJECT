@@ -17,81 +17,50 @@ namespace OOP_BIG_PROJECT.Controllers
             _context = context;
         }
 
-        public void Likes(FighterViewModel A)
-        {
-           
-        }
-
-        [HttpPost]
-        public IActionResult Index(FighterViewModel A)
-        {
-            Fighter selectedFighter = GetRandomFighter();
-            A.SelectedFighter = selectedFighter;
-
-            _context.SaveChanges(); // Сохранение изменений в базу данных
-
-            return RedirectToAction("Index"); // Перенаправление на GET-версию метода Index
-        }
-
         [HttpGet]
         public IActionResult Index()
         {
             Fighter selectedFighter = GetRandomFighter();
-            var response = new FighterViewModel
+            var viewModel = new FighterViewModel
             {
                 SelectedFighter = selectedFighter
             };
 
-            return View(response);
+            return View(viewModel);
         }
+
+        [HttpPost]
+        public IActionResult Like(int fighterId)
+        {
+            // Обработка лайка - сохранение информации о лайке в базе данных или другая логика
+            // В данном примере, просто перенаправляем на метод Index
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public IActionResult Dislike(int fighterId)
+        {
+            // Обработка дизлайка - сохранение информации о дизлайке в базе данных или другая логика
+            // В данном примере, просто перенаправляем на метод Index
+            return RedirectToAction("Index");
+        }
+
         private Fighter GetRandomFighter()
         {
-            List<Fighter> Fighters = _context.Fighter.Where(a => a.Id != StaticStuff.Fighter.Id).ToList();
-            Random random = new Random();
+            // Получаем список бойцов, исключая текущего пользователя (если нужно)
+            List<Fighter> fighters = _context.Fighter.Where(a => a.Id != StaticStuff.Fighter.Id).ToList();
 
-            if (Fighters.Count == 0)
+            if (fighters.Count == 0)
             {
-                throw new InvalidOperationException("Массив пуст.");
+                throw new InvalidOperationException("Массив бойцов пуст.");
             }
 
-            int index = random.Next(Fighters.Count);
-            Fighter selectedFighter = Fighters[index];
-            Fighters.RemoveAt(index);
+            Random random = new Random();
+            int index = random.Next(fighters.Count);
+            Fighter selectedFighter = fighters[index];
+            fighters.RemoveAt(index);
 
             return selectedFighter;
         }
-
     }
-
 }
-
-
-// Метод для создания матча
-//public async Task<IActionResult> Create(int userId, int gameId, int venueId, DateTime scheduledTime)
-//{
-//	var match = new Match
-//	{
-//		//UserId1 = User.FindFirstValue(ClaimTypes.NameIdentifier),
-//		UserId2 = userId,
-//		GameId = gameId,
-//		PlaceId = venueId,
-//		ScheduledTime = scheduledTime,
-//		IsAccepted = false
-//	};
-
-//	_context.Matches.Add(match);
-//	await _context.SaveChangesAsync();
-
-//	return RedirectToAction("Index", "Home");
-//}
-
-//// Метод для подтверждения матча
-//[HttpPost]
-//public async Task<IActionResult> Accept(int matchId)
-//{
-//	var match = await _context.Matches.FindAsync(matchId);
-//	match.IsAccepted = true;
-//	await _context.SaveChangesAsync();
-
-//	return RedirectToAction("Index", "Home");
-//}

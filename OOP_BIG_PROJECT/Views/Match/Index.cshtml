@@ -4,11 +4,9 @@
     <form asp-action="Index" class="p-4 p-md-5 bg-body-tertiary">
         @if (Model.SelectedFighter != null)
         {
-
             <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">
                 @Model.SelectedFighter.Name
             </h1>
-
 
             @if (!Model.SelectedFighter.Sex)
             {
@@ -40,14 +38,19 @@
     </form>
     <div class="text-center">
         <div class="d-inline-flex gap-2 mb-5">
-            <a asp-controller="Match" asp-action="Search" class="d-inline-flex align-items-center btn btn-success btn-lg px-4 rounded-pill" type="button">
-                Лайк
-                <svg class="bi ms-2" width="50" height="50"><use xlink:href="#arrow-right-short"></use></svg>
-            </a>
-            <a asp-controller="Match" asp-action="Login" class="d-inline-flex align-items-center btn btn-warning btn-lg px-4 rounded-pill" type="button">
-                Дизлайк
-                <svg class="bi ms-2" width="50" height="50"><use xlink:href="#arrow-right-short"></use></svg>
-            </a>
+            <form asp-controller="Match" asp-action="Like" method="post">
+                <button type="submit" name="fighterId" value="@Model.SelectedFighter.Id" class="d-inline-flex align-items-center btn btn-success btn-lg px-4 rounded-pill">
+                    Лайк
+                    <svg class="bi ms-2" width="50" height="50"><use xlink:href="#arrow-right-short"></use></svg>
+                </button>
+            </form>
+
+            <form asp-controller="Match" asp-action="Dislike" method="post">
+                <button type="submit" name="fighterId" value="@Model.SelectedFighter.Id" class="d-inline-flex align-items-center btn btn-warning btn-lg px-4 rounded-pill">
+                    Дизлайк
+                    <svg class="bi ms-2" width="50" height="50"><use xlink:href="#arrow-right-short"></use></svg>
+                </button>
+            </form>
         </div>
     </div>
 </div>
