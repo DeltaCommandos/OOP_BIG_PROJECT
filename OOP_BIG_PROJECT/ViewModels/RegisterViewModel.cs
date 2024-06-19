@@ -26,6 +26,7 @@ namespace OOP_BIG_PROJECT.ViewModels
         public string? Skills { get; set; }
         public int UserId { get; set; }
 
+        public int AvatarId { get; set; }
     }
 
 }
