@@ -205,6 +205,25 @@ main form span {
     color: #ffffff;
 }
 
+.changer1 {
+    float: none;
+    border-width: thin;
+    border-style: none;
+    border-radius: 15px;
+    background-color: #38794e48;
+    position: center;
+    width: 780px;
+    height: 450px;
+    margin: 0 auto;
+    margin-left: -160px;
+/*    top: 50px;
+*/    text-align: center;
+    padding: 10px;
+}
+
+
+
+
 .tinder1 {
     float: none;
     border-width: thin;
@@ -212,12 +231,13 @@ main form span {
     border-radius: 15px;
     background-color: #38794e48;
     position: center;
-    width: 750px;
+    width: 700px;
     height: 675px;
     margin: 0 auto;
     margin-left: -160px;
     top: 50px;
 }
+
 
 /*.likedis {
     float: none;
