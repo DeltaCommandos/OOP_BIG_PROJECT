@@ -51,6 +51,7 @@ namespace OOP_BIG_PROJECT.Controllers
                         if (admin != null)
                         {
                             StaticStuff.Admin = admin;
+							//Добавить переход на аккаунт админа
                             return RedirectToAction("Index");
                         }
                         else
@@ -158,6 +159,7 @@ namespace OOP_BIG_PROJECT.Controllers
                         });
                         _context.SaveChanges();
 						StaticStuff.Admin = _context.Admin.FirstOrDefault(a => a.UserId == User.Id);
+                        //Добавить переход на аккаунт админа
                         return RedirectToAction("Index");
                     }
 				}
