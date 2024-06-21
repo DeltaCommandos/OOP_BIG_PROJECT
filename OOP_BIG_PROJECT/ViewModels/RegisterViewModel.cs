@@ -24,10 +24,16 @@ namespace OOP_BIG_PROJECT.ViewModels
         public bool Sex { get; set; } = false;
         public int? Age { get; set; }
         public string? Skills { get; set; }
-        public int UserId { get; set; }
-
-        public string AdminPassword { get; set; } = "Sharikov";
+        public int TagId1 { get; set; } = 2;
+        public int TagId2 { get; set; } = 2;
+        public int TagId3 { get; set; } = 2;
+        public int TagId4 { get; set; } = 2;
+        public int TagId5 { get; set; } = 2;
+        public List<Tags> Tags { get; set; }
+      public int UserId { get; set; }
         public int AvatarId { get; set; }
+        //для админа
+        public string AdminPassword { get; set; } = "Sharikov";
     }
 
 }

@@ -10,9 +10,12 @@ namespace OOP_BIG_PROJECT.Models
         public string Name { get; set; }
         public int Rating { get; set; }
         public bool Sex { get; set; } = false;
+        public int? TagId1  { get; set; }
+        public int? TagId2 { get; set; }
+        public int? TagId3 { get; set; }
+        public int? TagId4 { get; set; }
+        public int? TagId5{ get; set; }
 
-
-        
         public int? Age { get; set; }
         public string? Skills { get; set; }
         public int UserId{ get; set; }

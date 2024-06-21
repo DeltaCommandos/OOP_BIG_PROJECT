@@ -141,11 +141,15 @@ namespace OOP_BIG_PROJECT.Controllers
 						{
 							UserId = User.Id,
 							Name = A.Username,
+							TagId1 = 2,
+                            TagId2 = 2,
+                            TagId3 = 2,
+                            TagId4 = 2,
+                            TagId5 = 2
 
-
-						});
-						// Добавляем бойца в контекст и сохраняем изменения
-						_context.SaveChanges();
+                        });
+                        // Добавляем бойца в контекст и сохраняем изменения
+                        _context.SaveChanges();
 						StaticStuff.Fighter = _context.Fighter.Where<Fighter>(p => p.UserId == User.Id).ToList()[0];
 						return RedirectToAction("PostRegister");
 					}
@@ -185,19 +189,25 @@ namespace OOP_BIG_PROJECT.Controllers
             //{
                 // Находим бойца по FighterId
                 Fighter fighterToUpdate = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
-
+			List<Tags> TagsToShow = _context.Tags.ToList();
+			A.Tags = TagsToShow;
                 if (fighterToUpdate != null)
                 {
                     // Обновляем данные бойца
                     fighterToUpdate.Rating = A.Rating;
                     fighterToUpdate.Sex = A.Sex;
-				if (fighterToUpdate.Age <= 0)
-				{
-					return View(A);
-				}
+				//if (fighterToUpdate.Age <= 0)
+				//{
+				//	return View(A);
+				//}
 				fighterToUpdate.Age = A.Age;
 				fighterToUpdate.Skills = A.Skills;
-                    _context.Fighter.Update(fighterToUpdate);
+				fighterToUpdate.TagId1 = A.TagId1;
+				fighterToUpdate.TagId2 = A.TagId2;
+				fighterToUpdate.TagId3 = A.TagId3;
+				fighterToUpdate.TagId4 = A.TagId4;
+				fighterToUpdate.TagId5 = A.TagId5;
+				_context.Fighter.Update(fighterToUpdate);
                     _context.SaveChanges();
 
                     TempData["Id"] = fighterToUpdate.Id;

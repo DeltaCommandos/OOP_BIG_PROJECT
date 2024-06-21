@@ -13,6 +13,7 @@ namespace OOP_BIG_PROJECT.Data
         public DbSet<Match> Match { get; set; }
         public DbSet<Message> Message { get; set; }
         public DbSet<Likes> Likes { get; set; }
+        public DbSet<Tags> Tags { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=FightClub1;Username=postgres;Password=admin1488");
