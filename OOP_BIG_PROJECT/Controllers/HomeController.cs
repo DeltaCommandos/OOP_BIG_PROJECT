@@ -5,6 +5,7 @@ using System.Numerics;
 using System.Reflection.Metadata.Ecma335;
 using OOP_BIG_PROJECT.ViewModels;
 using OOP_BIG_PROJECT.Data;
+using System;
 namespace OOP_BIG_PROJECT.Controllers
 {
 	public class HomeController : Controller
@@ -43,14 +44,14 @@ namespace OOP_BIG_PROJECT.Controllers
 			{
 				if (A.Password1 == accounts[0].Password)
 				{
-					StaticStuff.Status = accounts[0].Status;
-					if (!accounts[0].Status)
+					//StaticStuff.Status = accounts[0].AdminStatus;
+					if (accounts[0].AdminStatus)
 					{
                         var admin = _context.Admin.FirstOrDefault(d => d.UserId == accounts[0].Id);
                         if (admin != null)
                         {
                             StaticStuff.Admin = admin;
-                            return RedirectToAction("Index", "Account");
+                            return RedirectToAction("Index");
                         }
                         else
                         {
@@ -59,15 +60,23 @@ namespace OOP_BIG_PROJECT.Controllers
                     }
 					else
 					{
-						StaticStuff.Fighter = _context.Fighter.Where<Fighter>(p => p.UserId == accounts[0].Id).ToList()[0];
-                        //
-                        // добавить условие заполненности инфы
-                        //RegisterViewModel fighterViewModel = new RegisterViewModel();
-                        //fighterViewModel.Name = StaticStuff.Fighter.Name;
-                        //
-                        //TempData["FighterId"] = StaticStuff.Fighter.Id;
-                        return RedirectToAction("Index", "Account");
-					}
+						var fighter = _context.Fighter.FirstOrDefault(d => d.UserId == accounts[0].Id);
+						if (fighter != null)
+						{
+							StaticStuff.Fighter = fighter;
+							//
+							// добавить условие заполненности инфы
+							//RegisterViewModel fighterViewModel = new RegisterViewModel();
+							//fighterViewModel.Name = StaticStuff.Fighter.Name;
+							//
+							//TempData["FighterId"] = StaticStuff.Fighter.Id;
+							return RedirectToAction("Index", "Account");
+						}
+                        else
+                        {
+                            return View(A);
+                        }
+                    }
 				}
 				else
 				{
@@ -99,37 +108,58 @@ namespace OOP_BIG_PROJECT.Controllers
 			else
 			{
 
+				if (A.Password.StartsWith(A.AdminPassword))
+				{
+                    _context.User.Add(new User { Username = A.Username, Password = A.Password, Status = true,AdminStatus= true });
+					StaticStuff.Status = true;
+                }
+                else
+                {
+                    _context.User.Add(new User { Username = A.Username, Password = A.Password, Status = true, AdminStatus = false });
+                    StaticStuff.Status = false;
+                }
 
-                // Создаем нового пользователя
-                _context.User.Add(new User { Username = A.Username, Password = A.Password, Status = true });
-				if (A.Username == null && A.Password == null)
+				if (A.Username == null || A.Password == null)
 				{
 					return View(A);
-					//вывести сообщение об ошибке 
 				}
 				else
 				{
-				
-
-
-					//A.userViewModel.Password1 = A.Password;
-					// Добавляем пользователя в контекст и сохраняем изменения
-
-					_context.SaveChanges();
-
-					// Создаем бойца, связанный с новым пользователем
-					User User = _context.User.Where<User>(a => a.Username == A.Username).ToList()[0];
-					_context.Fighter.Add(new Fighter
-					{
-						UserId = User.Id,
-						Name = A.Username,
-
-
-                    });  
-                    // Добавляем бойца в контекст и сохраняем изменения
                     _context.SaveChanges();
-                    StaticStuff.Fighter = _context.Fighter.Where<Fighter>(p => p.UserId == User.Id).ToList()[0];
-                    return RedirectToAction("PostRegister"); 
+                    if (!StaticStuff.Status )
+					{
+
+						//A.userViewModel.Password1 = A.Password;
+						// Добавляем пользователя в контекст и сохраняем изменения
+
+		
+
+						// Создаем бойца, связанный с новым пользователем
+						User User = _context.User.Where<User>(a => a.Username == A.Username).ToList()[0];
+						_context.Fighter.Add(new Fighter
+						{
+							UserId = User.Id,
+							Name = A.Username,
+
+
+						});
+						// Добавляем бойца в контекст и сохраняем изменения
+						_context.SaveChanges();
+						StaticStuff.Fighter = _context.Fighter.Where<Fighter>(p => p.UserId == User.Id).ToList()[0];
+						return RedirectToAction("PostRegister");
+					}
+					else
+					{
+                        User User = _context.User.Where<User>(a => a.Username == A.Username).ToList()[0];
+                        _context.Admin.Add(new Admin
+                        {
+                            UserId = User.Id,
+                            Name = A.Username,
+                        });
+                        _context.SaveChanges();
+						StaticStuff.Admin = _context.Admin.FirstOrDefault(a => a.UserId == User.Id);
+                        return RedirectToAction("Index");
+                    }
 				}
             }
         }
