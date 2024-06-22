@@ -19,7 +19,7 @@ namespace OOP_BIG_PROJECT.Controllers
 		[HttpPost]
 		public async Task<IActionResult> Send(int receiverId, string content)
 		{
-			var message = new Message
+			var message = new Messages
 			{
 				//SenderId = User.FindFirstValue(ClaimTypes.NameIdentifier),
 				ReceiverId = receiverId,
@@ -27,7 +27,7 @@ namespace OOP_BIG_PROJECT.Controllers
 				Timestamp = DateTime.Now
 			};
 
-			_context.Message.Add(message);
+			_context.Messages.Add(message);
 			await _context.SaveChangesAsync();
 
 			return RedirectToAction("Chat", new { receiverId });

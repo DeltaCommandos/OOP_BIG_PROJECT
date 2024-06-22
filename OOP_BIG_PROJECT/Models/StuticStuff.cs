@@ -6,6 +6,7 @@ namespace OOP_BIG_PROJECT.Models
 {
     public class StaticStuff
     {
+        public static int ReciverId { get; set; }
         public static Fighter Fighter { get; set; }
         public static Admin Admin { get; set; }
         public static bool Status { get; set; }

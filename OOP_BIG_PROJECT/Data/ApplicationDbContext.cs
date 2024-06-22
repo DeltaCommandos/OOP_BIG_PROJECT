@@ -11,7 +11,7 @@ namespace OOP_BIG_PROJECT.Data
         public DbSet<Game> Game { get; set; }
         public DbSet<Place> Venue { get; set; }
         public DbSet<Match> Match { get; set; }
-        public DbSet<Message> Message { get; set; }
+        public DbSet<Messages> Messages { get; set; }
         public DbSet<Likes> Likes { get; set; }
         public DbSet<Tags> Tags { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -36,12 +36,12 @@ namespace OOP_BIG_PROJECT.Data
                 .WithMany(u => u.MatchesAsUser2)
                 .HasForeignKey(m => m.UserId2)
                 .OnDelete(DeleteBehavior.Restrict);
-            modelBuilder.Entity<Message>()
+            modelBuilder.Entity<Messages>()
                 .HasOne(m => m.Sender)
                 .WithMany(u => u.MessageSend)
                 .HasForeignKey(m => m.SenderId)
                 .OnDelete(DeleteBehavior.Restrict);
-            modelBuilder.Entity<Message>()
+            modelBuilder.Entity<Messages>()
                 .HasOne(m => m.Receiver)
                 .WithMany(u => u.MessageGot)
                 .HasForeignKey(m => m.ReceiverId)

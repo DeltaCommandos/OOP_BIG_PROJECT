@@ -7,6 +7,7 @@ using OOP_BIG_PROJECT.ViewModels;
 using OOP_BIG_PROJECT.Data;
 using System.Collections.Generic;
 using System.Linq;
+using NuGet.Protocol.Plugins;
 namespace OOP_BIG_PROJECT.Controllers
 {
     //кнопку "начать поиск". аву в углу сделать. рядом с ней изменить фото. сделать изменить увлечения. меню с предстоящими боями. 
@@ -62,6 +63,12 @@ namespace OOP_BIG_PROJECT.Controllers
         }
         [HttpGet]
         public IActionResult ChangeInfo()
+        {
+            var response = new FighterViewModel();
+            return View(response);
+        }
+        [HttpGet]
+        public IActionResult MyInfo()
         {
             var response = new FighterViewModel();
             return View(response);
@@ -196,6 +203,104 @@ namespace OOP_BIG_PROJECT.Controllers
                 _context.Fighter.Update(fighterToUpdate);
                 _context.SaveChanges();
                 return RedirectToAction("AccountHome");
+            }
+        }
+        [HttpPost]
+        public IActionResult MyInfo(FighterViewModel A)
+        {
+            var Fighter = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
+            if (Fighter != null) 
+                {
+                A.SelectedFighter= Fighter;
+                _context.SaveChanges();
+                return RedirectToAction("AccountHome");
+                }
+            else
+            {
+                return View(A);
+            }
+        }
+        [HttpPost]
+        public IActionResult OpenChat(int receiverId)
+        {
+            return RedirectToAction("ChatView", new { receiverId = receiverId });
+        }
+        [HttpGet]
+        public IActionResult ChatView(int receiverId)
+        {
+            var Sender = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
+            var Receiver = _context.Fighter.FirstOrDefault(a => a.Id == receiverId);
+            var response = new ChatViewModel
+            {
+
+                SenderId = Sender.Id,
+                ReceiverId = receiverId,
+                ReceiverName = Receiver.Name,
+                Messages = _context.Messages
+                    .Where(m =>
+                        (m.SenderId == Sender.Id && m.ReceiverId == Receiver.Id) ||
+                        (m.SenderId == Receiver.Id && m.ReceiverId == Sender.Id))
+                     .ToList() // Инициализируем пустой список сообщений
+            };
+            return View(response);
+
+        }
+        [HttpPost]
+        public IActionResult Chat(int receiverId, ChatViewModel A)
+        {
+            var Sender = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
+            var Receiver = _context.Fighter.FirstOrDefault(a => a.Id == receiverId);
+
+            if (Sender != null && Receiver != null)
+            {
+                bool messageExists = _context.Messages.Any(m =>
+                    (m.SenderId == Sender.Id && m.ReceiverId == Receiver.Id) ||
+                    (m.SenderId == Receiver.Id && m.ReceiverId == Sender.Id));
+
+                if (!messageExists)
+                {
+                    // Создаем новое сообщение и сохраняем его в базу данных
+                    Messages chatMessage = new Messages
+                    {
+                        SenderId = Sender.Id,
+                        ReceiverId = Receiver.Id,
+                        Content = A.Content
+                    };
+
+                    _context.Messages.Add(chatMessage);
+                }
+                else
+                {
+                    Messages chatMessage = new Messages
+                    {
+                        SenderId = Sender.Id,
+                        ReceiverId = Receiver.Id,
+                        Content = A.Content,
+                        //Timestamp = DateTime.Now // Добавляем временную метку сообщения
+                    };
+
+                    _context.Messages.Add(chatMessage);
+                }
+
+                // Подготавливаем модель представления для отображения чата
+                ChatViewModel viewModel = new ChatViewModel
+                {
+                    SenderId = Sender.Id,
+                    ReceiverId = receiverId,
+                    ReceiverName = Receiver.Name,
+                    Messages = _context.Messages
+                    .Where(m =>
+                        (m.SenderId == Sender.Id && m.ReceiverId == Receiver.Id) ||
+                        (m.SenderId == Receiver.Id && m.ReceiverId == Sender.Id))
+                     .ToList()
+                };
+                _context.SaveChanges();
+                return RedirectToAction("ChatView", new { receiverId = receiverId });
+            }
+            else
+            {
+                // Если Sender или Receiver не найдены, возвращаем текущее представление с моделью A
+                return View(A);
             }
         }
 

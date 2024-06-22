@@ -1,0 +1,29 @@
+﻿@model OOP_BIG_PROJECT.ViewModels.ChatViewModel
+<h1>Чат с @Model.ReceiverName</h1>
+
+<div class="messages">
+    @foreach (var message in Model.Messages)
+    {
+        <div class="message">
+            @if (message.SenderId == Model.SenderId)
+            {
+                <div><strong>Вы:</strong> @message.Content</div>
+            }
+            else
+            {
+                <div><strong>@Model.ReceiverName:</strong> @message.Content</div>
+            }
+        </div>
+    }
+</div>
+
+<hr />
+
+<form asp-action="Chat" asp-controller="Account">
+    <input type="hidden" asp-for="ReceiverId" />
+    <div class="form-group">
+        <label for="Content">Написать сообщение:</label>
+        <textarea class="form-control" id="Content" name="Content" rows="3" asp-for="Content"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Отправить</button>
+</form>

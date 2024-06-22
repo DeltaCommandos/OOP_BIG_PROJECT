@@ -42,16 +42,22 @@
             </tr>
         </thead>
         <tbody class="scroll_table">
-            
-                @foreach (var pair in Model.MutualLikes)
-                {
+
+            @foreach (var pair in Model.MutualLikes)
+            {
                 <tr>
                     <td>@pair.Item2.Name</td>
                     <td>@(!pair.Item2.Sex ? "Мужской" : "Женский")</td>
                     <td>@pair.Item2.Age</td>
                     <td>@pair.Item2.Skills</td>
+                    <td>
+                        <form asp-controller="Account" asp-action="OpenChat" method="post">
+                            <input type="hidden" name="receiverId" value="@pair.Item2.Id" />
+                            <button type="submit" class="btn btn-primary">Открыть чат</button>
+                        </form>
+                    </td>
                 </tr>
-                }
+            }
 
             
 

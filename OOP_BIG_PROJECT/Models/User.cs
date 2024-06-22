@@ -13,8 +13,8 @@ namespace OOP_BIG_PROJECT.Models
 		public bool Status { get; set; }
         public bool AdminStatus { get; set; }
         public ICollection<Match>? Matches { get; set; }
-		public ICollection<Message>? MessageSend { get; set; }
-        public ICollection<Message>? MessageGot { get; set; }
+		public ICollection<Messages>? MessageSend { get; set; }
+        public ICollection<Messages>? MessageGot { get; set; }
         public ICollection<Match> MatchesAsUser1 { get; set; }
         public ICollection<Match> MatchesAsUser2 { get; set; }
 
