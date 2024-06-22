@@ -48,7 +48,7 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpGet]
         public IActionResult TagAdd()
         {
-            var response = new FighterViewModel();
+            var response = new TagsViewModel();
             return View(response);
         }
         [HttpGet]
@@ -70,26 +70,10 @@ namespace OOP_BIG_PROJECT.Controllers
             else
             {
                 _context.Tags.Add(new Tags { Name = A.Name, Description = A.Description });
+                _context.SaveChanges();
+                return RedirectToAction("Admin");
             }
 
-            //if (tag == null)
-            //{
-            //    return View(A);
-            //}
-
-            //tag.Password = A.Password1;
-            //if (tag.Password == null)
-            //{
-            //    return View(A);
-            //}
-            //else
-            //{
-            //    _context.User.Update(tag);
-            //    _context.SaveChanges();
-
-
-            //    return RedirectToAction("AccountHome");
-            //}
             return View(A);
         }
 
