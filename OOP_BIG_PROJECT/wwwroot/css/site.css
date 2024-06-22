@@ -19,7 +19,6 @@ body {
 
 header {
     width: 100%;
-    padding: 15x 10%;
     color: #6861ff;
     display: flex;
     align-items: center;
@@ -75,39 +74,13 @@ main input:not([type="submit"]) {
     border-radius: 15px;
 }
 
-.home1 {
-    float: none;
-    border-width: thin;
-    border-style: none;
-    border-radius: 15px;
-    background: linear-gradient(#2d6b2f,#1f4d21);
-    position: center;
-    width: 450px;
-    height: 400px;
-    margin: 0 auto;
-    margin-left: -30px;
-    margin-top: 50px;
-    color:azure;
-}
+
 
 .search {
     margin-left: 25%;
 }
 
 
-.login1 {
-    float: none;
-    border-width: thin;
-    border-style: none;
-    border-radius: 15px;
-    background: linear-gradient(#2d6b2f,#1f4d21);
-    position: center;
-    width: 450px;
-    height: 450px;
-    margin: 0 auto;
-    margin-left: -30px;
-    margin-top: 50px;
-}
 
 
 main input:not([type="submit"]):focus {
@@ -149,6 +122,46 @@ main form span {
 
 
 
+
+
+
+
+/*       ::::    Прямоугольники - фоны для интерфейса     ::::::       */
+
+
+
+.home1 {
+    float: none;
+    border-width: thin;
+    border-style: none;
+    border-radius: 15px;
+    background: linear-gradient(#2d6b2f,#1f4d21);
+    position: center;
+    width: 450px;
+    height: 400px;
+    margin: 0 auto;
+    margin-left: -30px;
+    margin-top: 50px;
+    color: azure;
+}
+
+.login1 {
+    float: none;
+    border-width: thin;
+    border-style: none;
+    border-radius: 15px;
+    background: linear-gradient(#2d6b2f,#1f4d21);
+    position: center;
+    width: 450px;
+    height: 500px;
+    margin: 0 auto;
+    margin-left: -30px;
+    margin-top: 50px;
+    color: azure;
+}
+
+
+
 .fighter1 {
     float: none;
     border-width: thin;
@@ -161,6 +174,7 @@ main form span {
     margin: 0 auto;
     margin-left: -160px;
     margin-top: 50px;
+    color: azure;
 }
 
 .tabler1 {
@@ -175,7 +189,63 @@ main form span {
     margin: 0 auto;
     margin-left: -160px;
     margin-top: 50px;
+    color: azure;
 }
+
+.changer1 {
+    float: none;
+    border-width: thin;
+    border-style: none;
+    border-radius: 15px;
+    background: linear-gradient(#2d6b2f,#1f4d21);
+    position: center;
+    width: 780px;
+    height: 450px;
+    margin: 0 auto;
+    margin-left: -160px;
+    margin-top: 50px;
+    text-align: center;
+    padding: 10px;
+    color: azure;
+}
+
+.changer2 {
+    float: none;
+    border-width: thin;
+    border-style: none;
+    border-radius: 15px;
+    background: linear-gradient(#2d6b2f,#1f4d21);
+    position: center;
+    width: 780px;
+    height: 450px;
+    margin: 0 auto;
+    margin-left: -160px;
+    margin-top: 50px;
+    padding: 10px;
+    color: azure;
+}
+
+
+.tinder1 {
+    float: none;
+    border-width: thin;
+    border-style: none;
+    border-radius: 15px;
+    background: linear-gradient(#2d6b2f,#1f4d21);
+    position: center;
+    width: 700px;
+    height: 675px;
+    margin: 0 auto;
+    margin-left: -160px;
+    margin-top: 50px;
+    color: azure;
+}
+
+/*       ::::    Прямоугольники - фоны для интерфейса     ::::::       */
+
+
+
+
 
 
 .scroll {
@@ -198,6 +268,13 @@ main form span {
 }
 
 
+
+
+
+
+
+
+
 .boba {
     margin-top: 1%;
     margin-left: 1%;
@@ -213,52 +290,6 @@ main form span {
     color: #ffffff;
 }
 
-.changer1 {
-    float: none;
-    border-width: thin;
-    border-style: none;
-    border-radius: 15px;
-    background: linear-gradient(#2d6b2f,#1f4d21);
-    position: center;
-    width: 780px;
-    height: 450px;
-    margin: 0 auto;
-    margin-left: -160px;
-    margin-top: 50px;
-    text-align: center;
-    padding: 10px;
-}
-
-.changer2 {
-    float: none;
-    border-width: thin;
-    border-style: none;
-    border-radius: 15px;
-    background: linear-gradient(#2d6b2f,#1f4d21);
-    position: center;
-    width: 780px;
-    height: 450px;
-    margin: 0 auto;
-    margin-left: -160px;
-    margin-top: 50px;
-    padding: 10px;
-}
-
-
-.tinder1 {
-    float: none;
-    border-width: thin;
-    border-style: none;
-    border-radius: 15px;
-    background: linear-gradient(#2d6b2f,#1f4d21);
-    position: center;
-    width: 700px;
-    height: 675px;
-    margin: 0 auto;
-    margin-left: -160px;
-    margin-top: 50px;
-}
-
 
 /*.likedis {
     float: none;
@@ -271,6 +302,13 @@ main form span {
     height: 50px;
 }
 */
+
+
+
+
+
+
+
 
 
 /* Кнопка выпадающего списка */
@@ -321,14 +359,18 @@ main form span {
     background-color: #3e8e41;
 }
 
-footer {
-margin-top: 10%;
-width: 10%;
-text-align: center;
-padding: 5% 0;
-color: #49f652;
 
-border-top: 2px solid #000
+
+
+
+
+footer {
+    margin-top: 10%;
+    width: 10%;
+    text-align: center;
+    padding: 5% 0;
+    color: azure;
+    border-top: 2px solid #000
 }
 
 
