@@ -46,7 +46,25 @@ namespace OOP_BIG_PROJECT.Controllers
             return View(response);
         }
         [HttpGet]
+        public IActionResult TagMenu()
+        {
+            var response = new TagsViewModel();
+            return View(response);
+        }
+        [HttpGet]
         public IActionResult TagAdd()
+        {
+            var response = new TagsViewModel();
+            return View(response);
+        }
+        [HttpGet]
+        public IActionResult TagChange()
+        {
+            var response = new TagsViewModel();
+            return View(response);
+        }
+        [HttpGet]
+        public IActionResult TagDelete()
         {
             var response = new TagsViewModel();
             return View(response);
