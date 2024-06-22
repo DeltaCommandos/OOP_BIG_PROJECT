@@ -4,8 +4,14 @@
 }
 
 body {
-    background: #a6ff94;
+    /*background: linear-gradient(#092211ff,#000);*/
+    background-image: url(https://i.ibb.co/NpsXZXj/image.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
     font-family: Lato Regular, sans-serif;
+    overflow-x: hidden
 }
 
 
@@ -14,18 +20,18 @@ body {
 header {
     width: 100%;
     padding: 15x 10%;
-    color: #38794e;
+    color: #6861ff;
     display: flex;
     align-items: center;
-    background: #38794e;
-    
+    background: linear-gradient(#2d6b2f,#1f4d21);
 }
 
     header .logo {
-        margin-left: 15px;
+        /*margin-left: 5px;
+        */
         font-weight: 600;
         font-size: 25px;
-        background: #38794e;
+        background: linear-gradient(#2d6b2f,#1f4d21);
     }
 
 
@@ -51,16 +57,18 @@ main input:not([type="submit"]) {
     margin-top: 7px;
 }
 
+
+
 .logo {
-    background: #38794e;
-    float: none;
+/*    background: linear-gradient(#1f4d21,#153416);
+*/    float: none;
     border-width: thin;
     border-style: none;
     border-radius: 15px;
 }
 
 .imgu {
-/*    background: #38794e;
+/*    background: linear-gradient(#2d6b2f,#1f4d21);
 */    float: none;
     border-width: thin;
     border-style: none;
@@ -72,14 +80,14 @@ main input:not([type="submit"]) {
     border-width: thin;
     border-style: none;
     border-radius: 15px;
-    background-color: #38794e48;
+    background: linear-gradient(#2d6b2f,#1f4d21);
     position: center;
     width: 450px;
-    height: 450px;
+    height: 400px;
     margin: 0 auto;
     margin-left: -30px;
-    top: 50px;
-
+    margin-top: 50px;
+    color:azure;
 }
 
 .search {
@@ -92,13 +100,13 @@ main input:not([type="submit"]) {
     border-width: thin;
     border-style: none;
     border-radius: 15px;
-    background-color: #38794e48;
+    background: linear-gradient(#2d6b2f,#1f4d21);
     position: center;
     width: 450px;
     height: 450px;
     margin: 0 auto;
     margin-left: -30px;
-    top: 50px;
+    margin-top: 50px;
 }
 
 
@@ -114,9 +122,9 @@ main input:not([type="submit"]):focus {
         border-radius: 5px;
         border: 0;
         margin-top: 7px;
-        background: #38794e;
+        background: linear-gradient(#2d6b2f,#1f4d21);
         font-weight: bold;
-        color: #6ff19b;
+        color: #72ff50;
         cursor: pointer;
     }
 
@@ -146,13 +154,13 @@ main form span {
     border-width: thin;
     border-style: none;
     border-radius: 15px;
-    background-color: #38794e48;
+    background: linear-gradient(#2d6b2f,#1f4d21);
     position: center;
     width: 750px;
     height: 650px;
     margin: 0 auto;
     margin-left: -160px;
-    top: 50px;
+    margin-top: 50px;
 }
 
 .tabler1 {
@@ -160,13 +168,13 @@ main form span {
     border-width: thin;
     border-style: none;
     border-radius: 15px;
-    background-color: #38794e48;
+    background: linear-gradient(#2d6b2f,#1f4d21);
     position: center;
     width: 750px;
     height: 85%;
     margin: 0 auto;
     margin-left: -160px;
-    top: 50px;
+    margin-top: 50px;
 }
 
 
@@ -193,7 +201,7 @@ main form span {
 .boba {
     margin-top: 1%;
     margin-left: 1%;
-    background-color: #6ff19b;
+    background: linear-gradient(#2d6b2f,#1f4d21);
     border-width: thin;
     border-style: none;
     border-radius: 30px;
@@ -210,14 +218,14 @@ main form span {
     border-width: thin;
     border-style: none;
     border-radius: 15px;
-    background-color: #38794e48;
+    background: linear-gradient(#2d6b2f,#1f4d21);
     position: center;
     width: 780px;
     height: 450px;
     margin: 0 auto;
     margin-left: -160px;
-/*    top: 50px;
-*/    text-align: center;
+    margin-top: 50px;
+    text-align: center;
     padding: 10px;
 }
 
@@ -226,14 +234,13 @@ main form span {
     border-width: thin;
     border-style: none;
     border-radius: 15px;
-    background-color: #38794e48;
+    background: linear-gradient(#2d6b2f,#1f4d21);
     position: center;
     width: 780px;
     height: 450px;
     margin: 0 auto;
     margin-left: -160px;
-    /*    top: 50px;
-*/ 
+    margin-top: 50px;
     padding: 10px;
 }
 
@@ -243,13 +250,13 @@ main form span {
     border-width: thin;
     border-style: none;
     border-radius: 15px;
-    background-color: #38794e48;
+    background: linear-gradient(#2d6b2f,#1f4d21);
     position: center;
     width: 700px;
     height: 675px;
     margin: 0 auto;
     margin-left: -160px;
-    top: 50px;
+    margin-top: 50px;
 }
 
 
@@ -259,20 +266,68 @@ main form span {
     border-style: none;
     position: center;
     border-radius: 30px;
-    background-color: #38794e;
+    background-color: linear-gradient(#49f652,#00dd85);
     width: 50px;
     height: 50px;
 }
 */
 
 
+/* Кнопка выпадающего списка */
+.dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
+
+/* Контейнер <div> - необходим для размещения выпадающего содержимого */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Выпадающее содержимое (скрыто по умолчанию) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+    /* Ссылки внутри выпадающего списка */
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+        /* Изменение цвета выпадающих ссылок при наведении курсора */
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+/* Показать выпадающее меню при наведении курсора */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Изменение цвета фона кнопки раскрывающегося списка при отображении содержимого раскрывающегося списка */
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
 footer {
-margin-top: 200%;
-width: 100%;
+margin-top: 10%;
+width: 10%;
 text-align: center;
 padding: 5% 0;
-color: #38794e;
-background: #38794e;
+color: #49f652;
+
 border-top: 2px solid #000
 }
 
