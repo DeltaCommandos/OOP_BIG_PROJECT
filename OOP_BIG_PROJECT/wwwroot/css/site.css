@@ -58,6 +58,24 @@ main input:not([type="submit"]) {
 
 
 
+
+
+
+.boba {
+    margin-top: 1%;
+    margin-left: 1%;
+    background: #2d6b2f;
+    border-width: thin;
+    border-style: none;
+    border-radius: 30px;
+    width: 7%;
+}
+
+.red {
+    background-color: #cf6161;
+    color: #ffffff;
+}
+
 .logo {
 /*    background: linear-gradient(#1f4d21,#153416);
 */    float: none;
@@ -73,8 +91,6 @@ main input:not([type="submit"]) {
     border-style: none;
     border-radius: 15px;
 }
-
-
 
 .search {
     margin-left: 25%;
@@ -128,6 +144,18 @@ main form span {
 
 /*       ::::    Прямоугольники - фоны для интерфейса     ::::::       */
 
+.txer {
+    margin-top: 5%;
+}
+
+.tabler {
+    margin-top: 5%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 10%;
+    width:90%;
+}
+
 
 
 .home1 {
@@ -142,8 +170,24 @@ main form span {
     margin: 0 auto;
     margin-left: -30px;
     margin-top: 50px;
-    color: azure;
+    color: white;
 }
+
+.home2 {
+    float: none;
+    border-width: thin;
+    border-style: none;
+    border-radius: 15px;
+    background: linear-gradient(#2d6b2f,#1f4d21);
+    position: center;
+    width: 450px;
+    height: 450px;
+    margin: 0 auto;
+    margin-left: -30px;
+    margin-top: 50px;
+    color: white;
+}
+
 
 .login1 {
     float: none;
@@ -157,7 +201,7 @@ main form span {
     margin: 0 auto;
     margin-left: -30px;
     margin-top: 50px;
-    color: azure;
+    color: white;
 }
 
 
@@ -174,7 +218,7 @@ main form span {
     margin: 0 auto;
     margin-left: -160px;
     margin-top: 50px;
-    color: azure;
+    color: white;
 }
 
 .tabler1 {
@@ -185,11 +229,11 @@ main form span {
     background: linear-gradient(#2d6b2f,#1f4d21);
     position: center;
     width: 750px;
-    height: 85%;
+    height: 480px;
     margin: 0 auto;
     margin-left: -160px;
     margin-top: 50px;
-    color: azure;
+    color: white;
 }
 
 .changer1 {
@@ -200,13 +244,13 @@ main form span {
     background: linear-gradient(#2d6b2f,#1f4d21);
     position: center;
     width: 780px;
-    height: 450px;
+    height: 480px;
     margin: 0 auto;
     margin-left: -160px;
     margin-top: 50px;
     text-align: center;
     padding: 10px;
-    color: azure;
+    color: white;
 }
 
 .changer2 {
@@ -222,7 +266,7 @@ main form span {
     margin-left: -160px;
     margin-top: 50px;
     padding: 10px;
-    color: azure;
+    color: white;
 }
 
 
@@ -238,7 +282,7 @@ main form span {
     margin: 0 auto;
     margin-left: -160px;
     margin-top: 50px;
-    color: azure;
+    color: white;
 }
 
 /*       ::::    Прямоугольники - фоны для интерфейса     ::::::       */
@@ -275,20 +319,6 @@ main form span {
 
 
 
-.boba {
-    margin-top: 1%;
-    margin-left: 1%;
-    background: linear-gradient(#2d6b2f,#1f4d21);
-    border-width: thin;
-    border-style: none;
-    border-radius: 30px;
-    width: 7%;
-}
-
-.red {
-    background-color: #cf6161;
-    color: #ffffff;
-}
 
 
 /*.likedis {
@@ -369,7 +399,7 @@ footer {
     width: 10%;
     text-align: center;
     padding: 5% 0;
-    color: azure;
+    color: white;
     border-top: 2px solid #000
 }
 

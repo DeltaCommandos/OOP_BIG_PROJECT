@@ -56,6 +56,10 @@ namespace OOP_BIG_PROJECT.Controllers
         {
             return RedirectToAction("Account");
         }
+        public IActionResult BackTable()
+        {
+            return RedirectToAction("ViewMatches", "Account");
+        }
         [HttpPost]
         public IActionResult Dislike(int fighterId)
         {

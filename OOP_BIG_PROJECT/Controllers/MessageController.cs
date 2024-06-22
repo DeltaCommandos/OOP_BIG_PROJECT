@@ -24,7 +24,7 @@ namespace OOP_BIG_PROJECT.Controllers
 				//SenderId = User.FindFirstValue(ClaimTypes.NameIdentifier),
 				ReceiverId = receiverId,
 				Content = content,
-				Timestamp = DateTime.Now
+				//Timestamp = DateTime.Now
 			};
 
 			_context.Messages.Add(message);
