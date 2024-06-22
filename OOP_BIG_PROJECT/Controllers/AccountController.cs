@@ -37,6 +37,63 @@ namespace OOP_BIG_PROJECT.Controllers
             var response = new FighterViewModel();
             return View(response);
         }
+
+
+        [HttpGet]
+        public IActionResult Admin()
+        {
+            var response = new FighterViewModel();
+            return View(response);
+        }
+        [HttpGet]
+        public IActionResult TagAdd()
+        {
+            var response = new FighterViewModel();
+            return View(response);
+        }
+        [HttpGet]
+        public IActionResult Ban()
+        {
+            var response = new FighterViewModel();
+            return View(response);
+        }
+        [HttpPost]
+        public IActionResult MakeTag(TagsViewModel A)
+        {
+            //Tags tag = _context.Tags.FirstOrDefault(a => a.Id == A.Id);
+            List<Tags> accounts = _context.Tags.Where<Tags>(a => a.Name == A.Name).ToList();
+            if (accounts.Count != 0)
+            {
+                A.IsTagExisting = true;
+                return View(A); // Возвращаем представление с сообщением об ошибке
+            }
+            else
+            {
+                _context.Tags.Add(new Tags { Name = A.Name, Description = A.Description });
+            }
+
+            //if (tag == null)
+            //{
+            //    return View(A);
+            //}
+
+            //tag.Password = A.Password1;
+            //if (tag.Password == null)
+            //{
+            //    return View(A);
+            //}
+            //else
+            //{
+            //    _context.User.Update(tag);
+            //    _context.SaveChanges();
+
+
+            //    return RedirectToAction("AccountHome");
+            //}
+            return View(A);
+        }
+
+
         [HttpGet]
         public IActionResult AccountHome()
         {
@@ -312,7 +369,6 @@ namespace OOP_BIG_PROJECT.Controllers
         //    }
         //                    else 
         //                    {
-
         //                    }
         //return View(A);
 

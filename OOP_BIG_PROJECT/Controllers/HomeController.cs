@@ -52,7 +52,7 @@ namespace OOP_BIG_PROJECT.Controllers
                         {
                             StaticStuff.Admin = admin;
 							//Добавить переход на аккаунт админа
-                            return RedirectToAction("Index");
+                            return RedirectToAction("Admin", "Account");
                         }
                         else
                         {
@@ -65,11 +65,9 @@ namespace OOP_BIG_PROJECT.Controllers
 						if (fighter != null)
 						{
 							StaticStuff.Fighter = fighter;
-							//
 							// добавить условие заполненности инфы
 							//RegisterViewModel fighterViewModel = new RegisterViewModel();
 							//fighterViewModel.Name = StaticStuff.Fighter.Name;
-							//
 							//TempData["FighterId"] = StaticStuff.Fighter.Id;
 							return RedirectToAction("Index", "Account");
 						}
@@ -164,7 +162,7 @@ namespace OOP_BIG_PROJECT.Controllers
                         _context.SaveChanges();
 						StaticStuff.Admin = _context.Admin.FirstOrDefault(a => a.UserId == User.Id);
                         //Добавить переход на аккаунт админа
-                        return RedirectToAction("Index");
+                        return RedirectToAction("Admin");
                     }
 				}
             }
