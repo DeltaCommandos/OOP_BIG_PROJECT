@@ -12,22 +12,49 @@ namespace OOP_BIG_PROJECT.Controllers
     public class MatchController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private static List<Fighter> _fighters;
+
 
         public MatchController(ApplicationDbContext context)
         {
             _context = context;
+            if (FighterForMatch.Fighters == null)
+            {
+                _fighters = _context.Fighter.Where(a => a.Id != StaticStuff.Fighter.Id).ToList();
+                FighterForMatch.Fighters = _fighters;
+            }
+
         }
 
         [HttpGet]
         public IActionResult Index()
         {
-            Fighter selectedFighter = GetRandomFighter();
-            var viewModel = new FighterViewModel
+            //if (_fighters == null)
+            //{
+            //    _fighters = _context.Fighter.Where(a => a.Id != StaticStuff.Fighter.Id).ToList();
+            //}
+            if (FighterForMatch.Fighters.Count != 0)
             {
-                SelectedFighter = selectedFighter
-            };
+                Fighter selectedFighter = GetRandomFighter();
+                var viewModel = new FighterViewModel
+                {
+                    SelectedFighter = selectedFighter
+                };
+                return View(viewModel);
+            }
+            else
+            {
+                Fighter selectedFighter = new Fighter();
+                selectedFighter.Age = -1000;
+                var viewModel = new FighterViewModel
+                {
+                    SelectedFighter = selectedFighter
 
-            return View(viewModel);
+                };
+                //FighterForMatch.Fighters.Add(selectedFighter);
+                return View(viewModel);
+            }
+
         }
 
         [HttpPost]
@@ -79,19 +106,20 @@ namespace OOP_BIG_PROJECT.Controllers
 
         private Fighter GetRandomFighter()
         {
-
-            List<Fighter> fighters = _context.Fighter.Where(a => a.Id != StaticStuff.Fighter.Id).ToList();
-
+            var fighters = FighterForMatch.Fighters;
             if (fighters.Count == 0)
             {
-                throw new InvalidOperationException("Массив бойцов пуст.");
+                return null;
             }
-            Random random = new Random();
-            int index = random.Next(fighters.Count);
-            Fighter selectedFighter = fighters[index];
-            fighters.RemoveAt(index);
-
-            return selectedFighter;
+            else
+            {
+                Random random = new Random();
+                int index = random.Next(fighters.Count);
+                Fighter selectedFighter = fighters[index];
+                fighters.RemoveAt(index);
+                FighterForMatch.Fighters = fighters;
+                return selectedFighter;
+            }
         }
     }
 }

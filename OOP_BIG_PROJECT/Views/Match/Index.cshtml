@@ -12,12 +12,17 @@
     </form>
  
     <form asp-action="Index" class="p-4 p-md-5 bg-body-tertiary">
+        @if (Model.SelectedFighter.Age == -1000)
+        {
+            <p>Выбранный боец не найден.</p>
+        }
+        else
+        {
+         
         @if (Model.SelectedFighter != null)
         {
-
             <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">
-@*                 @if(Model.)
- *@                @Model.SelectedFighter.Name
+                @Model.SelectedFighter.Name
             </h1>
 
             @if (!Model.SelectedFighter.Sex)
@@ -47,6 +52,9 @@
         {
             <p>Выбранный боец не найден.</p>
         }
+        
+        }
+
     </form>
     
     <div class="text-center">
