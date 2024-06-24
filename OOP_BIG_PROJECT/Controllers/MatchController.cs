@@ -21,16 +21,17 @@ namespace OOP_BIG_PROJECT.Controllers
             if (FighterForMatch.Fighters == null)
             {
                 _fighters = new List<Fighter>();
-                List<int> LikedFightersId = _context.Likes.Where(a => a.LikerId == StaticStuff.Fighter.Id)
-                                                            .Select(a => a.LikedFighterId)
+                List<int> LikedFightersId = _context.Fighter.Where(a => a.Id != StaticStuff.Fighter.Id)
+                                                            .Select(a => a.Id)
                                                             .ToList();
                 foreach(int LikedFighterId in LikedFightersId)
                 {
                     //List < Likes > CorrentFighter=_context.Likes.Where(a=>a.LikerId== StaticStuff.Fighter.Id).ToList();
                     // List<Likes> LikedFighter = _context.Likes.Where(a => a.LikerId == LikedFighterId).ToList();
                     
-                    bool isMutualLike = _context.Likes.Any(l => l.LikerId == LikedFighterId && l.LikedFighterId == StaticStuff.Fighter.Id);
-                    if (!isMutualLike)
+                    bool Liker = _context.Likes.Any(l => (l.LikerId == LikedFighterId && l.LikedFighterId == StaticStuff.Fighter.Id));
+                    bool liked = _context.Likes.Any(l => (l.LikerId == StaticStuff.Fighter.Id && l.LikedFighterId == LikedFighterId));
+                    if (!(Liker && liked))
                     {
                         var LikedFighter = _context.Fighter.FirstOrDefault(a => a.Id == LikedFighterId);
                         if (LikedFighter != null)
