@@ -20,7 +20,27 @@ namespace OOP_BIG_PROJECT.Controllers
             _context = context;
             if (FighterForMatch.Fighters == null)
             {
-                _fighters = _context.Fighter.Where(a => a.Id != StaticStuff.Fighter.Id).ToList();
+                _fighters = new List<Fighter>();
+                List<int> LikedFightersId = _context.Likes.Where(a => a.LikerId == StaticStuff.Fighter.Id)
+                                                            .Select(a => a.LikedFighterId)
+                                                            .ToList();
+                foreach(int LikedFighterId in LikedFightersId)
+                {
+                    //List < Likes > CorrentFighter=_context.Likes.Where(a=>a.LikerId== StaticStuff.Fighter.Id).ToList();
+                    // List<Likes> LikedFighter = _context.Likes.Where(a => a.LikerId == LikedFighterId).ToList();
+                    
+                    bool isMutualLike = _context.Likes.Any(l => l.LikerId == LikedFighterId && l.LikedFighterId == StaticStuff.Fighter.Id);
+                    if (!isMutualLike)
+                    {
+                        var LikedFighter = _context.Fighter.FirstOrDefault(a => a.Id == LikedFighterId);
+                        if (LikedFighter != null)
+                        {
+                            _fighters.Add(LikedFighter);
+                        }
+                    }
+
+                }
+               // _fighters = _context.Fighter.Where(a => a.Id != StaticStuff.Fighter.Id).ToList();
                 FighterForMatch.Fighters = _fighters;
             }
 
@@ -35,12 +55,26 @@ namespace OOP_BIG_PROJECT.Controllers
             //}
             if (FighterForMatch.Fighters.Count != 0)
             {
-                Fighter selectedFighter = GetRandomFighter();
-                var viewModel = new FighterViewModel
+                if (FighterForMatch.Flag)
                 {
-                    SelectedFighter = selectedFighter
-                };
-                return View(viewModel);
+                    Fighter selectedFighter = GetRandomFighter();
+                    var viewModel = new FighterViewModel
+                    {
+                        SelectedFighter = selectedFighter
+                    };
+                    FighterForMatch.Flag = false;
+                    return View(viewModel);
+                }
+                else
+                {
+                    Fighter selectedFighter = GetRandomFighterCase2();
+                    var viewModel = new FighterViewModel
+                    {
+                        SelectedFighter = selectedFighter
+                    };
+                    FighterForMatch.Flag = false;
+                    return View(viewModel);
+                }
             }
             else
             {
@@ -68,6 +102,7 @@ namespace OOP_BIG_PROJECT.Controllers
                 likes.LikedFighterId = Likedfighter.Id;
                 likes.IsLiked = true;
                 _context.Likes.Add(likes);
+                FighterForMatch.Flag = true;
                 _context.SaveChanges();
             }
             
@@ -98,6 +133,7 @@ namespace OOP_BIG_PROJECT.Controllers
                 likes.LikedFighterId = Likedfighter.Id;
                 likes.IsLiked = false;
                 _context.Likes.Add(likes);
+                FighterForMatch.Flag = true;
                 _context.SaveChanges();
             }
 
@@ -113,10 +149,30 @@ namespace OOP_BIG_PROJECT.Controllers
             }
             else
             {
+                //var likedfighter = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
                 Random random = new Random();
                 int index = random.Next(fighters.Count);
                 Fighter selectedFighter = fighters[index];
+                //var likedfighter = _context.Fighter.FirstOrDefault(a => a.Id == selectedFighter.Id);
                 fighters.RemoveAt(index);
+                FighterForMatch.Fighters = fighters;
+                return selectedFighter;
+            }
+        }
+        private Fighter GetRandomFighterCase2()
+        {
+            var fighters = FighterForMatch.Fighters;
+            if (fighters.Count == 0)
+            {
+                return null;
+            }
+            else
+            {
+                //var likedfighter = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
+                Random random = new Random();
+                int index = random.Next(fighters.Count);
+                Fighter selectedFighter = fighters[index];
+                //var likedfighter = _context.Fighter.FirstOrDefault(a => a.Id == selectedFighter.Id);
                 FighterForMatch.Fighters = fighters;
                 return selectedFighter;
             }
