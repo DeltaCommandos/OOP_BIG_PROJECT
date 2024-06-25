@@ -10,7 +10,70 @@
             </svg>
          </button>
     </form>
- 
+    <div class="container">
+        <h2>Выберите до пяти тегов для фильтрации бойцов</h2>
+
+        <form asp-controller="Match" asp-action="SortedByTags" method="get">
+            <div class="form-group">
+                <label for="SelectedTag1">Тег 1:</label>
+                <select class="form-control" id="SelectedTag1" name="SelectedTag1">
+                    <option value="">Выберите тег...</option>
+                    @foreach (var tag in Model.AllTags)
+                    {
+                        <option value="@tag.Id">@tag.Name</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="SelectedTag2">Тег 2:</label>
+                <select class="form-control" id="SelectedTag2" name="SelectedTag2">
+                    <option value="">Выберите тег...</option>
+                    @foreach (var tag in Model.AllTags)
+                    {
+                        <option value="@tag.Id">@tag.Name</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="SelectedTag3">Тег 3:</label>
+                <select class="form-control" id="SelectedTag3" name="SelectedTag3">
+                    <option value="">Выберите тег...</option>
+                    @foreach (var tag in Model.AllTags)
+                    {
+                        <option value="@tag.Id">@tag.Name</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="SelectedTag4">Тег 4:</label>
+                <select class="form-control" id="SelectedTag4" name="SelectedTag4">
+                    <option value="">Выберите тег...</option>
+                    @foreach (var tag in Model.AllTags)
+                    {
+                        <option value="@tag.Id">@tag.Name</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="SelectedTag5">Тег 5:</label>
+                <select class="form-control" id="SelectedTag5" name="SelectedTag5">
+                    <option value="">Выберите тег...</option>
+                    @foreach (var tag in Model.AllTags)
+                    {
+                        <option value="@tag.Id">@tag.Name</option>
+                    }
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Применить фильтр</button>
+        </form>
+    </div>
+
+
     <form asp-action="Index" class="p-4 p-md-5 bg-body-tertiary">
         @if (Model.SelectedFighter.Age == -1000)
         {
