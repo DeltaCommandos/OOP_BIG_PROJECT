@@ -382,7 +382,14 @@ main form span {
     width:90%;
 }
 
+/*.bbbb {
+    margin-left: 25%;
+    text-align: center
+}*/
 
+.novsmesh{
+
+}
 
 .home1 {
     float: none;
@@ -393,10 +400,12 @@ main form span {
     position: center;
     width: 1000px;
     height: 1000px;
-    margin: 0 auto;
-    margin-left: -600px;
-    margin-top: 20px;
+    
+    margin-left: -35%;
+    margin-top: auto;
     color: white;
+    align-content: center;
+    text-align: center;
 }
 
 .home2 {
@@ -507,9 +516,15 @@ main form span {
     height: 675px;
     margin: 0 auto;
     margin-left: -160px;
-    margin-top: 50px;
+    margin-top: -50px;
     color: white;
 }
+
+
+.homeinfo{
+
+}
+
 
 /*       ::::    Прямоугольники - фоны для интерфейса     ::::::       */
 
