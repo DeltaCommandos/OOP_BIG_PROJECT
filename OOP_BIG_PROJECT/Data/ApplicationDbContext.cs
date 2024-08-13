@@ -16,7 +16,7 @@ namespace OOP_BIG_PROJECT.Data
         public DbSet<Tags> Tags { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=FightClub1;Username=postgres;Password=admin1488");
+            optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=FightClub1;Username=postgres;Password=GOOOOOOOOOOOOOOOOOOOL");
             // Федя - admin1488
             // Валера - GOOOOOOOOOOOOOOOOOOOL
             // Андрей - GOOOOOOOOOOOOOOOOOOOL

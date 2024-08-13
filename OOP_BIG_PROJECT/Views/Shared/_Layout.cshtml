@@ -4,35 +4,37 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Дуэлянт+</title>
+    <link rel="icon" type="image/x-icon" href="/логос1.png" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/OOP_BIG_PROJECT.styles.css" asp-append-version="true" />
 </head>
-<body>
+ <body>
+
 
     <header>
         <a href="/">
-            <img class="logo" src="https://i.ibb.co/wYqgFx9/duel11.png" alt="duel11" border="0" width="120" height="50">
+            @*             <img class="logo" src="https://i.ibb.co/wYqgFx9/duel11.png" alt="duel11" border="0" width="120" height="50">*@
+            <img src="https://i.ibb.co/j38Q9Mc/image.png" alt="image" border="0" width="120" height="50">
         </a>
 
     </header>
- 
 
+    
 
-
-
+   
 
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
-    @* <footer class="border-top footer text-muted">
+   
+@*     <footer class="border-top footer text-muted">
         <div class="container" , style="color:white">
             &copy; 2024 - ООО МОЯ ОБОРОНА
         </div>
-    </footer> *@
+    </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -41,5 +43,10 @@
     <footer>
 
     </footer>
+
+ *@
+
 </body>
-</html>
+
+
+ </html>
