@@ -9,107 +9,115 @@
 </header>
 
 <body> *@
-    <div class="home1">
-        <div class="container col-xl-10 col-xxl-8 px-4 py-5 novsmesh">
-            <div class="row  g-lg-5 py-5">
-                <div class="text-lg-start text-center bbbb">
-                    @*                 <img class="logo" src="https://i.ibb.co/wYqgFx9/duel11.png" alt="duel11" border="0" width="240" height="100">
-                    *@
-                <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3 text-center">
-                        Дуэлянт+
-                    </h1>
-                <p class="fs-4 text-center">
-                        Найди своего соперника!
-                    </p>
+<div class="home1">
+    <div class="container col-xl-10 col-xxl-8 px-4 py-5 novsmesh">
+        <div class="row  g-lg-5 py-5">
+            <div class="text-lg-start text-center bbbb">
+                @*                 <img class="logo" src="https://i.ibb.co/wYqgFx9/duel11.png" alt="duel11" border="0" width="240" height="100">
+                *@
+            <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3 text-center">
+                    Дуэлянт+
+                </h1>
+            <p class="fs-4 text-center">
+                    Найди своего соперника!
+                </p>
+            </div>
+
+            <nav>
+                <div class="d-inline-flex gap-2 mb-5">
+                    <a asp-controller="Home" asp-action="Register" class="d-inline-flex align-items-center btn btn-success btn-lg px-4 rounded-pill" type="button">
+                        Я новенький!
+                        <svg class="bi ms-2" width="15" height="24"><use xlink:href="#arrow-right-short"></use></svg>
+                    </a>
                 </div>
 
-                <nav>
-                    <div class="d-inline-flex gap-2 mb-5">
-                        <a asp-controller="Home" asp-action="Register" class="d-inline-flex align-items-center btn btn-success btn-lg px-4 rounded-pill" type="button">
-                            Я новенький!
-                            <svg class="bi ms-2" width="15" height="24"><use xlink:href="#arrow-right-short"></use></svg>
-                        </a>
-                    </div>
-
-                    <div class="d-inline-flex gap-2 mb-5">
-                        <a asp-controller="Home" asp-action="Login" class="d-inline-flex align-items-center btn btn-warning btn-lg px-4 rounded-pill" type="button">
-                            Я уже смешарик!
-                            <svg class="bi ms-2" width="15" height="24"><use xlink:href="#arrow-right-short"></use></svg>
-                        </a>
-                    </div>
-
-                </nav>
-
-            </div>
-        </div>
-
-        @*     <div class="p-5 text-center bg-body-tertiary rounded-3">
-
-
-        <p class="col-lg-8 mx-auto fs-5">
-
-        Найди своего соперника!
-        </p>
-        <hr class="my-4">
-
-        <div class="ArButs">
-        <div class="d-inline-flex gap-2 mb-5">
-        <a asp-controller="Home" asp-action="Register" class="d-inline-flex align-items-center btn btn-success btn-lg px-4 rounded-pill" type="button">
-        Я новенький!
-        <svg class="bi ms-2" width="24" height="24"><use xlink:href="#arrow-right-short"></use></svg>
-        </a>
-        <a asp-controller="Home" asp-action="Login" class="d-inline-flex align-items-center btn btn-warning btn-lg px-4 rounded-pill" type="button">
-        Я уже смешарик!
-        <svg class="bi ms-2" width="24" height="24"><use xlink:href="#arrow-right-short"></use></svg>
-        </a>
-        </div>
-
-        </div>
-        </div>
-        *@
-
-
-
-    <div class="container px-4 py-5 homeinfo" id="featured-3">
-        <h2 class="pb-2 border-bottom">Columns with icons</h2>
-        <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-            <div class="feature col">
-                <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-                    <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"></use></svg>
+                <div class="d-inline-flex gap-2 mb-5">
+                    <a asp-controller="Home" asp-action="Login" class="d-inline-flex align-items-center btn btn-warning btn-lg px-4 rounded-pill" type="button">
+                        Я уже смешарик!
+                        <svg class="bi ms-2" width="15" height="24"><use xlink:href="#arrow-right-short"></use></svg>
+                    </a>
                 </div>
-                <h3 class="fs-2 text-body-emphasis">Featured title</h3>
-                <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                <a href="#" class="icon-link">
-                    Call to action
-                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-                </a>
-            </div>
-            <div class="feature col">
-                <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-                    <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"></use></svg>
-                </div>
-                <h3 class="fs-2 text-body-emphasis">Featured title</h3>
-                <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                <a href="#" class="icon-link">
-                    Call to action
-                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-                </a>
-            </div>
-            <div class="feature col">
-                <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-                    <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
-                </div>
-                <h3 class="fs-2 text-body-emphasis">Featured title</h3>
-                <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-                <a href="#" class="icon-link">
-                    Call to action
-                    <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
-                </a>
-            </div>
+
+            </nav>
+
         </div>
     </div>
+
+    @*     <div class="p-5 text-center bg-body-tertiary rounded-3">
+
+
+    <p class="col-lg-8 mx-auto fs-5">
+
+    Найди своего соперника!
+    </p>
+    <hr class="my-4">
+
+    <div class="ArButs">
+    <div class="d-inline-flex gap-2 mb-5">
+    <a asp-controller="Home" asp-action="Register" class="d-inline-flex align-items-center btn btn-success btn-lg px-4 rounded-pill" type="button">
+    Я новенький!
+    <svg class="bi ms-2" width="24" height="24"><use xlink:href="#arrow-right-short"></use></svg>
+    </a>
+    <a asp-controller="Home" asp-action="Login" class="d-inline-flex align-items-center btn btn-warning btn-lg px-4 rounded-pill" type="button">
+    Я уже смешарик!
+    <svg class="bi ms-2" width="24" height="24"><use xlink:href="#arrow-right-short"></use></svg>
+    </a>
     </div>
 
+    </div>
+    </div>
+    *@
+
+
+
+    
+</div>
+
+
+<div class="container px-4 py-5 homeinfo" id="featured-3">
+    <h2 class="pb-2 border-bottom">Дуэлянт+ это</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        <div class="feature col">
+            <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary fs-2 mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                </svg>
+            </div>
+            <h3 class="fs-2 text-body-emphasis">Поиск соперника</h3>
+            <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+            <a href="#" class="icon-link">
+                Call to action
+                <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+            </a>
+        </div>
+        <div class="feature col">
+            <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary fs-2 mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-chat-dots-fill" viewBox="0 0 16 16">
+                    <path d="M16 8c0 3.866-3.582 7-8 7a9 9 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7M5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0m4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
+                </svg>
+            </div>
+            <h3 class="fs-2 text-body-emphasis">Общение</h3>
+            <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+            <a href="#" class="icon-link">
+                Call to action
+                <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+            </a>
+        </div>
+        <div class="feature col">
+            <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary fs-2 mb-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" class="bi bi-shield-shaded" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 14.933a1 1 0 0 0 .1-.025q.114-.034.294-.118c.24-.113.547-.29.893-.533a10.7 10.7 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.8 11.8 0 0 1-2.517 2.453 7 7 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7 7 0 0 1-1.048-.625 11.8 11.8 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 63 63 0 0 1 5.072.56" />
+                </svg>
+            </div>
+            <h3 class="fs-2 text-body-emphasis">Безопасность</h3>
+            <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
+            <a href="#" class="icon-link">
+                Call to action
+                <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
+            </a>
+        </div>
+    </div>
+</div>
 @* </body> *@
 
  
