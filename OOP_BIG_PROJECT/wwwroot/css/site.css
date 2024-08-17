@@ -197,7 +197,7 @@ main form span {
     border-width: thin;
     border-style: none;
     border-radius: 15px;
-    background: linear-gradient(#2d6b2f,#1f4d21);
+    background: linear-gradient(#2d6b2f,#0f3911);
     position: center;
     width: 450px;
     height: 450px;
@@ -230,8 +230,9 @@ main form span {
     border-width: thin;
     border-style: none;
     border-radius: 15px;
-    background: linear-gradient(#2d6b2f,#1f4d21);
-    position: center;
+    background: linear-gradient(#2d6b2f,#0f3911);
+    /*    background: linear-gradient(#2d6b2f,#1f4d21);
+*/ position: center;
     width: 450px;
     height: 500px;
     margin: 0 auto;

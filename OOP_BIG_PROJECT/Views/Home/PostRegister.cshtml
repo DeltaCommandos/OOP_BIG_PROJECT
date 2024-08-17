@@ -7,7 +7,7 @@
         <form asp-action="PostRegister" class="p-4 p-md-5 bg-body-tertiary">
             <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3 text-light">Введите личную информацию</h1>
 
-            <h2>Выбрать аватар</h2>
+@*             <h2>Выбрать аватар</h2>
             <p class="checkbox">
                 <input type="radio" value="1" checked name="AvatarId" /><img class="imgu" src="https://i.ibb.co/DD5Mkzn/image.png" alt="image" border="0" width="100" height="100">
             </p>
@@ -20,7 +20,7 @@
             <p class="checkbox">
                 <input type="radio" value="4" name="AvatarId" /><img class="imgu" src="https://i.ibb.co/gSZGqwn/image.png" alt="image" border="0" width="100" height="100">
             </p>
-
+ *@
             <h2>Возраст</h2>
             <small class="text-body-secondary">(Необязательно)</small>
             <div class="form-floating mb-3">
@@ -44,13 +44,101 @@
 
             <hr class="my-4">
 
-            <button class="w-100 btn btn-lg btn-warning" type="submit">Сохранить</button>
+            <h2>Выберите виды деятельности </h2>
+
+            <form asp-controller="Match" asp-action="SortedByTags" method="get">
+                <table>
+                    <tr>
+                        <th>Тег 1:</th>
+                        <th>Тег 2:</th>
+                        <th>Тег 3:</th>
+                        <th>Тег 4:</th>
+                        <th>Тег 5:</th>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <div class="form-group">
+                                <select class="form-control tagchos" id="TagId1" name="TagId1">
+                                    <option value="">Выберите тег...</option>
+                                    @foreach (var tag in Model.Tags)
+                                    {
+                                        <option value="@tag.Id">@tag.Name</option>
+                                    }
+                                </select>
+                            </div>
+
+                        </td>
+
+                        <td>
+                            <div class="form-group">
+                                <select class="form-control tagchos" id="TagId2" name="TagId2">
+                                    <option value="">Выберите тег...</option>
+                                    @foreach (var tag in Model.Tags)
+                                    {
+                                        <option value="@tag.Id">@tag.Name</option>
+                                    }
+                                </select>
+                            </div>
+
+                        </td>
+
+                        <td>
+                            <div class="form-group">
+                                <select class="form-control tagchos" id="TagId3" name="TagId3">
+                                    <option value="">Выберите тег...</option>
+                                    @foreach (var tag in Model.Tags)
+                                    {
+                                        <option value="@tag.Id">@tag.Name</option>
+                                    }
+                                </select>
+                            </div>
+
+
+                        </td>
+
+                        <td>
+                            <div class="form-group">
+                                <select class="form-control tagchos" id="TagId4" name="TagId4">
+                                    <option value="">Выберите тег...</option>
+                                    @foreach (var tag in Model.Tags)
+                                    {
+                                        <option value="@tag.Id">@tag.Name</option>
+                                    }
+                                </select>
+                            </div>
+
+                        </td>
+
+
+                        <td>
+
+                            <div class="form-group">
+                                <select class="form-control tagchos" id="TagId5" name="TagId5">
+                                    <option value="">Выберите тег...</option>
+                                    @foreach (var tag in Model.Tags)
+                                    {
+                                        <option value="@tag.Id">@tag.Name</option>
+                                    }
+                                </select>
+                            </div>
+                        </td>
+
+                    </tr>
+
+
+                </table>
+            </form>
+
+
 
             <hr class="my-4">
 
-            <h2>Выберите теги</h2>
+            <a asp-controller="Match" asp-action="Index" class="w-100 btn btn-lg btn-warning" type="submit">Сохранить</a>
+
             
 
+            
         </form>
     </div>
 </div>
