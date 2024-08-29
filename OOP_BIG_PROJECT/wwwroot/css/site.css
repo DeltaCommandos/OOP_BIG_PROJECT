@@ -4,8 +4,11 @@
 }
 
 body {
-    /*background: linear-gradient(#092211ff,#000);*/
-    background-image: url(https://i.ibb.co/NpsXZXj/image.png);
+    /*    background: #1e1e1e;
+*/ background: linear-gradient(#1e1e1e,#161616);
+    /*    background: linear-gradient(#1e1e1e, #006008);*/
+     background-image: url(https://i.ibb.co/NpsXZXj/image.png);
+ /**/
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -14,23 +17,35 @@ body {
     overflow-x: hidden
 }
 
+.neonTextG {
+    /*    color: #fff;
+*/ text-shadow:
+    /*       0 0 7px #fff, */
+    /*  0 0 10px #fff, */
+    0 0 21px #fff, 0 0 42px #52aa70, 0 0 82px #52aa70, 0 0 92px #52aa70, 0 0 102px #52aa70, 0 0 151px #52aa70;
+}
+
 
 
 
 header {
-    width: 100%;
+    width: 200%;
+    height: 100%;
     color: #6861ff;
     display: flex;
     align-items: center;
-    background: linear-gradient(#2d6b2f,#1f4d21);
+    /*margin-left: -730px;
+    margin-top: -115px;*/
+    /*background: #001501;*/
+    background: linear-gradient(#161616,#1e1e1e17);
 }
 
     header .logo {
-        /*margin-left: 5px;
-        */
+        margin-left: 150px;
         font-weight: 600;
         font-size: 25px;
-        background: linear-gradient(#2d6b2f,#1f4d21);
+        background: #000;
+        /*        background: linear-gradient(#2d6b2f,#1f4d21);*/
     }
 
 
@@ -59,6 +74,9 @@ main input:not([type="submit"]) {
 
 
 
+.tagchos{
+    width: 100%;
+}
 
 
 .boba {
@@ -132,10 +150,6 @@ main form span {
 
 
 
-.pashalko{
-    margin-top: 90%;
-}
-
 
 
 
@@ -158,19 +172,24 @@ main form span {
 
 
 
+.novsmesh{
+
+}
+
 .home1 {
     float: none;
     border-width: thin;
     border-style: none;
     border-radius: 15px;
-    background: linear-gradient(#2d6b2f,#1f4d21);
+    /*background: linear-gradient(#2d6b2f,#1f4d21);*/
     position: center;
-    width: 450px;
-    height: 400px;
-    margin: 0 auto;
-    margin-left: -30px;
-    margin-top: 50px;
+        
+    margin-left: -65%;
+    margin-top: auto;
     color: white;
+    align-content: center;
+    text-align: center;
+    padding: 10px;
 }
 
 .home2 {
@@ -178,7 +197,7 @@ main form span {
     border-width: thin;
     border-style: none;
     border-radius: 15px;
-    background: linear-gradient(#2d6b2f,#1f4d21);
+    background: linear-gradient(#2d6b2f,#0f3911);
     position: center;
     width: 450px;
     height: 450px;
@@ -189,13 +208,31 @@ main form span {
 }
 
 
+.homeinfo {
+    float: none;
+    border-width: thin;
+    border-style: none;
+    border-radius: 15px;
+    /*background: linear-gradient(#2d6b2f,#1f4d21);*/
+    position: center;
+    width: 1000px;
+    height: 1000px;
+    margin-left: -35%;
+    margin-top: -10%;
+    color: white;
+    align-content: center;
+    text-align: center;
+    padding: 10px;
+}
+
 .login1 {
     float: none;
     border-width: thin;
     border-style: none;
     border-radius: 15px;
-    background: linear-gradient(#2d6b2f,#1f4d21);
-    position: center;
+    background: linear-gradient(#2d6b2f,#0f3911);
+    /*    background: linear-gradient(#2d6b2f,#1f4d21);
+*/ position: center;
     width: 450px;
     height: 500px;
     margin: 0 auto;
@@ -281,9 +318,12 @@ main form span {
     height: 675px;
     margin: 0 auto;
     margin-left: -160px;
-    margin-top: 50px;
+    margin-top: -50px;
     color: white;
 }
+
+
+
 
 /*       ::::    Прямоугольники - фоны для интерфейса     ::::::       */
 
@@ -332,6 +372,37 @@ main form span {
     height: 50px;
 }
 */
+
+
+
+/*.content {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hidden-block {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;*/
+/*    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #f0f0f0;
+    margin: 50px;
+    border-radius: 10px;
+*//*}*/
+
+    /* Класс для активного состояния */
+    /*.hidden-block.active {
+        opacity: 1;
+        transform: translateY(0);
+    }*/
 
 
 
@@ -388,6 +459,72 @@ main form span {
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
 }
+
+
+
+
+
+
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.tag {
+    background-color: #5d9ecb;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+}
+
+    .tag span {
+        font-size: 14px;
+    }
+
+    .tag .remove-tag {
+        background-color: #444;
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 12px;
+        cursor: pointer;
+    }
+
+.search-container {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+    .search-container input {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        width: 200px;
+    }
+
+    .search-container button {
+        padding: 5px 10px;
+        border: none;
+        background-color: #5d9ecb;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
 
 
 
