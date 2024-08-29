@@ -45,7 +45,7 @@ header {
         font-weight: 600;
         font-size: 25px;
         background: #000;
-        /*        background: linear-gradient(#2d6b2f,#1f4d21);*/
+        /*        background: linear-gradient(#243720c7,#1e1e1ec7);*/
     }
 
 
@@ -103,7 +103,7 @@ main input:not([type="submit"]) {
 }
 
 .imgu {
-/*    background: linear-gradient(#2d6b2f,#1f4d21);
+/*    background: linear-gradient(#243720c7,#1e1e1ec7);
 */    float: none;
     border-width: thin;
     border-style: none;
@@ -129,7 +129,7 @@ main input:not([type="submit"]):focus {
         border-radius: 5px;
         border: 0;
         margin-top: 7px;
-        background: linear-gradient(#2d6b2f,#1f4d21);
+        background: linear-gradient(#243720c7,#1e1e1ec7);
         font-weight: bold;
         color: #72ff50;
         cursor: pointer;
@@ -230,9 +230,9 @@ main form span {
     border-width: thin;
     border-style: none;
     border-radius: 15px;
-    background: linear-gradient(#2d6b2f,#0f3911);
-    /*    background: linear-gradient(#2d6b2f,#1f4d21);
-*/ position: center;
+    /*    background: linear-gradient(#2d6b2f,#0f3911);*/
+    background: linear-gradient(#243720c7,#1e1e1ec7);
+    position: center;
     width: 450px;
     height: 500px;
     margin: 0 auto;
@@ -248,7 +248,7 @@ main form span {
     border-width: thin;
     border-style: none;
     border-radius: 15px;
-    background: linear-gradient(#2d6b2f,#1f4d21);
+    background: linear-gradient(#243720c7,#1e1e1ec7);
     position: center;
     width: 750px;
     height: 650px;
@@ -263,7 +263,7 @@ main form span {
     border-width: thin;
     border-style: none;
     border-radius: 15px;
-    background: linear-gradient(#2d6b2f,#1f4d21);
+    background: linear-gradient(#243720c7,#1e1e1ec7);
     position: center;
     width: 750px;
     height: 480px;
@@ -278,7 +278,7 @@ main form span {
     border-width: thin;
     border-style: none;
     border-radius: 15px;
-    background: linear-gradient(#2d6b2f,#1f4d21);
+    background: linear-gradient(#243720c7,#1e1e1ec7);
     position: center;
     width: 780px;
     height: 480px;
@@ -295,7 +295,7 @@ main form span {
     border-width: thin;
     border-style: none;
     border-radius: 15px;
-    background: linear-gradient(#2d6b2f,#1f4d21);
+    background: linear-gradient(#243720c7,#1e1e1ec7);
     position: center;
     width: 780px;
     height: 450px;
@@ -312,7 +312,7 @@ main form span {
     border-width: thin;
     border-style: none;
     border-radius: 15px;
-    background: linear-gradient(#2d6b2f,#1f4d21);
+    background: linear-gradient(#243720c7,#1e1e1ec7);
     position: center;
     width: 700px;
     height: 675px;
