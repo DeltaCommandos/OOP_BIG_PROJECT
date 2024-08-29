@@ -69,7 +69,7 @@ namespace OOP_BIG_PROJECT.Controllers
 							//RegisterViewModel fighterViewModel = new RegisterViewModel();
 							//fighterViewModel.Name = StaticStuff.Fighter.Name;
 							//TempData["FighterId"] = StaticStuff.Fighter.Id;
-							return RedirectToAction("Index", "Account");
+							return RedirectToAction("Index", "Match");
 						}
                         else
                         {
@@ -209,7 +209,7 @@ namespace OOP_BIG_PROJECT.Controllers
                     _context.SaveChanges();
 
                     TempData["Id"] = fighterToUpdate.Id;
-                    return RedirectToAction("Index", "Account");
+                    return RedirectToAction("Index", "Match");
 
                 }
             //}
