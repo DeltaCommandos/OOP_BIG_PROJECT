@@ -24,11 +24,11 @@ namespace OOP_BIG_PROJECT.Controllers
                 List<int> LikedFightersId = _context.Fighter.Where(a => a.Id != StaticStuff.Fighter.Id)
                                                             .Select(a => a.Id)
                                                             .ToList();
-                foreach(int LikedFighterId in LikedFightersId)
+                foreach (int LikedFighterId in LikedFightersId)
                 {
                     //List < Likes > CorrentFighter=_context.Likes.Where(a=>a.LikerId== StaticStuff.Fighter.Id).ToList();
                     // List<Likes> LikedFighter = _context.Likes.Where(a => a.LikerId == LikedFighterId).ToList();
-                    
+
                     bool Liker = _context.Likes.Any(l => (l.LikerId == LikedFighterId && l.LikedFighterId == StaticStuff.Fighter.Id));
                     bool liked = _context.Likes.Any(l => (l.LikerId == StaticStuff.Fighter.Id && l.LikedFighterId == LikedFighterId));
                     if (!(Liker && liked))
@@ -41,7 +41,7 @@ namespace OOP_BIG_PROJECT.Controllers
                     }
 
                 }
-               // _fighters = _context.Fighter.Where(a => a.Id != StaticStuff.Fighter.Id).ToList();
+                // _fighters = _context.Fighter.Where(a => a.Id != StaticStuff.Fighter.Id).ToList();
                 FighterForMatch.Fighters = _fighters;
             }
 
@@ -76,7 +76,7 @@ namespace OOP_BIG_PROJECT.Controllers
                         Fighter selectedFighter = GetRandomFighter();
                         var viewModel = new FighterViewModel
                         {
-                            AllTags=_context.Tags.ToList(),
+                            AllTags = _context.Tags.ToList(),
                             SelectedFighter = selectedFighter
                         };
                         FighterForMatch.Flag = false;
@@ -139,14 +139,14 @@ namespace OOP_BIG_PROJECT.Controllers
         public IActionResult SortedByTags(FighterViewModel A)
         {
             FighterForMatch.SortedFighters = FighterForMatch.Fighters;
-            List <int?> SelectedTagsId = new List<int?>();
+            List<int?> SelectedTagsId = new List<int?>();
             SelectedTagsId.Add(A.SelectedTag1);
             SelectedTagsId.Add(A.SelectedTag2);
             SelectedTagsId.Add(A.SelectedTag3);
             SelectedTagsId.Add(A.SelectedTag4);
             SelectedTagsId.Add(A.SelectedTag5);
-           
-            List<int?> NeededTagsId= SelectedTagsId.Where(a=>a!=null).ToList();
+
+            List<int?> NeededTagsId = SelectedTagsId.Where(a => a != null).ToList();
             int NumberOfTags = NeededTagsId.Count();
             if (NumberOfTags == 0)
             {
@@ -168,11 +168,11 @@ namespace OOP_BIG_PROJECT.Controllers
             {
                 int? selectedTagId = NeededTagsId[1];
                 FighterForMatch.SortedFighters = FighterForMatch.Fighters
-                        .Where(a => a.TagId1 ==  NeededTagsId[0] ||
-                                    a.TagId2 ==  NeededTagsId[0] ||
-                                    a.TagId3 ==  NeededTagsId[0] ||
-                                    a.TagId4 ==  NeededTagsId[0] ||
-                                    a.TagId5 ==  NeededTagsId[0])
+                        .Where(a => a.TagId1 == NeededTagsId[0] ||
+                                    a.TagId2 == NeededTagsId[0] ||
+                                    a.TagId3 == NeededTagsId[0] ||
+                                    a.TagId4 == NeededTagsId[0] ||
+                                    a.TagId5 == NeededTagsId[0])
                         .ToList();
                 FighterForMatch.SortedFighters = FighterForMatch.Fighters
                         .Where(a => a.TagId1 == selectedTagId ||
@@ -296,13 +296,13 @@ namespace OOP_BIG_PROJECT.Controllers
                 FighterForMatch.Flag = true;
                 _context.SaveChanges();
             }
-            
+
             return RedirectToAction("Index");
         }
         [HttpPost]
         public IActionResult Back()
         {
-           return RedirectToAction("Index", "Account");
+            return RedirectToAction("Index", "Account");
         }
         [HttpPost]
         public IActionResult Back1()
