@@ -10,5 +10,6 @@ namespace OOP_BIG_PROJECT.Models
         public int LikerId { get; set; }
         public int LikedFighterId { get; set; }
         public bool IsLiked { get; set; }
+        public bool LikerStatus { get; set; }=false;
     }
 }
