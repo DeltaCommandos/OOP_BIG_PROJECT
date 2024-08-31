@@ -79,6 +79,13 @@ main input:not([type="submit"]) {
 }
 
 
+.tagB {
+    height: 10px;
+    width: auto;
+}
+
+
+
 .boba {
     margin-top: 1%;
     margin-left: 1%;
@@ -197,6 +204,7 @@ main form span {
 .button1 {
     margin-top: 40px;
     text-align: center;
+
 }
     .button1 a {
         background-color: orange;

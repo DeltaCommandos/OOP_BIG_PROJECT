@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@* @model OOP_BIG_PROJECT.ViewModels.FighterViewModel
+ *@
+
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="utf-8" />
@@ -17,6 +20,13 @@
             @*             <img class="logo" src="https://i.ibb.co/wYqgFx9/duel11.png" alt="duel11" border="0" width="120" height="50">*@
             <img src="https://i.ibb.co/j38Q9Mc/image.png" alt="image" border="0" width="120" height="50">
         </a>
+@*         @if (Model.SelectedFighter != null)
+        {
+                <a asp-controller="Account" asp-action="AccountHome" class="d-inline-flex align-items-center btn btn-success btn-lg px-4 rounded-pill" type="button">
+
+                </a>
+        }
+ *@
 
     </header>
 
