@@ -12,5 +12,7 @@ namespace OOP_BIG_PROJECT.Models
         public static bool Status { get; set; }
         //public static AllFighterViewModel fightermodel { get; set; }
 
+
+
     }
 }

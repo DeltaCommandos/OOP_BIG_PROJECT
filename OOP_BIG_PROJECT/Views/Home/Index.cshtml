@@ -1,9 +1,10 @@
-﻿
+﻿@* @model OOP_BIG_PROJECT.ViewModels.FighterViewModel
+ *@
 
 
-<body>
 <div class="home1">
     <div class="container col-xl-10 col-xxl-8 px-4 py-5 novsmesh">
+
         <div class="row  g-lg-5 py-5">
             <div class="text-lg-start text-center bbbb">
                 @*                     <img src="https://i.ibb.co/j38Q9Mc/image.png" alt="image" border="0" width="120" height="50">
@@ -86,16 +87,17 @@
 
 @* <script src="site.js"></script> *@
 
-<div>
-
-</div>
-
-</body> 
-
- 
  @* <div class="pashalko">
     <a asp-controller="Home" asp-action="Privacy" type="button">
         _
     </a>
 
 </div> *@
+
+
+<script>
+    StaticStuff.ReciverId = null;
+    StaticStuff.Fighter = null;
+    StaticStuff.Admin = null;
+    StaticStuff.Status = false;
+</script>
