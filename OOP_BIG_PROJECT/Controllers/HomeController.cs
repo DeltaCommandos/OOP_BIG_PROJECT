@@ -23,6 +23,7 @@ namespace OOP_BIG_PROJECT.Controllers
         public IActionResult Index()
         {
             var response = new UserViewModel();
+            StaticStuff.Fighter = null;
             return View(response);
         }
         [HttpGet]

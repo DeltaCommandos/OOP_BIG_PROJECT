@@ -8,16 +8,17 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/OOP_BIG_PROJECT.styles.css" asp-append-version="true" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <header>
-        <a href="/">
-            <img src="https://i.ibb.co/j38Q9Mc/image.png" alt="image" border="0" width="120" height="50" onclick="return false;">
+        <a href="/" id="homeButton">
+            <img src="https://i.ibb.co/j38Q9Mc/image.png" alt="image" border="0" width="120" height="50">
         </a>
 
         @if (StaticStuff.Fighter != null)
         {
-            <a asp-controller="Account" asp-action="AccountHome" class="d-inline-flex align-items-center btn btn-lg px-4 rounded-pill text-white" type="button">
+            <a asp-controller="Account" asp-action="AccountHome" class="d-inline-flex align-items-center btn btn-lg px-4 rounded-pill text-white" type="button" id="accountButton">
                 <div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                         <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
@@ -35,5 +36,23 @@
         </main>
     </div>
 
+    <script>
+        // Проверка состояния пользователя на сервере
+        $(document).ready(function () {
+            // Если пользователь авторизован, показываем кнопку 2
+            var isAuthenticated = @StaticStuff.Fighter != null ? true : false;
+
+            if (isAuthenticated) {
+                $('#accountButton').show();
+            } else {
+                $('#accountButton').hide();
+            }
+
+            // Когда нажимаем на кнопку 1, скрываем кнопку 2
+            $('#homeButton').on('click', function () {
+                $('#accountButton').hide();
+            });
+        });
+    </script>
 </body>
 </html>
