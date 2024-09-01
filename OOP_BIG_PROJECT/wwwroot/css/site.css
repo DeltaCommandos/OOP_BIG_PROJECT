@@ -8,7 +8,7 @@ body {
 */ background: linear-gradient(#1e1e1e,#161616);
     /*    background: linear-gradient(#1e1e1e, #006008);*/
      background-image: url(https://i.ibb.co/NpsXZXj/image.png);
- /**/
+    width: 100%;
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
@@ -29,11 +29,11 @@ body {
 
 
 header {
-    width: 200%;
-    height: 100%;
-    color: #6861ff;
-    display: flex;
-    align-items: center;
+    width: 285%;
+    /*height: 100%;*/
+    color: #fff;
+    /*display: flex;
+    align-items: center;*/
     /*margin-left: -730px;
     margin-top: -115px;*/
     /*background: #001501;*/
@@ -41,19 +41,33 @@ header {
 }
 
     header .logo {
-        margin-left: 150px;
+        /*padding: 5px;*/
+        margin-top: 5px;
+        margin-left: 5px;
+        width: 10%
+        /*margin-left: 150px;
         font-weight: 600;
         font-size: 25px;
-        background: #000;
+        background: #000;*/
         /*        background: linear-gradient(#243720c7,#1e1e1ec7);*/
     }
 
+    header .avaMini {
+/*        margin-top: 25px;
+*/        color: aliceblue;
+        /*Text-align: right;
+    float: right;*/
+        /*margin-right: -100%;*/
+    }
 
 header .mainer{
     margin-left: 100px;
 }
 
-
+.avaMax{
+/*    background-color:floralwhite;
+*/
+}
 
 main {
     width: 145%;
@@ -89,7 +103,7 @@ main input:not([type="submit"]) {
 .boba {
     margin-top: 1%;
     margin-left: 1%;
-    background: #2d6b2f;
+    background: none;
     border-width: thin;
     border-style: none;
     border-radius: 30px;
@@ -288,13 +302,15 @@ pop_up_body {
 
 
 
-        .home1 {
-    float: none;
+.home1 {
+    display: block;
+    margin: 0 auto;
+/**/    /*float: inline-start;*/
     border-width: thin;
     border-style: none;
     border-radius: 15px;
-    /*background: linear-gradient(#2d6b2f,#1f4d21);*/
-    position: center;
+/*    background: linear-gradient(#2d6b2f,#1f4d21);
+*/    position: center;
     display: flex;
     margin-left: -65%;
     margin-top: auto;
