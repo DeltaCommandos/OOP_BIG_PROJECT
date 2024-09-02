@@ -409,7 +409,7 @@ pop_up_body {
     background: linear-gradient(#243720c7,#1e1e1ec7);
     position: center;
     width: 780px;
-    height: 480px;
+    height: 500px;
     margin: 0 auto;
     margin-left: -160px;
     margin-top: 50px;
@@ -434,6 +434,10 @@ pop_up_body {
     color: white;
 }
 
+.skills{
+    width: 100%;
+    height: 100%;
+}
 
 .tinder1 {
     float: none;
