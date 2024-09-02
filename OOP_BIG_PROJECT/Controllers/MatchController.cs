@@ -21,19 +21,51 @@ namespace OOP_BIG_PROJECT.Controllers
             if (FighterForMatch.Fighters == null)
             {
                 _fighters = new List<Fighter>();
-                List<int> LikedFightersId = _context.Fighter.Where(a => a.Id != StaticStuff.Fighter.Id)
-                                                            .Select(a => a.Id)
-                                                            .ToList();
-                foreach (int LikedFighterId in LikedFightersId)
+                List<int> LikedFightersId = _context.Fighter.Where(a => a.Id != (StaticStuff.Fighter.Id)).Select(a => a.Id).ToList();
+                List<int> WBLikedFightersId=new List<int>();
+                List<int> BannedByCurrentFigher = _context.BansForFighters.Where(a => a.Banner == StaticStuff.Fighter.Id).Select(a => a.Banned).ToList();
+                List<int> BannedCurrentFigher = _context.BansForFighters.Where(a => a.Banned == StaticStuff.Fighter.Id).Select(a => a.Banner).ToList();
+                bool WBProverka;
+                if (BannedByCurrentFigher.Count != 0 && BannedCurrentFigher.Count != 0)
+                {
+                    foreach (int LikedFighterId in LikedFightersId)
+                    {
+                        foreach (int bannedByCurrentFigher in BannedByCurrentFigher)
+                        {
+                            foreach (int bannedCurrentFigher in BannedCurrentFigher)
+                            {
+                                //bool WBLikedFighterId = _context.Fighter.Any(l => l.Id == bannedByCurrentFigher || l.Id == bannedCurrentFigher);
+                                if ((LikedFighterId == bannedByCurrentFigher) || (LikedFighterId == bannedCurrentFigher))
+                                {
+                                    WBProverka = true;
+                                }
+                                else
+                                {
+                                    WBProverka = false;
+                                }
+                                if (!WBProverka)
+                                {
+                                    WBLikedFightersId.Add(LikedFighterId);
+                                }
+                            }
+                        }
+                        //int WBLikedFighterId
+                    }
+                }
+                else
+                {
+                    WBLikedFightersId = LikedFightersId;
+                }
+                    foreach (int WBLikedFighterId in WBLikedFightersId)
                 {
                     //List < Likes > CorrentFighter=_context.Likes.Where(a=>a.LikerId== StaticStuff.Fighter.Id).ToList();
                     // List<Likes> LikedFighter = _context.Likes.Where(a => a.LikerId == LikedFighterId).ToList();
 
-                    bool Liker = _context.Likes.Any(l => (l.LikerId == LikedFighterId && l.LikedFighterId == StaticStuff.Fighter.Id));
-                    bool liked = _context.Likes.Any(l => (l.LikerId == StaticStuff.Fighter.Id && l.LikedFighterId == LikedFighterId));
+                    bool Liker = _context.Likes.Any(l => (l.LikerId == WBLikedFighterId && l.LikedFighterId == StaticStuff.Fighter.Id));
+                    bool liked = _context.Likes.Any(l => (l.LikerId == StaticStuff.Fighter.Id && l.LikedFighterId == WBLikedFighterId));
                     if (!(Liker && liked))
                     {
-                        var LikedFighter = _context.Fighter.FirstOrDefault(a => a.Id == LikedFighterId);
+                        var LikedFighter = _context.Fighter.FirstOrDefault(a => a.Id == WBLikedFighterId);
                         if (LikedFighter != null)
                         {
                             _fighters.Add(LikedFighter);

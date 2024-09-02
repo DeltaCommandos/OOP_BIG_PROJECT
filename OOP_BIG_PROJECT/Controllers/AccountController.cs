@@ -8,6 +8,7 @@ using OOP_BIG_PROJECT.Data;
 using System.Collections.Generic;
 using System.Linq;
 using NuGet.Protocol.Plugins;
+using Microsoft.DotNet.Scaffolding.Shared.Messaging;
 namespace OOP_BIG_PROJECT.Controllers
 {
     //кнопку "начать поиск". аву в углу сделать. рядом с ней изменить фото. сделать изменить увлечения. меню с предстоящими боями. 
@@ -313,11 +314,64 @@ namespace OOP_BIG_PROJECT.Controllers
         {
             return RedirectToAction("ChatView", new { receiverId = receiverId });
         }
+        [HttpPost]
+        public IActionResult DeleteChat(int receiverId)
+        {
+            //List <int> receiverlikesid=_context.Likes.Where(l=>l.LikerId== receiverId && l.LikedFighterId==StaticStuff.Fighter.Id).Select(l=>l.Id).ToList();
+            //List < int> senderlikesid= _context.Likes.Where(l => l.LikerId == StaticStuff.Fighter.Id && l.LikedFighterId == receiverId).Select(l => l.Id).ToList();
+            //foreach(int receiverlikeid in receiverlikesid)
+            //{
+            //   Likes receiverlike=new Likes();
+            //    receiverlike = _context.Likes.FirstOrDefault(a => a.Id == receiverlikeid);
+            //    _context.Remove(receiverlike);
+
+            //}
+            List<Likes> receiverlikes = _context.Likes.Where(l => l.LikerId == receiverId && l.LikedFighterId == StaticStuff.Fighter.Id).ToList();
+            List<Likes> senderlikes = _context.Likes.Where(l => l.LikerId == StaticStuff.Fighter.Id && l.LikedFighterId == receiverId).ToList();
+            List<Messages> receiverMessages = _context.Messages.Where(l => l.SenderId == receiverId && l.ReceiverId == StaticStuff.Fighter.Id).ToList();
+            List<Messages> senderMessages = _context.Messages.Where(l => l.SenderId == StaticStuff.Fighter.Id && l.ReceiverId == receiverId).ToList();
+            _context.RemoveRange(receiverlikes);
+            _context.RemoveRange(senderlikes);
+            _context.RemoveRange(receiverMessages);
+            _context.RemoveRange(senderMessages);
+            _context.SaveChanges();
+            return RedirectToAction("ViewMatches");
+        }
+        public IActionResult BanChat(int receiverId)
+        {
+            //List <int> receiverlikesid=_context.Likes.Where(l=>l.LikerId== receiverId && l.LikedFighterId==StaticStuff.Fighter.Id).Select(l=>l.Id).ToList();
+            //List < int> senderlikesid= _context.Likes.Where(l => l.LikerId == StaticStuff.Fighter.Id && l.LikedFighterId == receiverId).Select(l => l.Id).ToList();
+            //foreach(int receiverlikeid in receiverlikesid)
+            //{
+            //   Likes receiverlike=new Likes();
+            //    receiverlike = _context.Likes.FirstOrDefault(a => a.Id == receiverlikeid);
+            //    _context.Remove(receiverlike);
+
+            //}
+            int BannerId = StaticStuff.Fighter.Id;
+            int BannedId = receiverId;
+            BansForFighters Ban = new BansForFighters
+            {
+                Banner = BannerId,
+                Banned = BannedId
+            }
+            ;
+            List<Likes> receiverlikes = _context.Likes.Where(l => l.LikerId == receiverId && l.LikedFighterId == StaticStuff.Fighter.Id).ToList();
+            List<Likes> senderlikes = _context.Likes.Where(l => l.LikerId == StaticStuff.Fighter.Id && l.LikedFighterId == receiverId).ToList();
+            List<Messages> receiverMessages = _context.Messages.Where(l => l.SenderId == receiverId && l.ReceiverId == StaticStuff.Fighter.Id).ToList();
+            List<Messages> senderMessages = _context.Messages.Where(l => l.SenderId == StaticStuff.Fighter.Id && l.ReceiverId == receiverId).ToList();
+            _context.RemoveRange(receiverlikes);
+            _context.RemoveRange(senderlikes);
+            _context.RemoveRange(receiverMessages);
+            _context.RemoveRange(senderMessages);
+            _context.SaveChanges();
+            return RedirectToAction("ViewMatches");
+        }
         [HttpGet]
         public IActionResult ChatView(int receiverId)
         {
             var Sender = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
-            var Receiver = _context.Fighter.FirstOrDefault(a => a.Id == receiverId);
+            var Receiver = _context.Fighter.FirstOrDefault(a => a.Id == receiverId); 
             var response = new ChatViewModel
             {
 

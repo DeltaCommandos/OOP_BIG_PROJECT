@@ -67,6 +67,18 @@
                             <button type="submit" class="btn btn-primary" class="d-inline-flex align-items-center btn btn-lg px-4 rounded-pill btn-success">Открыть чат </button>
                         </form>
                     </td>
+                    <td>
+                        <form asp-controller="Account" asp-action="DeleteChat" method="post">
+                            <input type="hidden" name="receiverId" value="@pair.Item2.Id" />
+                            <button type="submit" class="btn btn-primary" class="d-inline-flex align-items-center btn btn-lg px-4 rounded-pill btn-success">Удалить чат </button>
+                        </form>
+                    </td>
+                    <td>
+                        <form asp-controller="Account" asp-action="BanChat" method="post">
+                            <input type="hidden" name="receiverId" value="@pair.Item2.Id" />
+                            <button type="submit" class="btn btn-primary" class="d-inline-flex align-items-center btn btn-lg px-4 rounded-pill btn-success">Заблокировать бойца </button>
+                        </form>
+                    </td>
                 </tr>
             }
 

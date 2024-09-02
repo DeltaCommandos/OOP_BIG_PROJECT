@@ -123,7 +123,7 @@ namespace OOP_BIG_PROJECT.Controllers
                     OverLike.LikerStatus = true;
                     _context.Likes.Update(OverLike);
                 }
-                FighterForMatch.Flag = true;
+                //FighterForMatch.Flag = true;
                 _context.SaveChanges();
             }
 
