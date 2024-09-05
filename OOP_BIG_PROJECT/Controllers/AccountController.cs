@@ -360,6 +360,7 @@ namespace OOP_BIG_PROJECT.Controllers
             List<Likes> senderlikes = _context.Likes.Where(l => l.LikerId == StaticStuff.Fighter.Id && l.LikedFighterId == receiverId).ToList();
             List<Messages> receiverMessages = _context.Messages.Where(l => l.SenderId == receiverId && l.ReceiverId == StaticStuff.Fighter.Id).ToList();
             List<Messages> senderMessages = _context.Messages.Where(l => l.SenderId == StaticStuff.Fighter.Id && l.ReceiverId == receiverId).ToList();
+            _context.BansForFighters.Add(Ban);
             _context.RemoveRange(receiverlikes);
             _context.RemoveRange(senderlikes);
             _context.RemoveRange(receiverMessages);
