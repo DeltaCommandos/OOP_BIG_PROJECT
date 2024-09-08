@@ -428,8 +428,17 @@ namespace OOP_BIG_PROJECT.Controllers
                     sortedfighters.RemoveAt(index);
                 }
                 //FighterForMatch.Fighters = fighters;
-                FighterForMatch.SortedFighters = sortedfighters;
-                return selectedFighter;
+                if (sortedfighters.Count != 0)
+                {
+                    FighterForMatch.SortedFighters = sortedfighters;
+                    return selectedFighter;
+                }
+                else
+                {
+                    selectedFighter = new Fighter();
+                    selectedFighter.Age = -1000;
+                    return selectedFighter;
+                }
             }
         }
         private Fighter GetRandomSortedFighterCase2()
