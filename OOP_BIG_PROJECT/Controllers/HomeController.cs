@@ -54,7 +54,7 @@ namespace OOP_BIG_PROJECT.Controllers
                         {
                             StaticStuff.Admin = admin;
                             //Добавить переход на аккаунт админа
-                            return RedirectToAction("Admin", "Account");
+                            return RedirectToAction("Index","Admin");
                         }
                         else
                         {

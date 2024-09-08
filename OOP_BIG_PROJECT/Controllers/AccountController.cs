@@ -76,25 +76,7 @@ namespace OOP_BIG_PROJECT.Controllers
             var response = new FighterViewModel();
             return View(response);
         }
-        [HttpPost]
-        public IActionResult MakeTag(TagsViewModel A)
-        {
-            //Tags tag = _context.Tags.FirstOrDefault(a => a.Id == A.Id);
-            List<Tags> accounts = _context.Tags.Where<Tags>(a => a.Name == A.Name).ToList();
-            if (accounts.Count != 0)
-            {
-                A.IsTagExisting = true;
-                return View(A); // Возвращаем представление с сообщением об ошибке
-            }
-            else
-            {
-                _context.Tags.Add(new Tags { Name = A.Name, Description = A.Description });
-                _context.SaveChanges();
-                return RedirectToAction("Admin");
-            }
-
-            return View(A);
-        }
+       
 
 
         [HttpGet]
@@ -257,7 +239,6 @@ namespace OOP_BIG_PROJECT.Controllers
             Fighter fighterToUpdate = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
             if (fighterToUpdate == null)
             {
-
                 return View(A);
             }
             else
