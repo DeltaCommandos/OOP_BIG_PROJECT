@@ -23,6 +23,9 @@
                 {
                     <div><strong>@Model.ReceiverName:</strong> @message.Content</div>
                 }
+                <div class="timestamp">
+                    <small>@message.Timestamp?.ToString("dd.MM.yyyy HH:mm")</small>
+                </div>
             </div>
         }
     </div>

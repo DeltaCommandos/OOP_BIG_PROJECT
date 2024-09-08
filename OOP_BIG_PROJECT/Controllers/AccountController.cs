@@ -407,7 +407,7 @@ namespace OOP_BIG_PROJECT.Controllers
                     {
                         SenderId = Sender.Id,
                         ReceiverId = Receiver.Id,
-                        Content = A.Content
+                        Content = A.Content,
                     };
 
                     _context.Messages.Add(chatMessage);
@@ -419,11 +419,20 @@ namespace OOP_BIG_PROJECT.Controllers
                         SenderId = Sender.Id,
                         ReceiverId = Receiver.Id,
                         Content = A.Content,
-                        //Timestamp = DateTime.Now // Добавляем временную метку сообщения
+                        Timestamp = DateTime.UtcNow // Добавляем временную метку сообщения
                     };
 
                     _context.Messages.Add(chatMessage);
                 }
+                //Messages chatMessage = new Messages
+                //{
+                //    SenderId = Sender.Id,
+                //    ReceiverId = Receiver.Id,
+                //    Content = A.Content,
+                //    Timestamp = DateTime.UtcNow // Добавляем временную метку сообщения
+                //};
+
+                //_context.Messages.Add(chatMessage);
 
                 // Подготавливаем модель представления для отображения чата
                 ChatViewModel viewModel = new ChatViewModel
