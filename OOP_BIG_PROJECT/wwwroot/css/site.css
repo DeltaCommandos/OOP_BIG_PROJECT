@@ -181,6 +181,7 @@ main form span {
 
 .txer {
     margin-top: 5%;
+    text-align: center;
 }
 
 .tabler {
@@ -191,27 +192,7 @@ main form span {
     width:90%;
 }
 
-/*
-#popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: none;
-}
 
-#popup {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}*/
 
 
 
@@ -229,73 +210,50 @@ main form span {
         font-weight: 500;
     }
 
-pop_up {
-    width: 180%;
-    height: 100%;
+
+
+
+
+
+
+.pop_up {
+    display: none;
     position: fixed;
-    left: 0;
     top: 0;
-    background-color: rgba(0, 0, 0, .8);
-    z-index: 2;
-}
-
-pop_up
-
-pop_up_container {
-    display: flex;
+    left: 0;
     width: 100%;
     height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
 }
 
-pop_up_body {
-    margin: auto;
-    width: 500px;
-    background-color: #fff;
-    border-radius: 16px;
-    text-align: center;
-    padding: 108px 15px 110px 15px;
-    position: relative;
-}
-
-pop_up_close {
+.pop_up_container {
+    color: white;
     position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 21px;
-    cursor: pointer;
-}
-
-pop_up_body {
-    margin: auto;
-    width: 500px;
-    background-color: #fff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(#1b321c,#181b18);
+    padding: 20px;
     border-radius: 10px;
-    text-align: center;
-    padding: 100px 15px 110px 15px;
-    position: relative;
+    width: 80%;
+    max-width: 600px;
 }
 
-    pop_up_body p{
-        font-size: 28px;
-        font-family: Montserrat;
-        font-weight: 600;
-        color: @#22262D;
-        margin-bottom: 48px;
-    }
 
-    pop_up_body input {
-        display: block;
-        margin: 25px auto 0px auto;
-        width: 330px;
-        padding: 17px 20px;
-        background-color: #E5E5E5;
-        border-radius: 10px;
-        border: none;
-        font-family: Montserrat;
-        font-weight: 500;
-        font-size: 18px;
-        color: #89909F;
-    }
+.button2 {
+    color: aliceblue;
+    position: absolute; /* Абсолютное позиционирование относительно блока .tinder1 */
+    top: 10px; /* Расстояние от верхнего края блока .tinder1 */
+    right: 10px; /* Расстояние от правого края блока .tinder1 */
+}
+
+.crossButton {
+    color: aliceblue;
+    position: absolute; /* Абсолютное позиционирование относительно блока .tinder1 */
+    top: 10px; /* Расстояние от верхнего края блока .tinder1 */
+    right: 10px; /* Расстояние от правого края блока .tinder1 */
+}
 
 
 
@@ -452,9 +410,60 @@ pop_up_body {
     margin-left: -160px;
     margin-top: -50px;
     color: white;
+    position: relative;
+}
+
+.chat1 {
+    float: none;
+    border-width: thin;
+    border-style: none;
+    border-radius: 15px;
+    background: linear-gradient(#243720c7,#1e1e1ec7);
+    position: center;
+    width: 600px;
+    height: 100vh; /* This ensures it takes up the full viewport height */
+    margin: 0 auto;
+    margin-left: -160px;
+    margin-top: -50px;
+    color: white;
+    display: flex;
+    flex-direction: column;
 }
 
 
+
+.messages.tabler {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-bottom: 10px;
+}
+
+.chat-form {
+    display: flex;
+    padding: 10px 0;
+    background-color: #f8f9fa; /* You can adjust the background color */
+}
+
+.form-group {
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+textarea {
+    flex-grow: 1;
+    margin-right: 10px;
+    resize: none;
+    padding: 10px;
+}
+
+.chatButton {
+    background-color: #007bff; /* Customize the button color */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
 
 
 /*       ::::    Прямоугольники - фоны для интерфейса     ::::::       */

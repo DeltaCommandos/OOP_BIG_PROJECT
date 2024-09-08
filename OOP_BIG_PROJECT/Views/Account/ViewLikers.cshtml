@@ -1,14 +1,6 @@
 ﻿@model OOP_BIG_PROJECT.ViewModels.FighterViewModel
 
 
-@* <form asp-action="Back" method="post">
-    <button type="submit" class="btn btn-primary">
-        <svg xmlns="http://www.w3.org/2000/svg" width="46" height="36" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
-        </svg>
-    </button>
-</form> *@
-
 
 <div class="tabler1">
     <form asp-controller="Match" asp-action="Back" method="post">
@@ -20,7 +12,7 @@
     </form>
 
 
-    <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3 text-center txer">Мои взаимные симпатии</h1>
+    <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3 text-center txer">Кому же вы понравились?</h1>
 
     <table class="table tabler text-center" style="color:white">
         <thead>
@@ -43,7 +35,7 @@
                 </th>
                 <th>
                     Возраст
-                    </th>
+                </th>
                 <th>
                     Описание
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-text-center" viewBox="0 0 16 16">
@@ -68,7 +60,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-dots-fill" viewBox="0 0 16 16">
                                     <path d="M16 8c0 3.866-3.582 7-8 7a9 9 0 0 1-2.347-.306c-.584.296-1.925.864-4.181 1.234-.2.032-.352-.176-.273-.362.354-.836.674-1.95.77-2.966C.744 11.37 0 9.76 0 8c0-3.866 3.582-7 8-7s8 3.134 8 7M5 8a1 1 0 1 0-2 0 1 1 0 0 0 2 0m4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2" />
                                 </svg>
-                                </button>
+                            </button>
                         </form>
                     </td>
                     <td>
@@ -94,7 +86,7 @@
                 </tr>
             }
 
-            
+
 
         </tbody>
     </table>

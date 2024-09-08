@@ -1,5 +1,4 @@
 ﻿@model OOP_BIG_PROJECT.ViewModels.RegisterViewModel
-@* @model IEnumerable<OOP_BIG_PROJECT.ViewModels.RegisterViewModel> *@
 
 
 <div class="fighter1">
@@ -7,23 +6,9 @@
         <form asp-action="PostRegister" class="p-4 p-md-5 bg-body-tertiary">
             <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3 text-light">Введите личную информацию</h1>
 
-@*             <h2>Выбрать аватар</h2>
-            <p class="checkbox">
-                <input type="radio" value="1" checked name="AvatarId" /><img class="imgu" src="https://i.ibb.co/DD5Mkzn/image.png" alt="image" border="0" width="100" height="100">
-            </p>
-            <p class="checkbox">
-                <input type="radio" value="2" name="AvatarId" /><img class="imgu" src="https://i.ibb.co/hD3b1mx/image.png" alt="image" border="0" width="100" height="100">
-            </p>
-            <p class="checkbox">
-                <input type="radio" value="3" name="AvatarId" /><img class="imgu" src="https://i.ibb.co/zNf6Hd8/image.png" alt="image" border="0" width="100" height="100">
-            </p>
-            <p class="checkbox">
-                <input type="radio" value="4" name="AvatarId" /><img class="imgu" src="https://i.ibb.co/gSZGqwn/image.png" alt="image" border="0" width="100" height="100">
-            </p>
- *@
+
             <h2>Возраст</h2>
-@*             <small class="text-body-secondary">(Необязательно)</small>
- *@            <div class="form-floating mb-3 ">
+            <div class="form-floating mb-3 ">
                 <input type="number" min="14" max="999" class="form-control" id="floatingInput" asp-for="Age">
             </div>
 
@@ -36,13 +21,46 @@
             </p>
 
             <h2>Описание</h2>
-@*             <small class="text-body-secondary">(Необязательно, но прикрепите ссылку на соцсеть, чтобы с вами могли связаться)</small>
- *@
+ 
             <div class="form-floating mb-3 skills">
                 <input type="text" class="form-control" id="floatingInput" asp-for="Skills">
             </div>
 
-                      
+
+            <h2>Теги, по которым вас можно будет найти</h2>
+            <div class="chooseTags">
+                <div class="form-group">
+                    <label for="TagId1">Тег 1</label>
+                    <select asp-for="TagId1" asp-items="Model.AvailableTags" class="form-control">
+                        <option value="">Выберите тег</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="TagId2">Тег 2</label>
+                    <select asp-for="TagId2" asp-items="Model.AvailableTags" class="form-control">
+                        <option value="">Выберите тег</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="TagId3">Тег 3</label>
+                    <select asp-for="TagId3" asp-items="Model.AvailableTags" class="form-control">
+                        <option value="">Выберите тег</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="TagId4">Тег 4</label>
+                    <select asp-for="TagId4" asp-items="Model.AvailableTags" class="form-control">
+                        <option value="">Выберите тег</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="TagId5">Тег 5</label>
+                    <select asp-for="TagId5" asp-items="Model.AvailableTags" class="form-control">
+                        <option value="">Выберите тег</option>
+                    </select>
+                </div>
+            </div>
+
 
 
             <hr class="my-4">

@@ -3,7 +3,6 @@
 
 
 
-
 <div class="pop_up" id="pop_up">
     <div class="pop_up_container">
         <div class="pop_up_body" id="pop_up_body">
@@ -92,27 +91,28 @@
 
 
                     </table>
-                    <button type="submit" class="btn btn-primary pop_up_close" id="pop_up_close">Применить фильтр</button>
                 </form>
+
+                <button type="submit" class="btn btn-primary" id="pop_up_close">Применить фильтр</button>
+                <button class="crossButton" id="pop_up_cancel">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                        <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+                    </svg>
+                </button>
             </div>
-
-
         </div>
     </div>
 </div>
-<script src="js/site.js"></script>
+
+
 <div class="tinder1">
-    @* <form asp-controller="Match" asp-action="Back" method="post">
-        <button type="submit" name="fighterId" value="@Model.SelectedFighter.Id" class="boba">
-            <svg xmlns="http://www.w3.org/2000/svg" width="46" height="36" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16" style="color:white">
-                <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
+    
+    <div>
+        <a href="#" class="button2" id="open_pop_up">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3" />
             </svg>
-         </button>
-    </form> *@
-
-
-    <div class="button1">
-        <a href="#" id="ореп_рор_up">Выбор бойцов</a>
+        </a>
     </div>
 
 
@@ -235,6 +235,26 @@
     </div>
 </div>
 
-@* <script>
-    @Model.IsLoggedIn = true;
-</script> *@
+<script>
+    // Получаем элементы popup и кнопки
+    const openPopUpButton = document.getElementById('open_pop_up');
+    const popUp = document.getElementById('pop_up');
+    const closePopUpButton = document.getElementById('pop_up_close');
+    const cancelPopUpButton = document.getElementById('pop_up_cancel');
+
+    // Открываем popup при нажатии на кнопку
+    openPopUpButton.addEventListener('click', function (event) {
+        event.preventDefault();  // Отключаем стандартное поведение ссылки
+        popUp.style.display = 'block';  // Показываем popup
+    });
+
+    // Закрываем popup при нажатии на кнопку закрытия
+    closePopUpButton.addEventListener('click', function () {
+        popUp.style.display = 'none';  // Скрываем popup
+    });
+
+    // Закрываем popup при нажатии на кнопку отмены
+    cancelPopUpButton.addEventListener('click', function () {
+        popUp.style.display = 'none';  // Скрываем popup
+    });
+</script>
