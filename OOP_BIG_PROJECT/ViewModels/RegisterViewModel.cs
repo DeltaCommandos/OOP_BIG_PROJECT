@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using OOP_BIG_PROJECT.Models;
 
 namespace OOP_BIG_PROJECT.ViewModels
@@ -24,11 +25,13 @@ namespace OOP_BIG_PROJECT.ViewModels
         public bool Sex { get; set; } = false;
         public int? Age { get; set; }
         public string? Skills { get; set; }
-        public int TagId1 { get; set; } = 2;
-        public int TagId2 { get; set; } = 2;
-        public int TagId3 { get; set; } = 2;
-        public int TagId4 { get; set; } = 2;
-        public int TagId5 { get; set; } = 2;
+
+        public List<SelectListItem> AvailableTags { get; set; } // Доступные теги для выбора
+        public int? TagId1 { get; set; } = 2;
+        public int? TagId2 { get; set; } = 2;
+        public int? TagId3 { get; set; } = 2;
+        public int? TagId4 { get; set; } = 2;
+        public int? TagId5 { get; set; } = 2;
         public List<Tags> Tags { get; set; }
       public int UserId { get; set; }
         public int AvatarId { get; set; }

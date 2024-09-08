@@ -6,6 +6,7 @@ using System.Reflection.Metadata.Ecma335;
 using OOP_BIG_PROJECT.ViewModels;
 using OOP_BIG_PROJECT.Data;
 using System;
+using Microsoft.AspNetCore.Mvc.Rendering;
 namespace OOP_BIG_PROJECT.Controllers
 {
     public class HomeController : Controller
@@ -174,53 +175,53 @@ namespace OOP_BIG_PROJECT.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
         [HttpGet]
         public IActionResult PostRegister()
         {
-            var response = new RegisterViewModel();
+            var response = new RegisterViewModel
+            {
+                AvailableTags = _context.Tags
+                                        .Select(tag => new SelectListItem
+                                        {
+                                            Value = tag.Id.ToString(),
+                                            Text = tag.Name
+                                        }).ToList(),
+                Tags = _context.Tags.ToList()
+            };
             return View(response);
         }
         [HttpPost]
         public IActionResult PostRegister(RegisterViewModel A)
         {
-            // Получаем FighterId из TempData
-            //if (TempData["FighterId"] != null && int.TryParse(TempData["FighterId"].ToString(), out int fighterId))
-            //{
-            // Находим бойца по FighterId
+            A.Tags = _context.Tags.ToList();
             Fighter fighterToUpdate = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
-            List<Tags> TagsToShow = _context.Tags.ToList();
-            A.Tags = TagsToShow;
+
             if (fighterToUpdate != null)
             {
-                // Обновляем данные бойца
                 fighterToUpdate.Rating = A.Rating;
                 fighterToUpdate.Sex = A.Sex;
-                //if (fighterToUpdate.Age <= 0)
-                //{
-                //	return View(A);
-                //}
                 fighterToUpdate.Age = A.Age;
                 fighterToUpdate.Skills = A.Skills;
+
                 fighterToUpdate.TagId1 = A.TagId1;
                 fighterToUpdate.TagId2 = A.TagId2;
                 fighterToUpdate.TagId3 = A.TagId3;
                 fighterToUpdate.TagId4 = A.TagId4;
                 fighterToUpdate.TagId5 = A.TagId5;
+
                 _context.Fighter.Update(fighterToUpdate);
                 _context.SaveChanges();
 
                 TempData["Id"] = fighterToUpdate.Id;
                 return RedirectToAction("Index", "Match");
-
             }
-            //}
-            //else
-            //{
-            //	// для админа(или не надо)
-            //}
 
             return View(A);
         }
+
+
 
     }
 }
