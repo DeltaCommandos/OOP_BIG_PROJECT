@@ -86,17 +86,22 @@ main input:not([type="submit"]) {
     height: 10px;
     width: auto;
 }
-
-
+/*
+.ArButs{
+    text-align:center;
+}*/
 
 .boba {
-    margin-top: 1%;
-    margin-left: 1%;
     background: none;
-    border-width: thin;
-    border-style: none;
-    border-radius: 30px;
-    width: 7%;
+    border: none;
+    float:left;
+    margin-left:5px;
+    margin-top:5px;
+}
+
+.namer{
+    
+    color:aliceblue;
 }
 
 .red {
@@ -321,7 +326,21 @@ main form span {
     color: white;
 }
 
-
+.login3 {
+    float: none;
+    border-width: thin;
+    border-style: none;
+    border-radius: 15px;
+    /*    background: linear-gradient(#2d6b2f,#0f3911);*/
+    background: linear-gradient(#243720c7,#1e1e1ec7);
+    position: center;
+    width: 500px;
+    height: 550px;
+    margin: 0 auto;
+    margin-left: -30px;
+    margin-top: 50px;
+    color: white;
+}
 
 .fighter1 {
     float: none;

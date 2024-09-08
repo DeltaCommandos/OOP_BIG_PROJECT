@@ -223,13 +223,10 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpPost]
         public IActionResult Back()
         {
-            return RedirectToAction("AccountHome", "Account");
+            return RedirectToAction("ChangeLoginAndPassword", "Account");
         }
-        [HttpPost]
-        public IActionResult Back1()
-        {
-            return RedirectToAction("Index", "Account");
-        }
+      
+      
         [HttpPost]
         public IActionResult ChangePassword(UserViewModel A)
         {

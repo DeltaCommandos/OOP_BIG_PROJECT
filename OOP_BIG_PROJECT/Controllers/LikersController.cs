@@ -129,6 +129,11 @@ namespace OOP_BIG_PROJECT.Controllers
 
             return RedirectToAction("Index");
         }
+        [HttpPost]
+        public IActionResult Back()
+        {
+            return RedirectToAction("Index", "Match");
+        }
     }
     
 }
