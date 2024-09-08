@@ -181,6 +181,7 @@ main form span {
 
 .txer {
     margin-top: 5%;
+    text-align: center;
 }
 
 .tabler {
@@ -232,7 +233,7 @@ main form span {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: linear-gradient(#243720c7,#1e1e1ec7);
+    background: linear-gradient(#1b321c,#181b18);
     padding: 20px;
     border-radius: 10px;
     width: 80%;
@@ -240,11 +241,19 @@ main form span {
 }
 
 
-.tinder1 button2 {
+.button2 {
     color: aliceblue;
-    text-align: right;
+    position: absolute; /* Абсолютное позиционирование относительно блока .tinder1 */
+    top: 10px; /* Расстояние от верхнего края блока .tinder1 */
+    right: 10px; /* Расстояние от правого края блока .tinder1 */
 }
 
+.crossButton {
+    color: aliceblue;
+    position: absolute; /* Абсолютное позиционирование относительно блока .tinder1 */
+    top: 10px; /* Расстояние от верхнего края блока .tinder1 */
+    right: 10px; /* Расстояние от правого края блока .tinder1 */
+}
 
 
 
@@ -401,6 +410,7 @@ main form span {
     margin-left: -160px;
     margin-top: -50px;
     color: white;
+    position: relative;
 }
 
 .chat1 {
@@ -411,13 +421,49 @@ main form span {
     background: linear-gradient(#243720c7,#1e1e1ec7);
     position: center;
     width: 600px;
-    height: 400px;
+    height: 100vh; /* This ensures it takes up the full viewport height */
     margin: 0 auto;
     margin-left: -160px;
     margin-top: -50px;
     color: white;
+    display: flex;
+    flex-direction: column;
 }
 
+
+
+.messages.tabler {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding-bottom: 10px;
+}
+
+.chat-form {
+    display: flex;
+    padding: 10px 0;
+    background-color: #f8f9fa; /* You can adjust the background color */
+}
+
+.form-group {
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+textarea {
+    flex-grow: 1;
+    margin-right: 10px;
+    resize: none;
+    padding: 10px;
+}
+
+.chatButton {
+    background-color: #007bff; /* Customize the button color */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
 
 
 /*       ::::    Прямоугольники - фоны для интерфейса     ::::::       */
