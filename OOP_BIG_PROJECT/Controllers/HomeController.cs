@@ -41,6 +41,15 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpPost]
         public IActionResult Login(UserViewModel A)
         {
+            if (FighterForMatch.Fighters != null)
+                FighterForMatch.Fighters = null;
+
+            if (FighterForMatch.SortedFighters != null)
+                FighterForMatch.SortedFighters = null;
+
+            FighterForMatch.Flag = false;
+            FighterForMatch.IsSorted = false;
+
             List<User> accounts = _context.User.Where<User>(a => a.Username == A.Username).ToList();
             if (accounts.Count != 0)
             {
@@ -87,7 +96,7 @@ namespace OOP_BIG_PROJECT.Controllers
             else
             {
                 A.IsUserExisting = false;
-            }
+            }         
             return View(A);
         }
         [HttpGet]

@@ -386,6 +386,7 @@ namespace OOP_BIG_PROJECT.Controllers
                         SenderId = Sender.Id,
                         ReceiverId = Receiver.Id,
                         Content = A.Content,
+                        Timestamp = DateTime.UtcNow
                     };
 
                     _context.Messages.Add(chatMessage);
