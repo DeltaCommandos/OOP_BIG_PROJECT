@@ -20,8 +20,9 @@ namespace OOP_BIG_PROJECT.Controllers
             List<int> LikerFightersId=_context.Likes.Where(a=>a.LikedFighterId==StaticStuff.Fighter.Id).Select(a=>a.LikerId).ToList();
             foreach (int LikerFighterId in LikerFightersId)
             {
-                bool liker = _context.Likes.Any(l => ((l.LikerId == StaticStuff.Fighter.Id && l.LikedFighterId== LikerFighterId) || l.LikerStatus==true));
-                if (!liker)
+                bool liker = _context.Likes.Any(l => ((l.LikerId == StaticStuff.Fighter.Id && l.LikedFighterId== LikerFighterId)));
+                bool likerstatus = _context.Likes.Any(l => ((l.LikerId == LikerFighterId) && (l.LikedFighterId == StaticStuff.Fighter.Id) && l.LikerStatus==true));
+                if ((!liker) && (!likerstatus))
                 {
                     var likerfighter = _context.Fighter.FirstOrDefault(a => LikerFighterId == a.Id);
                     if(likerfighter!=null)
@@ -63,7 +64,7 @@ namespace OOP_BIG_PROJECT.Controllers
         }
         private Fighter GetLikerFighter()
         {
-            var fighters = FighterForMatch.Fighters;
+            var fighters = LikerFighters.Fighters;
             if (fighters.Count == 0)
             {
                 return null;
@@ -116,6 +117,7 @@ namespace OOP_BIG_PROJECT.Controllers
                 likes.LikerId = StaticStuff.Fighter.Id;
                 likes.LikedFighterId = Likedfighter.Id;
                 likes.IsLiked = false;
+                likes.LikerStatus = true;
                 _context.Likes.Add(likes);
                 OverLikes = _context.Likes.Where(a => (Likedfighter.Id == a.LikedFighterId && StaticStuff.Fighter.Id == a.LikerId)).ToList();
                 foreach (var OverLike in OverLikes)
