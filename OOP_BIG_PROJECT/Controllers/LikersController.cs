@@ -132,7 +132,7 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpPost]
         public IActionResult Back()
         {
-            return RedirectToAction("Index", "Match");
+            return RedirectToAction("AccountHome", "Account");
         }
     }
     

@@ -118,7 +118,7 @@
     <form asp-action="Index" class="p-4 p-md-5 bg-body-tertiary">
         @if (Model.SelectedFighter.Age == -1000)
         {
-            <h1>Выбранный боец не найден.</h1>
+            <h1 class="DNExist">Выбранный боец не найден.</h1>
         }
         else
         {

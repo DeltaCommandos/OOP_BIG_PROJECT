@@ -86,10 +86,14 @@ main input:not([type="submit"]) {
     height: 10px;
     width: auto;
 }
-/*
-.ArButs{
-    text-align:center;
-}*/
+
+
+
+.DNExist {
+    padding-top: 10%;
+    padding-bottom: 65%;
+}
+
 
 .boba {
     background: none;
@@ -98,6 +102,47 @@ main input:not([type="submit"]) {
     margin-left:5px;
     margin-top:5px;
 }
+
+
+
+
+
+.whatLike{
+    padding:0px;
+    margin-top: -10%;
+    width: 50%;
+    text-align:center;
+}
+
+.whatLike1 {
+    padding: 0px;
+    margin-top: -15%;
+}
+
+
+.ArButs {
+    text-align: center;
+}
+
+.ArButs a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.ArButs svg {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+
+
+
+
+
+
 
 .namer{
     
