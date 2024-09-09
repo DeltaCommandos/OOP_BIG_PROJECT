@@ -104,6 +104,11 @@ main input:not([type="submit"]) {
 }
 
 
+.beliyText:hover { /* Стиль при наведении курсора */
+    color: white; /* Цвет текста не меняется, остается белым */
+}
+
+
 
 
 
@@ -117,6 +122,10 @@ main input:not([type="submit"]) {
 .whatLike1 {
     padding: 0px;
     margin-top: -15%;
+}
+
+.whatLike11 {
+    width:70%;
 }
 
 
@@ -480,6 +489,15 @@ main form span {
     position: relative;
 }
 
+
+
+
+
+
+
+
+
+
 .chat1 {
     float: none;
     border-width: thin;
@@ -488,7 +506,7 @@ main form span {
     background: linear-gradient(#243720c7,#1e1e1ec7);
     position: center;
     width: 600px;
-    height: 100vh; /* This ensures it takes up the full viewport height */
+    height: 700px; /* This ensures it takes up the full viewport height */
     margin: 0 auto;
     margin-left: -160px;
     margin-top: -50px;
@@ -501,20 +519,34 @@ main form span {
 
 .messages.tabler {
     flex-grow: 1;
-    overflow-y: auto;
     padding-bottom: 10px;
+    height: 100%; /* Высота блока */
+    overflow-y: scroll; /* Включаем вертикальную прокрутку */
+    overflow-x: unset;
+}
+
+.message {
+    display: flex;
+    justify-content: space-between; /* Расположение элементов по краям */
 }
 
 .chat-form {
     display: flex;
     padding: 10px 0;
-    background-color: #f8f9fa; /* You can adjust the background color */
+    background-color: none; /* You can adjust the background color */
 }
 
 .form-group {
     display: flex;
     flex: 1;
-    align-items: center;
+    padding-left: 4%;
+    padding-right: 4%;
+}
+
+.form-control{
+    width:40px;
+    height:10%;
+    
 }
 
 textarea {
@@ -532,14 +564,12 @@ textarea {
     border-radius: 5px;
 }
 
+.timestamp{
+    margin-right:5px;
+}
+
 
 /*       ::::    Прямоугольники - фоны для интерфейса     ::::::       */
-
-
-
-
-
-
 .scroll {
     height: 650px; /* Высота блока */
     overflow-y: scroll; /* Включаем вертикальную прокрутку */
