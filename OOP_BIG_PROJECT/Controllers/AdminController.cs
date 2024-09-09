@@ -52,11 +52,17 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpGet]
         public IActionResult TagChange(TagsViewModel A)
         {
+            var response = new TagsViewModel();
+            return View(response);
+        }
+        [HttpGet]
+        public IActionResult TagChangeName(TagsViewModel A)
+        {
             Tags tagToUpdate = _context.Tags.FirstOrDefault(a => a.Id == StaticStuff.Tag.Id);
 
             if (tagToUpdate == null)
             {
-                return View(A);
+                return View("TagChange", A);
             }
             else
             {
@@ -68,12 +74,18 @@ namespace OOP_BIG_PROJECT.Controllers
             //var response = new TagsViewModel();
             //return View(response);
         }
-
-        [HttpGet]
-        public IActionResult TagDelete()
+        [HttpPost]
+        public IActionResult TagDelete(int TagId)
         {
-            var response = new TagsViewModel();
-            return View(response);
+            Tags tag = _context.Tags.FirstOrDefault(l => l.Id == TagId);
+            //List<Tags> TagsId = _context.Tags.Where(l => l.Id == TagId).ToList();
+            //List<Tags> TagsName = _context.Tags.Where(l => l.Name == StaticStuff.Tags.Name).ToList();
+            //List<Tags> TagsDiscription = _context.Tags.Where(l => l.Description == StaticStuff.Tags.Description).ToList();
+            _context.Tags.Remove(tag);
+            //_context.RemoveRange(TagsName);
+            //_context.RemoveRange(TagsDiscription);
+            _context.SaveChanges();
+            return RedirectToAction("TagMenu");
         }
         [HttpGet]
         public IActionResult Ban()
@@ -97,8 +109,6 @@ namespace OOP_BIG_PROJECT.Controllers
                 _context.SaveChanges();
                 return RedirectToAction("TagMenu");
             }
-
-            return View(A);
         }
     }
 }
