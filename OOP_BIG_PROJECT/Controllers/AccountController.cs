@@ -254,7 +254,10 @@ namespace OOP_BIG_PROJECT.Controllers
         public IActionResult ChangeTags(FighterViewModel A)
         {
             Fighter fighterToUpdate = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
-            A.AllTags = _context.Tags.ToList();
+            var viewModel = new FighterViewModel
+            {
+                AllTags = _context.Tags.ToList()
+            };
             if (fighterToUpdate == null)
             {
 
