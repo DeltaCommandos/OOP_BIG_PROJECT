@@ -267,7 +267,6 @@ namespace OOP_BIG_PROJECT.Controllers
                 A.AllTags = _context.Tags.ToList();
             }
 
->>>>>>> 09220fc1e0a95b542141fd915c7ed4333b616eb0
             if (fighterToUpdate == null)
             {
                 return View(A); // Возвращаем заполненный ViewModel

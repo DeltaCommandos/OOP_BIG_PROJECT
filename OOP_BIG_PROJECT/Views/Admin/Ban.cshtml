@@ -60,7 +60,7 @@
                     <td>@(!pair.Sex ? "Мужской" : "Женский")</td>
                     <td>@pair.Age</td>
                     <td>@pair.Skills</td>
-                    <td>@(!pair.Ban ? "В бане" : "На свободе")</td>
+                    <td>@(pair.Ban ? "В бане" : "На свободе")</td>
                     <td>
                         <form asp-action="BanFighter" method="post">
                             <input type="hidden" name="Id" value="@pair.Id" />

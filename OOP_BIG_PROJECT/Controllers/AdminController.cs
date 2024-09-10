@@ -23,7 +23,7 @@ namespace OOP_BIG_PROJECT.Controllers
         public IActionResult BackAdmin()
         {
             var response = new TagsViewModel();
-            return RedirectToAction("Index", "Admin");
+            return RedirectToAction("Index");
         }
         [HttpGet]
         public IActionResult Index()
