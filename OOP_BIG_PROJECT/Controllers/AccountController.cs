@@ -113,7 +113,11 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpGet]
         public IActionResult ChangeTags()
         {
-            var response = new FighterViewModel();
+            var allTags = _context.Tags.ToList(); 
+            var response = new FighterViewModel
+            {
+                AllTags = allTags,  
+            };
             return View(response);
         }
         [HttpGet]
