@@ -20,6 +20,12 @@ namespace OOP_BIG_PROJECT.Controllers
             return RedirectToAction("TagMenu");
         }
         [HttpGet]
+        public IActionResult BackAdmin()
+        {
+            var response = new TagsViewModel();
+            return RedirectToAction("Index", "Admin");
+        }
+        [HttpGet]
         public IActionResult Index()
         {
             var response = new FighterViewModel();
@@ -50,25 +56,28 @@ namespace OOP_BIG_PROJECT.Controllers
         }
 
         [HttpGet]
-        public IActionResult TagChange(TagsViewModel A)
+        public IActionResult TagChange(int Id)
         {
+            StaticStuff.ChangeTag = Id;
             var response = new TagsViewModel();
             return View(response);
         }
-        [HttpGet]
-        public IActionResult TagChangeName(TagsViewModel A)
+        [HttpPost]
+        public IActionResult TagChangeName(TagsViewModel A/*, String Name, String Discription*/)
         {
-            Tags tagToUpdate = _context.Tags.FirstOrDefault(a => a.Id == StaticStuff.Tag.Id);
-
+            //Tags tagToUpdate = _context.Tags.FirstOrDefault(a => a.Id == StaticStuff.Tag.Id);
+            Tags tagToUpdate = _context.Tags.FirstOrDefault(l => l.Id == StaticStuff.ChangeTag);
             if (tagToUpdate == null)
             {
                 return View("TagChange", A);
             }
             else
             {
-                tagToUpdate.Name = A.SelectedTag.Name;
+                tagToUpdate.Name = A.Name;
+                tagToUpdate.Description = A.Description;
                 _context.Tags.Update(tagToUpdate);
                 _context.SaveChanges();
+
                 return RedirectToAction("TagMenu");
             }
             //var response = new TagsViewModel();
@@ -78,12 +87,7 @@ namespace OOP_BIG_PROJECT.Controllers
         public IActionResult TagDelete(int TagId)
         {
             Tags tag = _context.Tags.FirstOrDefault(l => l.Id == TagId);
-            //List<Tags> TagsId = _context.Tags.Where(l => l.Id == TagId).ToList();
-            //List<Tags> TagsName = _context.Tags.Where(l => l.Name == StaticStuff.Tags.Name).ToList();
-            //List<Tags> TagsDiscription = _context.Tags.Where(l => l.Description == StaticStuff.Tags.Description).ToList();
             _context.Tags.Remove(tag);
-            //_context.RemoveRange(TagsName);
-            //_context.RemoveRange(TagsDiscription);
             _context.SaveChanges();
             return RedirectToAction("TagMenu");
         }
@@ -97,8 +101,8 @@ namespace OOP_BIG_PROJECT.Controllers
         public IActionResult TagMake(TagsViewModel A)
         {
             //Tags tag = _context.Tags.FirstOrDefault(a => a.Id == A.Id);
-            List<Tags> accounts = _context.Tags.Where<Tags>(a => a.Name == A.Name).ToList();
-            if (accounts.Count != 0)
+            List<Tags> tags = _context.Tags.Where<Tags>(a => a.Name == A.Name).ToList();
+            if (tags.Count != 0)
             {
                 A.IsTagExisting = true;
                 return View("TagAdd", A); // Возвращаем представление с сообщением об ошибке
