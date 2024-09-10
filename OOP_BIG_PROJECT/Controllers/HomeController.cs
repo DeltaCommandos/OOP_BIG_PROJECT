@@ -108,6 +108,14 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpPost]
         public IActionResult Register(RegisterViewModel A)
         {
+            if (FighterForMatch.Fighters != null)
+                FighterForMatch.Fighters = null;
+
+            if (FighterForMatch.SortedFighters != null)
+                FighterForMatch.SortedFighters = null;
+
+            FighterForMatch.Flag = false;
+            FighterForMatch.IsSorted = false;
             // Проверяем, существует ли пользователь с таким именем
             List<User> accounts = _context.User.Where<User>(a => a.Username == A.Username).ToList();
             if (accounts.Count != 0)
