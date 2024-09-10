@@ -37,6 +37,7 @@ namespace OOP_BIG_PROJECT.ViewModels
         public int AvatarId { get; set; }
         //для админа
         public string AdminPassword { get; set; } = "Sharikov";
+
     }
 
 }

@@ -18,6 +18,5 @@ namespace OOP_BIG_PROJECT.Models
         public ICollection<Match> MatchesAsUser1 { get; set; }
         public ICollection<Match> MatchesAsUser2 { get; set; }
 
-
     }
 }
