@@ -18,6 +18,7 @@ namespace OOP_BIG_PROJECT.ViewModels
         public int? SelectedTag3 { get; set; }
         public int? SelectedTag4 { get; set; }
         public int? SelectedTag5 { get; set; }
+        public Boolean ? Ban { get; set; }
 
     }
 }

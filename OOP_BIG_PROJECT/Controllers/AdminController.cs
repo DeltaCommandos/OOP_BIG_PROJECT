@@ -63,9 +63,8 @@ namespace OOP_BIG_PROJECT.Controllers
             return View(response);
         }
         [HttpPost]
-        public IActionResult TagChangeName(TagsViewModel A/*, String Name, String Discription*/)
+        public IActionResult TagChangeName(TagsViewModel A)
         {
-            //Tags tagToUpdate = _context.Tags.FirstOrDefault(a => a.Id == StaticStuff.Tag.Id);
             Tags tagToUpdate = _context.Tags.FirstOrDefault(l => l.Id == StaticStuff.ChangeTag);
             if (tagToUpdate == null)
             {
@@ -80,8 +79,6 @@ namespace OOP_BIG_PROJECT.Controllers
 
                 return RedirectToAction("TagMenu");
             }
-            //var response = new TagsViewModel();
-            //return View(response);
         }
         [HttpPost]
         public IActionResult TagDelete(int TagId)
@@ -89,13 +86,32 @@ namespace OOP_BIG_PROJECT.Controllers
             Tags tag = _context.Tags.FirstOrDefault(l => l.Id == TagId);
             _context.Tags.Remove(tag);
             _context.SaveChanges();
-            return RedirectToAction("TagMenu");
+            return RedirectToAction("TagChangeDelete");
         }
         [HttpGet]
         public IActionResult Ban()
         {
-            var response = new FighterViewModel();
-            return View(response);
+            var FighterViewModel = new FighterViewModel
+            {
+                AllFighters = _context.Fighter.ToList() // Заполнение списка тегов из базы данных
+            };
+            return View(FighterViewModel);
+        }
+        [HttpPost]
+        public IActionResult BanFighter(int Id)
+        {
+            Fighter fighterToUpdate = _context.Fighter.FirstOrDefault(l => l.Id == Id);
+            if (fighterToUpdate.Ban == true)
+            {
+                fighterToUpdate.Ban = false;
+            }
+            else
+            {
+                fighterToUpdate.Ban = true;
+            }
+            _context.Fighter.Update(fighterToUpdate);
+            _context.SaveChanges();
+            return RedirectToAction("Ban");
         }
         [HttpPost]
         public IActionResult TagMake(TagsViewModel A)
