@@ -480,21 +480,52 @@ main form span {
     border-radius: 15px;
     background: linear-gradient(#243720c7,#1e1e1ec7);
     position: center;
-    width: 700px;
-    height: 675px;
+    width: 780px;
+    height: 700px;
     margin: 0 auto;
     margin-left: -160px;
-    margin-top: -50px;
+    padding: 10px;
     color: white;
-    position: relative;
+    flex-direction: column; /* Flexbox для выравнивания по вертикали */
+    justify-content: center;
+    align-items: center;
+}
+
+.likeDislike {
+    background-color: none; /* Цвет фона для блока */
+    padding: 10px 20px;
+    border-radius: 50px;
+    display: flex; /* Flexbox для кнопок */
+    justify-content: center; /* Центрируем кнопки по горизонтали */
+    align-items: center;
+    gap: 20px; /* Расстояние между кнопками */
+
+    margin-top:-30px;
+}
+
+.likeDislike1 {
+    background-color: #0e140dff; /* Цвет фона для блока */
+    padding: 10px 20px;
+    border-radius: 50px;
+    display: flex; /* Flexbox для кнопок */
+    justify-content: center; /* Центрируем кнопки по горизонтали */
+    align-items: center;
+    gap: 20px; /* Расстояние между кнопками */
+    width: min-content;
+
+}
+
+.d-inline-flex {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
-
-
-
-
-
+.tinder11 {
+    width: 98%;
+    color: white;
+}
 
 
 
@@ -543,7 +574,7 @@ main form span {
     padding-right: 4%;
 }
 
-.form-control{
+.form-control_M{
     width:40px;
     height:10%;
     
@@ -566,6 +597,48 @@ textarea {
 
 .timestamp{
     margin-right:5px;
+}
+
+
+
+
+.tag-container {
+    display: flex;
+    gap: 10px; /* Отступы между тегами */
+    padding: 10px; /* Внутренние отступы */
+    border: none; /* Рамка вокруг контейнера */
+    border-radius: 17px; /* Закругленные углы */
+    flex-wrap: wrap; /* Возможность переносить строки при нехватке места */
+}
+
+.tag {
+    /*background-color: #6c757d;*/ /* Цвет фона для тегов */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 10px;
+    white-space: nowrap; /* Запрещаем перенос текста */
+}
+
+
+
+.t1 {
+    background-color: brown; /* Фон контейнера (можно изменить) */
+}
+
+.t2 {
+    background-color: mediumseagreen; /* Фон контейнера (можно изменить) */
+}
+
+.t3 {
+    background-color: slateblue; /* Фон контейнера (можно изменить) */
+}
+
+.t4 {
+    background-color: coral; /* Фон контейнера (можно изменить) */
+}
+
+.t5 {
+    background-color: orange; /* Фон контейнера (можно изменить) */
 }
 
 

@@ -111,11 +111,7 @@
 <div class="tinder1">
     
    
-
-
-
-
-    <form asp-action="Index" class="p-4 p-md-5 bg-body-tertiary">
+    <form asp-action="Index" class="p-4 p-md-5 bg-body-tertiary tinder11">
         @if (Model.SelectedFighter.Age == -1000)
         {
             <h1 class="DNExist">Выбранный боец не найден.</h1>
@@ -136,53 +132,59 @@
             <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">
                 @Model.SelectedFighter.Name
             </h1>
-                <p class="col-lg-8 mx-auto fs-5 text-start" style="color:white">
-                    @if (Model.SelectedFighter.TagId1 != 2){
-                        @foreach (var tag in Model.AllTags)
+            <div class="tag-container">
+                @if (Model.SelectedFighter.TagId1 != 2)
+                {
+                    @foreach (var tag in Model.AllTags)
+                    {
+                        @if (@tag.Id == Model.SelectedFighter.TagId1)
                         {
-                            @if (@tag.Id == Model.SelectedFighter.TagId1)
-                            {
-                                <option value="@tag.Id">@tag.Name</option>
-                            }
+                            <span class="tag t1">@tag.Name</span>
                         }
                     }
-                    @if (Model.SelectedFighter.TagId2 != 2)
-                        @foreach (var tag in Model.AllTags)
+                }
+                @if (Model.SelectedFighter.TagId2 != 2)
+                {
+                    @foreach (var tag in Model.AllTags)
+                    {
+                        @if (@tag.Id == Model.SelectedFighter.TagId2)
                         {
-                            @if (@tag.Id == Model.SelectedFighter.TagId2)
-                            {
-                                <option value="@tag.Id">@tag.Name</option>
-                            }
+                            <span class="tag t2">@tag.Name</span>
                         }
-
-                    @if (Model.SelectedFighter.TagId3 != 2)
-                        @foreach (var tag in Model.AllTags)
+                    }
+                }
+                @if (Model.SelectedFighter.TagId3 != 2)
+                {
+                    @foreach (var tag in Model.AllTags)
+                    {
+                        @if (@tag.Id == Model.SelectedFighter.TagId3)
                         {
-                            @if (@tag.Id == Model.SelectedFighter.TagId3)
-                            {
-                                <option value="@tag.Id">@tag.Name</option>
-                            }
+                            <span class="tag t3">@tag.Name</span>
                         }
-
-                    @if (Model.SelectedFighter.TagId4 != 2)
-                        @foreach (var tag in Model.AllTags)
+                    }
+                }
+                @if (Model.SelectedFighter.TagId4 != 2)
+                {
+                    @foreach (var tag in Model.AllTags)
+                    {
+                        @if (@tag.Id == Model.SelectedFighter.TagId4)
                         {
-                            @if (@tag.Id == Model.SelectedFighter.TagId4)
-                            {
-                                <option value="@tag.Id">@tag.Name</option>
-                            }
+                            <span class="tag t4">@tag.Name</span>
                         }
-
-                    @if (Model.SelectedFighter.TagId5 != 2)
-                        @foreach (var tag in Model.AllTags)
+                    }
+                }
+                @if (Model.SelectedFighter.TagId5 != 2)
+                {
+                    @foreach (var tag in Model.AllTags)
+                    {
+                        @if (@tag.Id == Model.SelectedFighter.TagId5)
                         {
-                            @if (@tag.Id == Model.SelectedFighter.TagId5)
-                            {
-                                <option value="@tag.Id">@tag.Name</option>
-                            }
+                            <span class="tag t5">@tag.Name</span>
                         }
+                    }
+                }
+            </div>
 
-                </p>
             @if (!Model.SelectedFighter.Sex)
             {
                 <p class="col-lg-8 mx-auto fs-5 text-start" style="color:white">
@@ -215,9 +217,9 @@
 
     </form>
     
-    <div class="text-center">
-
-        <div class="d-inline-flex gap-2 mb-5">
+    <div class="likeDislike">
+        
+        <div class="d-inline-flex gap-2 mb-5 likeDislike1">
             <form asp-controller="Match" asp-action="Like" method="post">
                 <button type="submit" name="fighterId" value="@Model.SelectedFighter.Id" class="d-inline-flex align-items-center btn btn-success btn-lg px-4 rounded-pill">
                     <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="currentColor" class="bi bi-hand-thumbs-up-fill" viewBox="0 0 16 16">
