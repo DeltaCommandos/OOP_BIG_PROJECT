@@ -1,0 +1,62 @@
+﻿@model OOP_BIG_PROJECT.ViewModels.FighterViewModel
+
+
+<div class="changer2 txer">
+    <form asp-controller="Account" asp-action="Back" method="post">
+        <button type="submit" class="boba">
+            <svg xmlns="http://www.w3.org/2000/svg" width="46" height="36" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16" style="color:white">
+                <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5z" />
+            </svg>
+        </button>
+    </form>
+
+    <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Изменение тегов бойца</h1>
+
+
+    <form asp-action="ChangeInfo" method="post">
+        <div class="form-group skills">
+           <input asp-for="SelectedFighter.Skills" class="form-control" />
+            <span asp-validation-for="SelectedFighter.Skills" class="text-success"></span>
+        </div>
+        <hr class="my-4">
+
+        <button type="submit" class="btn btn-success">Сохранить изменения</button>
+    </form>
+
+@*     <form asp-action="ChangeTags" method="post">
+        <div class="form-group">
+            <label for="SelectedFighter.Tag1">Тег 1</label>
+            <select asp-for="SelectedFighter.TagId1" asp-items="Model.AllTags" class="form-control TagBox">
+                <option value="">Выберите тег</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="SelectedTag2">Тег 2</label>
+            <select asp-for="SelectedTag2" asp-items="Model.AllTags" class="form-control TagBox">
+                <option value="">Выберите тег</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="SelectedTag3">Тег 3</label>
+            <select asp-for="SelectedTag3" asp-items="Model.AllTags" class="form-control TagBox">
+                <option value="">Выберите тег</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="SelectedTag4">Тег 4</label>
+            <select asp-for="SelectedTag4" asp-items="Model.AllTags" class="form-control TagBox">
+                <option value="">Выберите тег</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="SelectedTag5">Тег 5</label>
+            <select asp-for="SelectedTag5" asp-items="Model.AllTags" class="form-control TagBox">
+                <option value="">Выберите тег</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success">Сохранить изменения</button>
+
+    </form>
+ *@
+
+</div>

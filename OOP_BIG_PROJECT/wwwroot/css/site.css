@@ -288,18 +288,26 @@ main form span {
 }
 
 
-.button2 {
+.tinder1 .button2 { /* Изменяем селектор, чтобы кнопка была внутри .tinder1 */
     color: aliceblue;
     position: absolute; /* Абсолютное позиционирование относительно блока .tinder1 */
     top: 10px; /* Расстояние от верхнего края блока .tinder1 */
     right: 10px; /* Расстояние от правого края блока .tinder1 */
 }
 
+.disBut:hover {
+    color: aliceblue;
+    background-color:brown;
+}
+
+
 .crossButton {
     color: aliceblue;
     position: absolute; /* Абсолютное позиционирование относительно блока .tinder1 */
     top: 10px; /* Расстояние от верхнего края блока .tinder1 */
     right: 10px; /* Расстояние от правого края блока .tinder1 */
+    border: none;
+    background: none;
 }
 
 
@@ -433,15 +441,19 @@ main form span {
     border-radius: 15px;
     background: linear-gradient(#243720c7,#1e1e1ec7);
     position: center;
-    width: 780px;
+    width: 900px;
     height: 500px;
     margin: 0 auto;
-    margin-left: -160px;
+    margin-left: -250px;
     margin-top: 50px;
     text-align: center;
     padding: 10px;
     color: white;
 }
+.changer11 {
+    margin-top: 10%;
+}
+
 
 .changer2 {
     float: none;
@@ -479,9 +491,9 @@ main form span {
     border-style: none;
     border-radius: 15px;
     background: linear-gradient(#243720c7,#1e1e1ec7);
-    position: center;
+    position: relative; /* Изменяем позиционирование на относительное */
     width: 780px;
-    height: 700px;
+    height: 750px;
     margin: 0 auto;
     margin-left: -160px;
     padding: 10px;
@@ -490,6 +502,7 @@ main form span {
     justify-content: center;
     align-items: center;
 }
+
 
 .likeDislike {
     background-color: none; /* Цвет фона для блока */
