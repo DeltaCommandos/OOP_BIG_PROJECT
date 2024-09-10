@@ -404,6 +404,50 @@ main form span {
     color: white;
 }
 
+
+.admin3 {
+    float: none;
+    border-width: thin;
+    border-style: none;
+    border-radius: 15px;
+    /*    background: linear-gradient(#2d6b2f,#0f3911);*/
+    background: linear-gradient(#243720c7,#1e1e1ec7);
+    position: center;
+    width: 500px;
+    height: 400px;
+    margin: 0 auto;
+    margin-left: -30px;
+    margin-top: 50px;
+    color: white;
+    
+}
+
+.tabler2 {
+    float: none;
+    border-width: thin;
+    border-style: none;
+    border-radius: 15px;
+    background: linear-gradient(#243720c7,#1e1e1ec7);
+    position: center;
+    width: 750px;
+    height: 600px;
+    margin: 0 auto;
+    margin-left: -160px;
+    margin-top: 50px;
+    color: white;
+
+}
+
+.scroll-ban {
+    overflow-y: scroll; /* Включаем вертикальную прокрутку */
+    overflow-x: unset;
+    height: 80%;
+}
+
+.tagform{
+    width:25%;
+}
+
 .fighter1 {
     float: none;
     border-width: thin;
@@ -676,57 +720,6 @@ textarea {
 }
 
 
-
-
-
-
-
-
-
-
-
-/*.likedis {
-    float: none;
-    border-width: thin;
-    border-style: none;
-    position: center;
-    border-radius: 30px;
-    background-color: linear-gradient(#49f652,#00dd85);
-    width: 50px;
-    height: 50px;
-}
-*/
-
-
-
-/*.content {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.hidden-block {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;*/
-/*    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background-color: #f0f0f0;
-    margin: 50px;
-    border-radius: 10px;
-*//*}*/
-
-    /* Класс для активного состояния */
-    /*.hidden-block.active {
-        opacity: 1;
-        transform: translateY(0);
-    }*/
 
 
 
