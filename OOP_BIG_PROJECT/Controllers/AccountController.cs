@@ -256,15 +256,15 @@ namespace OOP_BIG_PROJECT.Controllers
         {
             Fighter fighterToUpdate = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
 
-            // Заполняем список тегов для передачи в представление
-            var viewModel = new FighterViewModel
+            // Заполняем список тегов для передачи в представление, если это ещё не было сделано
+            if (A.AllTags == null)
             {
-                AllTags = _context.Tags.ToList()
-            };
+                A.AllTags = _context.Tags.ToList();
+            }
 
             if (fighterToUpdate == null)
             {
-                return View(A);
+                return View(A); // Возвращаем заполненный ViewModel
             }
             else
             {
