@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NuGet.Protocol.Plugins;
 using Microsoft.DotNet.Scaffolding.Shared.Messaging;
+using Microsoft.AspNetCore.Mvc.Rendering;
 namespace OOP_BIG_PROJECT.Controllers
 {
     //кнопку "начать поиск". аву в углу сделать. рядом с ней изменить фото. сделать изменить увлечения. меню с предстоящими боями. 
@@ -254,27 +255,30 @@ namespace OOP_BIG_PROJECT.Controllers
         public IActionResult ChangeTags(FighterViewModel A)
         {
             Fighter fighterToUpdate = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
+
+            // Заполняем список тегов для передачи в представление
             var viewModel = new FighterViewModel
             {
                 AllTags = _context.Tags.ToList()
             };
+
             if (fighterToUpdate == null)
             {
-
                 return View(A);
             }
             else
             {
-                ////////////////////////////////////////////////
-                fighterToUpdate.TagId1 = A.SelectedFighter.TagId1;
-                fighterToUpdate.TagId2 = A.SelectedFighter.TagId2; 
-                fighterToUpdate.TagId3 = A.SelectedFighter.TagId3; 
-                fighterToUpdate.TagId4 = A.SelectedFighter.TagId4; 
-                fighterToUpdate.TagId5 = A.SelectedFighter.TagId5; 
+                // Обновляем теги бойца
+                fighterToUpdate.TagId1 = A.SelectedTag1;
+                fighterToUpdate.TagId2 = A.SelectedTag2;
+                fighterToUpdate.TagId3 = A.SelectedTag3;
+                fighterToUpdate.TagId4 = A.SelectedTag4;
+                fighterToUpdate.TagId5 = A.SelectedTag5;
+
                 _context.Fighter.Update(fighterToUpdate);
                 _context.SaveChanges();
-                return RedirectToAction("AccountHome");
 
+                return RedirectToAction("AccountHome");
             }
         }
         [HttpPost]
