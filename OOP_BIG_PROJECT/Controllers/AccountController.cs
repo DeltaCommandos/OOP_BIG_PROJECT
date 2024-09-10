@@ -254,6 +254,7 @@ namespace OOP_BIG_PROJECT.Controllers
         public IActionResult ChangeTags(FighterViewModel A)
         {
             Fighter fighterToUpdate = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
+            A.AllTags = _context.Tags.ToList();
             if (fighterToUpdate == null)
             {
 
@@ -261,11 +262,12 @@ namespace OOP_BIG_PROJECT.Controllers
             }
             else
             {
-                fighterToUpdate.TagId1 = A.SelectedTag1;
-                fighterToUpdate.TagId2 = A.SelectedTag2;
-                fighterToUpdate.TagId3 = A.SelectedTag3;
-                fighterToUpdate.TagId4 = A.SelectedTag4;
-                fighterToUpdate.TagId5 = A.SelectedTag5;
+                ////////////////////////////////////////////////
+                fighterToUpdate.TagId1 = A.SelectedFighter.TagId1;
+                fighterToUpdate.TagId2 = A.SelectedFighter.TagId2; 
+                fighterToUpdate.TagId3 = A.SelectedFighter.TagId3; 
+                fighterToUpdate.TagId4 = A.SelectedFighter.TagId4; 
+                fighterToUpdate.TagId5 = A.SelectedFighter.TagId5; 
                 _context.Fighter.Update(fighterToUpdate);
                 _context.SaveChanges();
                 return RedirectToAction("AccountHome");
