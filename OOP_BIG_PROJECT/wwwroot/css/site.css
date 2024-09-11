@@ -119,6 +119,19 @@ main input:not([type="submit"]) {
     text-align:center;
 }
 
+
+.whatLike2 {
+    padding: 0px;
+    margin-top: -10%;
+    width: 300px;
+    text-align: center;
+    height: 100px;
+    align-content: initial;
+    margin-left:30px;
+}
+
+
+
 .whatLike1 {
     padding: 0px;
     margin-top: -15%;
@@ -147,6 +160,23 @@ main input:not([type="submit"]) {
 }
 
 
+.chgstr {
+    text-align: center;
+    position:center;
+}
+
+    .chgstr chgtxbx {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+    }
+
+    .chgstr chgbtn {
+        margin-left: auto;
+        margin-right: 0;
+    }
 
 
 
@@ -448,6 +478,42 @@ main form span {
     width:220%;
 }
 
+
+
+
+
+
+.fgTA {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputTA {
+    margin-bottom: 15px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+
+.labelTA {
+    margin-bottom: 10px; /* Добавляем отступ снизу для метки */
+    display: inline-block; /* Убедитесь, что метка ведет себя как блочный элемент */
+}
+
+.textboxer {
+    width: 70%;
+    margin-top: 15px; /* Увеличиваем отступ между меткой и текстбоксом */
+    margin-bottom: 15px; /* Отступ между текстбоксами */
+}
+
+
+
+
+
+
 .fighter1 {
     float: none;
     border-width: thin;
@@ -485,10 +551,10 @@ main form span {
     border-radius: 15px;
     background: linear-gradient(#243720c7,#1e1e1ec7);
     position: center;
-    width: 900px;
+    width: 700px;
     height: 500px;
     margin: 0 auto;
-    margin-left: -250px;
+    margin-left: -150px;
     margin-top: 50px;
     text-align: center;
     padding: 10px;
