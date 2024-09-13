@@ -10,6 +10,7 @@ namespace OOP_BIG_PROJECT.ViewModels
         public bool IsPasswordCorrect { get; set; } = true;
 		public bool IsUserExisting { get; set; } = true;
 		public bool IsPasswordSame { get; set; } = true;
+        public bool Ban { get; set; } = false;
         [Required]
         [DataType(DataType.Password)]
         public string Password1 { get; set; }

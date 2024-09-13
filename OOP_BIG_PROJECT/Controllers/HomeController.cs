@@ -75,12 +75,22 @@ namespace OOP_BIG_PROJECT.Controllers
                         var fighter = _context.Fighter.FirstOrDefault(d => d.UserId == accounts[0].Id);
                         if (fighter != null)
                         {
+                            if (fighter.Ban == true)
+                            {
+                                A.Ban = true;
+                            }
+                            else
+                            {
                             StaticStuff.Fighter = fighter;
+                            A.Ban = true;
+
                             // добавить условие заполненности инфы
                             //RegisterViewModel fighterViewModel = new RegisterViewModel();
                             //fighterViewModel.Name = StaticStuff.Fighter.Name;
                             //TempData["FighterId"] = StaticStuff.Fighter.Id;
                             return RedirectToAction("Index", "Match");
+                            }
+                            
                         }
                         else
                         {

@@ -78,8 +78,6 @@ namespace OOP_BIG_PROJECT.Controllers
             return View(response);
         }
        
-
-
         [HttpGet]
         public IActionResult AccountHome()
         {
