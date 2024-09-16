@@ -483,6 +483,121 @@ main form span {
 
 
 
+/* Основной стиль для toggle switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    vertical-align: middle; /* Выравнивание переключателя по вертикали */
+}
+
+    .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #5d9ecb;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+    .slider:before {
+        margin-top:30px;
+        position: absolute;
+        content: "";
+        height: 35px;
+        width: 35px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: .4s;
+        border-radius: 50%;
+    }
+
+input:checked + .slider {
+    background-color: #bb58b0;
+}
+
+    input:checked + .slider:before {
+        transform: translateX(26px);
+    }
+
+.slider.round {
+    border-radius: 34px;
+    width: 60px;
+    height: 30px;
+}
+
+    .slider.round:before {
+        border-radius: 50%;
+    }
+
+/* Коррекция отступов для текста и полей */
+.row.align-items-center {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Выровнять элементы по началу строки */
+    margin-bottom: 20px;
+}
+
+hohohehe {
+    margin-right: 20px; /* Увеличен отступ между заголовком и полем */
+    margin-bottom: 0; /* Убираем нижние отступы */
+    white-space: nowrap; /* Препятствует переносу текста заголовков */
+}
+
+/* Добавляем отступ перед полем ввода возраста */
+.ager {
+    margin-left: 20px; /* Увеличен отступ перед окошком возраста */
+    height: 34px; /* Высота поля, чтобы оно соответствовало высоте переключателя */
+}
+
+/* Широкое поле для описания */
+.wide-input {
+    width: 100%; /* Ширина поля описания */
+    max-width: 100%; /* Ограничение максимальной ширины */
+}
+
+/* Общие отступы для элементов формы */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Стиль для текста рядом с переключателем */
+#sexLabel {
+    margin-left: 15px;
+    font-size: 16px;
+    color: white; /* Цвет текста */
+    white-space: nowrap; /* Препятствует переносу текста пола */
+    vertical-align: middle; /* Выравнивание текста по вертикали */
+}
+
+/* Исправление выравнивания для переключателя */
+.switch {
+    vertical-align: middle; /* Выравнивание переключателя по вертикали */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 .fgTA {
     display: flex;
     flex-direction: column;

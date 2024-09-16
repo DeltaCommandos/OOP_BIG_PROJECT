@@ -1,73 +1,86 @@
 ﻿@model OOP_BIG_PROJECT.ViewModels.RegisterViewModel
 
-
 <div class="fighter1">
-    <div class="scroll">
-        <form asp-action="PostRegister" class="p-4 p-md-5 bg-body-tertiary">
-            <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3 text-light">Введите личную информацию</h1>
+    <form asp-action="PostRegister" class="p-4 p-md-5 bg-body-tertiary">
 
+        <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3 text-light">Введите личную информацию</h1>
 
-            <h2>Возраст</h2>
-            <div class="form-floating mb-3">
+        <!-- Возраст -->
+        <div class="form-group row align-items-center">
+            <h2 class="col-sm-2">Возраст</h2>
+            <div class="col-sm-4">
                 <input type="number" min="14" max="999" class="form-control ager" id="floatingInput" asp-for="Age">
             </div>
+        </div>
 
-            <h2>Пол</h2>
-            <p>
-                <input type="radio" value="false" checked name="Sex" />мужской
-            </p>
-            <p>
-                <input type="radio" value="true" name="Sex" />женский
-            </p>
+        <!-- Пол -->
+        <div class="form-group row align-items-center">
+            <h2 class="col-sm-2">Пол</h2>
+            <div class="col-sm-4">
+                <label class="switch">
+                    <input type="checkbox" id="sexSwitch" name="Sex">
+                    <span class="slider round"></span>
+                </label>
+                <span id="sexLabel" class="d-inline-block ml-2">Мужской</span>
+            </div>
+        </div>
 
-
-            <h2>Теги, по которым вас можно будет найти</h2>
-            <div class="chooseTags">
-                <div class="form-group">
-                    <label for="TagId1">Тег 1</label>
-                    <select asp-for="TagId1" asp-items="Model.AvailableTags" class="form-control TagBox">
-                        <option value=""></option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="TagId2">Тег 2</label>
-                    <select asp-for="TagId2" asp-items="Model.AvailableTags" class="form-control TagBox">
-                        <option value=""></option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="TagId3">Тег 3</label>
-                    <select asp-for="TagId3" asp-items="Model.AvailableTags" class="form-control TagBox">
-                        <option value=""></option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="TagId4">Тег 4</label>
-                    <select asp-for="TagId4" asp-items="Model.AvailableTags" class="form-control TagBox">
-                        <option value=""></option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="TagId5">Тег 5</label>
-                    <select asp-for="TagId5" asp-items="Model.AvailableTags" class="form-control TagBox">
-                        <option value=""></option>
-                    </select>
-                </div>
+        <h2 class="hohohehe">Теги, по которым вас можно будет найти</h2>
+        <div class="chooseTags">
+            <div class="form-group">
+                <label for="TagId1">Тег 1</label>
+                <select asp-for="TagId1" asp-items="Model.AvailableTags" class="form-control TagBox">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="TagId2">Тег 2</label>
+                <select asp-for="TagId2" asp-items="Model.AvailableTags" class="form-control TagBox">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="TagId3">Тег 3</label>
+                <select asp-for="TagId3" asp-items="Model.AvailableTags" class="form-control TagBox">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="TagId4">Тег 4</label>
+                <select asp-for="TagId4" asp-items="Model.AvailableTags" class="form-control TagBox">
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="TagId5">Тег 5</label>
+                <select asp-for="TagId5" asp-items="Model.AvailableTags" class="form-control TagBox">
+                    <option value=""></option>
+                </select>
             </div>
 
-            <h2 class="zag">Описание</h2>
+        </div>
 
-            <div class="form-floating mb-3">
-                <input type="text" class="form-control skills" id="floatingInput" asp-for="Skills">
-            </div>
+        <!-- Описание (широкое поле) -->
+        <h2 class="hohohehe zag">Описание</h2>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control skills wide-input" id="floatingInput" asp-for="Skills">
+        </div>
 
-
-            <hr class="my-4">
-
-            <button class="w-100 btn btn-lg btn-warning" type="submit">Сохранить</button>
-            
-
-            
-        </form>
-    </div>
+        <hr class="my-4">
+        <button class="w-100 btn btn-lg btn-warning" type="submit">Сохранить</button>
+    </form>
 </div>
+
+
+<!-- Добавим JavaScript для toggle switch -->
+<script>
+    document.getElementById('sexSwitch').addEventListener('change', function () {
+        if (this.checked) {
+            this.value = true; // Женский
+            document.getElementById('sexLabel').textContent = 'Женский';
+        } else {
+            this.value = false; // Мужской
+            document.getElementById('sexLabel').textContent = 'Мужской';
+        }
+    });
+</script>
