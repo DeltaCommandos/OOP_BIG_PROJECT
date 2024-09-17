@@ -12,25 +12,28 @@ namespace OOP_BIG_PROJECT.Controllers
         private static List<Fighter> _likerfighters;
 
         public LikersController(ApplicationDbContext context)
-        {
+        {        
             _context = context;
             _likerfighters = new List<Fighter>();
 
             //List<bool> LikerFightersS = _context.Likes.Where(a => a.LikedFighterId == StaticStuff.Fighter.Id).Select(a => a.LikerStatus).ToList();
-            List<int> LikerFightersId=_context.Likes.Where(a=>a.LikedFighterId==StaticStuff.Fighter.Id).Select(a=>a.LikerId).ToList();
-            foreach (int LikerFighterId in LikerFightersId)
+            if (StaticStuff.Fighter!=null)
             {
-                bool liker = _context.Likes.Any(l => ((l.LikerId == StaticStuff.Fighter.Id && l.LikedFighterId== LikerFighterId)));
-                bool likerstatus = _context.Likes.Any(l => ((l.LikerId == LikerFighterId) && (l.LikedFighterId == StaticStuff.Fighter.Id) && l.LikerStatus==true));
-                if ((!liker) && (!likerstatus))
+                List<int> LikerFightersId = _context.Likes.Where(a => a.LikedFighterId == StaticStuff.Fighter.Id).Select(a => a.LikerId).ToList();
+                foreach (int LikerFighterId in LikerFightersId)
                 {
-                    var likerfighter = _context.Fighter.FirstOrDefault(a => LikerFighterId == a.Id);
-                    if(likerfighter!=null)
+                    bool liker = _context.Likes.Any(l => ((l.LikerId == StaticStuff.Fighter.Id && l.LikedFighterId == LikerFighterId)));
+                    bool likerstatus = _context.Likes.Any(l => ((l.LikerId == LikerFighterId) && (l.LikedFighterId == StaticStuff.Fighter.Id) && l.LikerStatus == true));
+                    if ((!liker) && (!likerstatus))
                     {
-                        _likerfighters.Add(likerfighter);
+                        var likerfighter = _context.Fighter.FirstOrDefault(a => LikerFighterId == a.Id);
+                        if (likerfighter != null)
+                        {
+                            _likerfighters.Add(likerfighter);
+                        }
                     }
+                    LikerFighters.Fighters = _likerfighters;
                 }
-                LikerFighters.Fighters = _likerfighters;
             }
         }
         [HttpGet]

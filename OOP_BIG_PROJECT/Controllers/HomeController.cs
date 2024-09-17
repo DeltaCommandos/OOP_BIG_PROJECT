@@ -23,6 +23,13 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            StaticStuff.refererUrl = HttpContext.Request.Path;
+            if (StaticStuff.Fighter != null)
+                StaticStuff.Fighter = null;
+
+            if (StaticStuff.Admin != null)
+                StaticStuff.Admin = null;
+
             var response = new UserViewModel();
             StaticStuff.Fighter = null;
             return View(response);
@@ -30,6 +37,7 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpGet]
         public IActionResult Login()
         {
+            StaticStuff.refererUrl = HttpContext.Request.Path;
             var response = new UserViewModel();
             return View(response);
         }
@@ -46,6 +54,12 @@ namespace OOP_BIG_PROJECT.Controllers
 
             if (FighterForMatch.SortedFighters != null)
                 FighterForMatch.SortedFighters = null;
+
+            if (StaticStuff.Fighter != null)
+                StaticStuff.Fighter = null;
+
+            if (StaticStuff.Admin != null)
+                StaticStuff.Admin = null;
 
             FighterForMatch.Flag = false;
             FighterForMatch.IsSorted = false;
@@ -112,6 +126,7 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpGet]
         public IActionResult Register()
         {
+            StaticStuff.refererUrl = HttpContext.Request.Path;
             var response = new RegisterViewModel();
             return View(response);
         }
@@ -124,7 +139,13 @@ namespace OOP_BIG_PROJECT.Controllers
             if (FighterForMatch.SortedFighters != null)
                 FighterForMatch.SortedFighters = null;
 
-            FighterForMatch.Flag = false;
+            if (StaticStuff.Fighter != null)
+                StaticStuff.Fighter = null;
+
+            if (StaticStuff.Admin != null)
+                StaticStuff.Admin = null;
+
+                    FighterForMatch.Flag = false;
             FighterForMatch.IsSorted = false;
             // Проверяем, существует ли пользователь с таким именем
             List<User> accounts = _context.User.Where<User>(a => a.Username == A.Username).ToList();

@@ -85,6 +85,13 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpGet]
         public IActionResult TagChange(int Id)
         {
+            if (StaticStuff.Admin == null)
+            {
+                // Переходим на страницу с адресом refererUrl
+                return Redirect(StaticStuff.refererUrl);
+            }
+            StaticStuff.refererUrl = HttpContext.Request.Path;
+
             StaticStuff.ChangeTag = Id;
             var response = new TagsViewModel();
             return View(response);
