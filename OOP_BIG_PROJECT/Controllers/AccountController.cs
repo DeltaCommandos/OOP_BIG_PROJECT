@@ -446,6 +446,8 @@ namespace OOP_BIG_PROJECT.Controllers
                 bool messageExists = _context.Messages.Any(m =>
                     (m.SenderId == Sender.Id && m.ReceiverId == Receiver.Id) ||
                     (m.SenderId == Receiver.Id && m.ReceiverId == Sender.Id));
+                DateTime currentUtcTime = DateTime.UtcNow;
+                DateTime adjustedTime = currentUtcTime.AddHours(3);
 
                 if (!messageExists)
                 {
@@ -455,7 +457,7 @@ namespace OOP_BIG_PROJECT.Controllers
                         SenderId = Sender.Id,
                         ReceiverId = Receiver.Id,
                         Content = A.Content,
-                        Timestamp = DateTime.UtcNow
+                        Timestamp = adjustedTime
                     };
 
                     _context.Messages.Add(chatMessage);
@@ -467,7 +469,7 @@ namespace OOP_BIG_PROJECT.Controllers
                         SenderId = Sender.Id,
                         ReceiverId = Receiver.Id,
                         Content = A.Content,
-                        Timestamp = DateTime.UtcNow // Добавляем временную метку сообщения
+                        Timestamp = adjustedTime // Добавляем временную метку сообщения
                     };
 
                     _context.Messages.Add(chatMessage);
@@ -497,6 +499,7 @@ namespace OOP_BIG_PROJECT.Controllers
                 _context.SaveChanges();
                 return RedirectToAction("ChatView", new { receiverId = receiverId });
             }
+
             else
             {
                 // Если Sender или Receiver не найдены, возвращаем текущее представление с моделью A
