@@ -21,8 +21,9 @@
             </div>
             <label>Описание тега</label>
             <div class="input-group inputTA">
-                <input asp-for="Description" class="form-control textboxer" />
-                <span asp-validation-for="Description" class="text-success"></span>
+                @* <input asp-for="Description" class="form-control textboxer" />
+                <span asp-validation-for="Description" class="text-success"></span> *@
+                <textarea class="form-control wide-input" id="floatingInput" asp-for="Description"></textarea>
             </div>
         </div>
 
