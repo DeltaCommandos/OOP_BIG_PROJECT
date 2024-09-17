@@ -255,7 +255,7 @@ namespace OOP_BIG_PROJECT.Controllers
 
             if (fighterToUpdate != null)
             {
-                fighterToUpdate.Rating = A.Rating;
+                //fighterToUpdate.Rating = A.Rating;
                 fighterToUpdate.Sex = A.Sex;
                 fighterToUpdate.Age = A.Age;
                 fighterToUpdate.Skills = A.Skills;

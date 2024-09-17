@@ -346,9 +346,7 @@ main form span {
     width:40%;
 }
 
-.ager{
-    width:10%;
-}
+
 
 
 .home1 {
@@ -482,21 +480,46 @@ main form span {
 
 
 
+/* Широкое поле для описания */
+.wide-input {
+    width: 100%; /* Ширина поля */
+    max-width: 100%; /* Ограничение максимальной ширины */
+    height: auto; /* Автоматическая высота */
+    min-height: 120px; /* Минимальная высота для 4 строк */
+    max-height: 300px; /* Максимальная высота, после которой включается прокрутка */
+    overflow-y: auto; /* Вертикальная прокрутка при переполнении */
+    resize: none; /* Запрет изменения размера поля */
+    white-space: normal; /* Разрешить перенос текста */
+    word-wrap: break-word; /* Перенос длинных слов */
+}
+
+
+.fighter2{
+    margin-left:30px;
+}
+
+.fig3 {
+    margin-left:  -40px;
+}
 
 /* Основной стиль для toggle switch */
 .switch {
+    margin-bottom:   15px;
     position: relative;
     display: inline-block;
-    width: 60px;
+    width: 50px;
     height: 34px;
     vertical-align: middle; /* Выравнивание переключателя по вертикали */
 }
+.sexlab {
+    margin-bottom: 15px;
+}
 
-    .switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
 
 .slider {
     position: absolute;
@@ -511,17 +534,18 @@ main form span {
 }
 
     .slider:before {
-        margin-top:30px;
+        margin-top: 0; /* Убираем лишний отступ сверху */
         position: absolute;
         content: "";
-        height: 35px;
-        width: 35px;
+        height: 23px; /* Уменьшаем размер кружка, чтобы соответствовал высоте переключателя */
+        width: 23px;
         left: 4px;
         bottom: 4px;
         background-color: white;
         transition: .4s;
         border-radius: 50%;
     }
+
 
 input:checked + .slider {
     background-color: #bb58b0;
@@ -533,7 +557,7 @@ input:checked + .slider {
 
 .slider.round {
     border-radius: 34px;
-    width: 60px;
+    width: 57px;
     height: 30px;
 }
 
@@ -555,10 +579,14 @@ hohohehe {
     white-space: nowrap; /* Препятствует переносу текста заголовков */
 }
 
-/* Добавляем отступ перед полем ввода возраста */
+/* Коррекция для возраста */
 .ager {
-    margin-left: 20px; /* Увеличен отступ перед окошком возраста */
-    height: 34px; /* Высота поля, чтобы оно соответствовало высоте переключателя */
+    margin-left: 20px; /* Отступ слева для поля возраста */
+    height: 40px; /* Высота поля возраста для согласованности с переключателем */
+    display: flex;
+    align-items: center;
+    width:30px;
+    margin-bottom:  10px;
 }
 
 /* Широкое поле для описания */
@@ -569,21 +597,27 @@ hohohehe {
 
 /* Общие отступы для элементов формы */
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
+
+    /* Контейнер для элементов возраста и пола */
+    .form-group.row.align-items-center {
+        display: flex;
+        align-items: center; /* Выравнивание элементов по вертикали */
+    }
 
 /* Стиль для текста рядом с переключателем */
 #sexLabel {
-    margin-left: 15px;
+    vertical-align: middle; /* Выравнивание текста рядом с переключателем по вертикали */
     font-size: 16px;
-    color: white; /* Цвет текста */
-    white-space: nowrap; /* Препятствует переносу текста пола */
-    vertical-align: middle; /* Выравнивание текста по вертикали */
+    color: white;
+    white-space: nowrap;
 }
 
 /* Исправление выравнивания для переключателя */
 .switch {
     vertical-align: middle; /* Выравнивание переключателя по вертикали */
+    margin-right: 15px; /* Отступ между переключателем и текстом "Мужской" */
 }
 
 
@@ -637,10 +671,10 @@ hohohehe {
     background: linear-gradient(#243720c7,#1e1e1ec7);
     position: center;
     width: 750px;
-    height: 650px;
+    height: 890px;
     margin: 0 auto;
     margin-left: -160px;
-    margin-top: 50px;
+    margin-top: -10px;
     color: white;
 }
 
@@ -697,8 +731,9 @@ hohohehe {
 }
 
 .skills{
-    width: 100%;
+    width: 1000px;
     height: 100%;
+
 }
 
 

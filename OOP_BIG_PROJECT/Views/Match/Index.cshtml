@@ -133,7 +133,7 @@
                 
 
             <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">
-                @Model.SelectedFighter.Name
+                    @Model.SelectedFighter.Name.Substring(0, Math.Min(20, Model.SelectedFighter.Name.Length))...
             </h1>
             <div class="tag-container">
                 @if (Model.SelectedFighter.TagId1 != 2)
@@ -213,7 +213,7 @@
         }
         else
         {
-            <p>Выбранный боец не найден.</p>
+            <h1 class="DNExist">Выбранный боец не найден.</h1>
         }
         
         }

@@ -31,7 +31,8 @@
                 {
                     <tr>
                         <td style="color:white">@tag.Name</td>
-                        <td style="color:white">@tag.Description</td>
+                        <td style="color:white" title="@tag.Name">@(@tag.Name != null ? tag.Name.Substring(0, Math.Min(15, tag.Name.Length)) + "..." : "")</td>
+                        <td style="color:white" title="@tag.Description">@(@tag.Description != null ? tag.Description.Substring(0, Math.Min(40, tag.Description.Length)) + "..." : "")</td>
                         <td style="color:white">
                             <form asp-action="TagChange" method="get">
                                 <input type="hidden" name="Id" value="@tag.Id"/>

@@ -4,29 +4,32 @@
     <form asp-action="PostRegister" class="p-4 p-md-5 bg-body-tertiary">
 
         <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3 text-light">Введите личную информацию</h1>
+        <hr class="my-4">
 
         <!-- Возраст -->
-        <div class="form-group row align-items-center">
+        <div class="form-group row align-items-center fig3">
             <h2 class="col-sm-2">Возраст</h2>
-            <div class="col-sm-4">
+            <div class="col-sm-4 ">
                 <input type="number" min="14" max="999" class="form-control ager" id="floatingInput" asp-for="Age">
             </div>
-        </div>
-
-        <!-- Пол -->
-        <div class="form-group row align-items-center">
             <h2 class="col-sm-2">Пол</h2>
             <div class="col-sm-4">
                 <label class="switch">
                     <input type="checkbox" id="sexSwitch" name="Sex">
                     <span class="slider round"></span>
                 </label>
-                <span id="sexLabel" class="d-inline-block ml-2">Мужской</span>
+                <span id="sexLabel" class="d-inline-block ml-2 sexlab">Мужской</span>
             </div>
+
         </div>
 
-        <h2 class="hohohehe">Теги, по которым вас можно будет найти</h2>
-        <div class="chooseTags">
+        <!-- Пол -->
+@*         <div class="form-group row align-items-center">
+        </div>
+
+ *@        <div class="chooseTags">
+            <h2 class="hohohehe">Теги, по которым вас можно будет найти</h2>
+
             <div class="form-group">
                 <label for="TagId1">Тег 1</label>
                 <select asp-for="TagId1" asp-items="Model.AvailableTags" class="form-control TagBox">
@@ -63,7 +66,7 @@
         <!-- Описание (широкое поле) -->
         <h2 class="hohohehe zag">Описание</h2>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control skills wide-input" id="floatingInput" asp-for="Skills">
+            <textarea class="form-control wide-input" id="floatingInput" asp-for="Skills"></textarea>
         </div>
 
         <hr class="my-4">
