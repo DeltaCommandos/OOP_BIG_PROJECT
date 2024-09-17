@@ -17,6 +17,7 @@
                 <label class="switch">
                     <input type="checkbox" id="sexSwitch" name="Sex">
                     <span class="slider round"></span>
+                    14
                 </label>
                 <span id="sexLabel" class="d-inline-block ml-2 sexlab">Мужской</span>
             </div>
@@ -27,37 +28,38 @@
 @*         <div class="form-group row align-items-center">
         </div>
 
- *@        <div class="chooseTags">
+ *@   
+        <div class="chooseTags">
             <h2 class="hohohehe">Теги, по которым вас можно будет найти</h2>
 
             <div class="form-group">
                 <label for="TagId1">Тег 1</label>
                 <select asp-for="TagId1" asp-items="Model.AvailableTags" class="form-control TagBox">
-                    <option value=""></option>
+                    <option value="">Выберите тег</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="TagId2">Тег 2</label>
                 <select asp-for="TagId2" asp-items="Model.AvailableTags" class="form-control TagBox">
-                    <option value=""></option>
+                    <option value="">Выберите тег</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="TagId3">Тег 3</label>
                 <select asp-for="TagId3" asp-items="Model.AvailableTags" class="form-control TagBox">
-                    <option value=""></option>
+                    <option value="">Выберите тег</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="TagId4">Тег 4</label>
                 <select asp-for="TagId4" asp-items="Model.AvailableTags" class="form-control TagBox">
-                    <option value=""></option>
+                    <option value="">Выберите тег</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="TagId5">Тег 5</label>
                 <select asp-for="TagId5" asp-items="Model.AvailableTags" class="form-control TagBox">
-                    <option value=""></option>
+                    <option value="">Выберите тег</option>
                 </select>
             </div>
 
@@ -86,4 +88,23 @@
             document.getElementById('sexLabel').textContent = 'Мужской';
         }
     });
+
+    function removeTagWithId2() {
+        // Найдем все выпадающие списки с классом 'TagBox'
+        const tagSelects = document.querySelectorAll('.TagBox');
+
+        // Для каждого выпадающего списка
+        tagSelects.forEach(select => {
+            // Найдем опцию с value="2"
+            const optionToRemove = select.querySelector('option[value="2"]');
+
+            // Если такая опция существует, удалим ее
+            if (optionToRemove) {
+                select.removeChild(optionToRemove);
+            }
+        });
+    }
+
+    // Выполним функцию после загрузки страницы
+    document.addEventListener('DOMContentLoaded', removeTagWithId2);
 </script>

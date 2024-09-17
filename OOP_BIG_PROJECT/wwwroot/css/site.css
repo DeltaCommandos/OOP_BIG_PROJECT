@@ -751,7 +751,6 @@ hohohehe {
 
 
 
-
 .tinder1 {
     float: none;
     border-width: thin;
@@ -760,7 +759,7 @@ hohohehe {
     background: linear-gradient(#243720c7,#1e1e1ec7);
     position: relative; /* Изменяем позиционирование на относительное */
     width: 780px;
-    height: 750px;
+    height: 710px;
     margin: 0 auto;
     margin-left: -160px;
     padding: 10px;
@@ -768,6 +767,7 @@ hohohehe {
     flex-direction: column; /* Flexbox для выравнивания по вертикали */
     justify-content: center;
     align-items: center;
+    margin-top: -50px;
 }
 
 

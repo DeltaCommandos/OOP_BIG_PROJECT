@@ -17,7 +17,7 @@
         <div class="form-group">
             <label for="SelectedTag1">Тег 1</label>
             <select asp-for="SelectedTag1" class="form-control TagBox">
-                <option value="">Выберите тег</option>
+                <option value="">@Model.SelectedTag1</option>
                 @if (Model.AllTags != null)
                 {
                     @foreach (var tag in Model.AllTags)
@@ -31,7 +31,7 @@
         <div class="form-group">
             <label for="SelectedTag2">Тег 2</label>
             <select asp-for="SelectedTag2" class="form-control TagBox">
-                <option value="">Выберите тег</option>
+                <option value="">@Model.SelectedTag2</option>
                 @if (Model.AllTags != null)
                 {
                     @foreach (var tag in Model.AllTags)
@@ -45,7 +45,7 @@
         <div class="form-group">
             <label for="SelectedTag3">Тег 3</label>
             <select asp-for="SelectedTag3" class="form-control TagBox">
-                <option value="">Выберите тег</option>
+                <option value="">@Model.SelectedTag3</option>
                 @if (Model.AllTags != null)
                 {
                     @foreach (var tag in Model.AllTags)
@@ -59,7 +59,7 @@
         <div class="form-group">
             <label for="SelectedTag4">Тег 4</label>
             <select asp-for="SelectedTag4" class="form-control TagBox">
-                <option value="">Выберите тег</option>
+                <option value="">@Model.SelectedTag4</option>
                 @if (Model.AllTags != null)
                 {
                     @foreach (var tag in Model.AllTags)
@@ -73,7 +73,7 @@
         <div class="form-group">
             <label for="SelectedTag5">Тег 5</label>
             <select asp-for="SelectedTag5" class="form-control TagBox">
-                <option value="">Выберите тег</option>
+                <option value="">@Model.SelectedTag5</option>
                 @if (Model.AllTags != null)
                 {
                     @foreach (var tag in Model.AllTags)
