@@ -17,15 +17,15 @@ namespace OOP_BIG_PROJECT.Controllers
             _likerfighters = new List<Fighter>();
 
             //List<bool> LikerFightersS = _context.Likes.Where(a => a.LikedFighterId == StaticStuff.Fighter.Id).Select(a => a.LikerStatus).ToList();
-            List<int> LikerFightersId=_context.Likes.Where(a=>a.LikedFighterId==StaticStuff.Fighter.Id).Select(a=>a.LikerId).ToList();
+            List<int> LikerFightersId = _context.Likes.Where(a => a.LikedFighterId == StaticStuff.Fighter.Id).Select(a => a.LikerId).ToList();
             foreach (int LikerFighterId in LikerFightersId)
             {
-                bool liker = _context.Likes.Any(l => ((l.LikerId == StaticStuff.Fighter.Id && l.LikedFighterId== LikerFighterId)));
-                bool likerstatus = _context.Likes.Any(l => ((l.LikerId == LikerFighterId) && (l.LikedFighterId == StaticStuff.Fighter.Id) && l.LikerStatus==true));
+                bool liker = _context.Likes.Any(l => ((l.LikerId == StaticStuff.Fighter.Id && l.LikedFighterId == LikerFighterId)));
+                bool likerstatus = _context.Likes.Any(l => ((l.LikerId == LikerFighterId) && (l.LikedFighterId == StaticStuff.Fighter.Id) && l.LikerStatus == true));
                 if ((!liker) && (!likerstatus))
                 {
                     var likerfighter = _context.Fighter.FirstOrDefault(a => LikerFighterId == a.Id);
-                    if(likerfighter!=null)
+                    if (likerfighter != null)
                     {
                         _likerfighters.Add(likerfighter);
                     }
@@ -36,7 +36,7 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            if (LikerFighters.Fighters.Count != 0)
+            if (LikerFighters.Fighters != null)
             {
                 Fighter selectedFighter = GetLikerFighter();
                 var viewModel = new FighterViewModel
@@ -95,10 +95,10 @@ namespace OOP_BIG_PROJECT.Controllers
                 likes.LikerStatus = true;
                 _context.Likes.Add(likes);
                 OverLikes = _context.Likes.Where(a => (Likedfighter.Id == a.LikedFighterId && StaticStuff.Fighter.Id == a.LikerId)).ToList();
-                foreach(var OverLike in OverLikes)
+                foreach (var OverLike in OverLikes)
                 {
-                    OverLike.LikerStatus = true; 
-                    _context.Likes.Update(OverLike); 
+                    OverLike.LikerStatus = true;
+                    _context.Likes.Update(OverLike);
                 }
                 //LikerFighters.Flag = true;
                 _context.SaveChanges();
@@ -137,5 +137,5 @@ namespace OOP_BIG_PROJECT.Controllers
             return RedirectToAction("AccountHome", "Account");
         }
     }
-    
+
 }
