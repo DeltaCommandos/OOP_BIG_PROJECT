@@ -24,6 +24,13 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            if (StaticStuff.Fighter == null)
+            {
+                // Переходим на страницу с адресом refererUrl
+                return Redirect(StaticStuff.refererUrl);
+            }
+            StaticStuff.refererUrl = HttpContext.Request.Path;
+
             var response = new FighterViewModel();
             return View(response);
         }
@@ -81,36 +88,72 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpGet]
         public IActionResult AccountHome()
         {
+            if (StaticStuff.Fighter == null)
+            {
+                // Переходим на страницу с адресом refererUrl
+                return Redirect(StaticStuff.refererUrl);
+            }
+            StaticStuff.refererUrl = HttpContext.Request.Path;
             var response = new UserViewModel();
             return View(response);
         }
         [HttpGet]
         public IActionResult ChangeLoginAndPassword()
         {
+            if (StaticStuff.Fighter == null)
+            {
+                // Переходим на страницу с адресом refererUrl
+                return Redirect(StaticStuff.refererUrl);
+            }
+            StaticStuff.refererUrl = HttpContext.Request.Path;
             var response = new UserViewModel();
             return View(response);
         }
         [HttpGet]
         public IActionResult ChangePassword()
         {
+            if (StaticStuff.Fighter == null)
+            {
+                // Переходим на страницу с адресом refererUrl
+                return Redirect(StaticStuff.refererUrl);
+            }
+            StaticStuff.refererUrl = HttpContext.Request.Path;
             var response = new UserViewModel();
             return View(response);
         }
         [HttpGet]
         public IActionResult ChangeLogin()
         {
+            if (StaticStuff.Fighter == null)
+            {
+                // Переходим на страницу с адресом refererUrl
+                return Redirect(StaticStuff.refererUrl);
+            }
+            StaticStuff.refererUrl = HttpContext.Request.Path;
             var response = new UserViewModel();
             return View(response);
         }
         [HttpGet]
         public IActionResult ChangeInfo()
         {
+            if (StaticStuff.Fighter == null)
+            {
+                // Переходим на страницу с адресом refererUrl
+                return Redirect(StaticStuff.refererUrl);
+            }
+            StaticStuff.refererUrl = HttpContext.Request.Path;
             var response = new FighterViewModel();
             return View(response);
         }
         [HttpGet]
         public IActionResult ChangeTags()
         {
+            if (StaticStuff.Fighter == null)
+            {
+                // Переходим на страницу с адресом refererUrl
+                return Redirect(StaticStuff.refererUrl);
+            }
+            StaticStuff.refererUrl = HttpContext.Request.Path;
             var allTags = _context.Tags.ToList(); 
             var response = new FighterViewModel
             {
@@ -142,6 +185,13 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpGet]
         public IActionResult ViewMatches(FighterViewModel A)
         {
+            if (StaticStuff.Fighter == null)
+            {
+                // Переходим на страницу с адресом refererUrl
+                return Redirect(StaticStuff.refererUrl);
+            }
+            StaticStuff.refererUrl = HttpContext.Request.Path;
+
             int currentFighterId = StaticStuff.Fighter.Id;
 
             List<Fighter> fighters = _context.Fighter.Where(a => a.Id != currentFighterId).ToList();
@@ -361,6 +411,13 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpGet]
         public IActionResult ChatView(int receiverId)
         {
+            if (StaticStuff.Fighter == null)
+            {
+                // Переходим на страницу с адресом refererUrl
+                return Redirect(StaticStuff.refererUrl);
+            }
+            StaticStuff.refererUrl = HttpContext.Request.Path;
+
             var Sender = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
             var Receiver = _context.Fighter.FirstOrDefault(a => a.Id == receiverId); 
             var response = new ChatViewModel

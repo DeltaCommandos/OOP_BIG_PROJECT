@@ -207,6 +207,13 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpGet]
         public IActionResult PostRegister()
         {
+            if (StaticStuff.Fighter == null)
+            {
+                // Переходим на страницу с адресом refererUrl
+                return Redirect(StaticStuff.refererUrl);
+            }
+            StaticStuff.refererUrl = HttpContext.Request.Path;
+
             var response = new RegisterViewModel
             {
                 AvailableTags = _context.Tags

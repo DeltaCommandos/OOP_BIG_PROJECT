@@ -28,25 +28,52 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            if (StaticStuff.Admin == null)
+            {
+                // Переходим на страницу с адресом refererUrl
+                return Redirect(StaticStuff.refererUrl);
+            }
+            StaticStuff.refererUrl = HttpContext.Request.Path;
+
             var response = new FighterViewModel();
             return View(response);
         }
         [HttpGet]
         public IActionResult TagMenu()
         {
+            if (StaticStuff.Admin == null)
+            {
+                // Переходим на страницу с адресом refererUrl
+                return Redirect(StaticStuff.refererUrl);
+            }
+            StaticStuff.refererUrl = HttpContext.Request.Path;
+
             var response = new TagsViewModel();
             return View(response);
         }
         [HttpGet]
         public IActionResult TagAdd()
         {
+            if (StaticStuff.Admin == null)
+            {
+                // Переходим на страницу с адресом refererUrl
+                return Redirect(StaticStuff.refererUrl);
+            }
+            StaticStuff.refererUrl = HttpContext.Request.Path;
+
             var response = new TagsViewModel();
             return View(response);
         }
 
         [HttpGet]
         public IActionResult TagChangeDelete()
-        { 
+        {
+            if (StaticStuff.Admin == null)
+            {
+                // Переходим на страницу с адресом refererUrl
+                return Redirect(StaticStuff.refererUrl);
+            }
+            StaticStuff.refererUrl = HttpContext.Request.Path;
             var TagsViewModel = new TagsViewModel
             {
                 AllTags = _context.Tags.ToList() // Заполнение списка тегов из базы данных
@@ -83,6 +110,13 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpPost]
         public IActionResult TagDelete(int TagId)
         {
+            if (StaticStuff.Admin == null)
+            {
+                // Переходим на страницу с адресом refererUrl
+                return Redirect(StaticStuff.refererUrl);
+            }
+            StaticStuff.refererUrl = HttpContext.Request.Path;
+
             Tags tag = _context.Tags.FirstOrDefault(l => l.Id == TagId);
             _context.Tags.Remove(tag);
             _context.SaveChanges();
