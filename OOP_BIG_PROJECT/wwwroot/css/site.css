@@ -169,6 +169,11 @@ main input:not([type="submit"]) {
 */    width:800px;
 }
 
+
+.tttt{
+    margin-left:-20px;
+}
+
 .kot {
     margin-left: 25px;
     margin-top:5px;
@@ -179,6 +184,13 @@ main input:not([type="submit"]) {
     margin-left: 15px;
     margin-top:  8px;
 }
+
+
+.kot3 {
+    margin-left: 15px;
+    margin-top: -15px;
+}
+
 
 .chTag {
    width:700px;
