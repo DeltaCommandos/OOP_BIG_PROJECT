@@ -453,6 +453,8 @@ namespace OOP_BIG_PROJECT.Controllers
                 {
                     selectedFighter = new Fighter();
                     selectedFighter.Age = -1000;
+                    StaticStuff.PrevioseFighterIdM = selectedFighter.Id;
+                    FighterForMatch.Fighters = fighters;
                     return selectedFighter;
                 }
 
@@ -518,6 +520,7 @@ namespace OOP_BIG_PROJECT.Controllers
                     {
                         selectedFighter = new Fighter();
                         selectedFighter.Age = -1000;
+                        StaticStuff.PrevioseFighterIdM = selectedFighter.Id;
                         return selectedFighter;
                     }
 
@@ -526,6 +529,8 @@ namespace OOP_BIG_PROJECT.Controllers
                 {
                     selectedFighter = new Fighter();
                     selectedFighter.Age = -1000;
+                    StaticStuff.PrevioseFighterIdM = selectedFighter.Id;
+                    FighterForMatch.Fighters = fighters;
                     return selectedFighter;
                 }
                
