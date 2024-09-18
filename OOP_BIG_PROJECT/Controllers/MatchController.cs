@@ -18,6 +18,7 @@ namespace OOP_BIG_PROJECT.Controllers
         public MatchController(ApplicationDbContext context)
         {
             _context = context;
+            //можно включть 
             if (StaticStuff.Fighter != null)
             {
                 if (FighterForMatch.Fighters == null)
@@ -32,26 +33,11 @@ namespace OOP_BIG_PROJECT.Controllers
                     {
                         foreach (int LikedFighterId in LikedFightersId)
                         {
-                            foreach (int bannedByCurrentFigher in BannedByCurrentFigher)
+                            // Если LikedFighterId совпадает с любым из забаненных бойцов, не добавляем его
+                            if (!(BannedByCurrentFigher.Contains(LikedFighterId) || BannedCurrentFigher.Contains(LikedFighterId)))
                             {
-                                foreach (int bannedCurrentFigher in BannedCurrentFigher)
-                                {
-                                    //bool WBLikedFighterId = _context.Fighter.Any(l => l.Id == bannedByCurrentFigher || l.Id == bannedCurrentFigher);
-                                    if ((LikedFighterId == bannedByCurrentFigher) || (LikedFighterId == bannedCurrentFigher))
-                                    {
-                                        WBProverka = true;
-                                    }
-                                    else
-                                    {
-                                        WBProverka = false;
-                                    }
-                                    if (!WBProverka)
-                                    {
-                                        WBLikedFightersId.Add(LikedFighterId);
-                                    }
-                                }
+                                WBLikedFightersId.Add(LikedFighterId);
                             }
-                            //int WBLikedFighterId
                         }
                     }
                     else if (BannedByCurrentFigher.Count != 0 )
