@@ -175,12 +175,12 @@ namespace OOP_BIG_PROJECT.Controllers
             return View(response);
         }
 
-        [HttpGet]
-        public IActionResult MyInfo()
-        {
-            var response = new FighterViewModel();
-            return View(response);
-        }
+        //[HttpGet]
+        //public IActionResult MyInfo()
+        //{
+        //    var response = new FighterViewModel();
+        //    return View(response);
+        //}
         [HttpPost]
         public IActionResult Index(FighterViewModel A)
         {
@@ -368,7 +368,7 @@ namespace OOP_BIG_PROJECT.Controllers
                 return RedirectToAction("AccountHome");
             }
         }
-        [HttpPost]
+        [HttpGet]
         public IActionResult MyInfo(FighterViewModel A)
         {
             var Fighter = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
@@ -377,11 +377,11 @@ namespace OOP_BIG_PROJECT.Controllers
                 {
                 A.SelectedFighter= Fighter;
                 _context.SaveChanges();
-                return RedirectToAction("AccountHome");
-                }
+                return View(A);
+            }
             else
             {
-                return View(A);
+                return null;
             }
         }
         [HttpPost]
