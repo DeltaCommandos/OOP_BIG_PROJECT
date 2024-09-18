@@ -91,21 +91,6 @@ namespace OOP_BIG_PROJECT.Controllers
             }
             StaticStuff.refererUrl = HttpContext.Request.Path;
 
-            if (StaticStuff.Fighter == null)
-            {
-                // Получаем URL предыдущей страницы из заголовка Referer
-                var refererUrl = Request.Headers["Referer"].ToString();
-
-                // Проверяем, что URL не пустой и является корректным
-                if (!string.IsNullOrEmpty(refererUrl))
-                {
-                    return Redirect(refererUrl);
-                }
-
-                // Если Referer не установлен или пустой, перенаправляем на домашнюю страницу или другую стандартную страницу
-                return RedirectToAction("Index", "Home");
-            }
-
             //if (_fighters == null)
             //{
             //    _fighters = _context.Fighter.Where(a => a.Id != StaticStuff.Fighter.Id).ToList();
@@ -194,6 +179,7 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpGet]
         public IActionResult SortedByTags(FighterViewModel A)
         {
+            FighterForMatch.Flag = false;
             FighterForMatch.SortedFighters = FighterForMatch.Fighters;
             List<int?> SelectedTagsId = new List<int?>();
             SelectedTagsId.Add(A.SelectedTag1);
@@ -396,14 +382,27 @@ namespace OOP_BIG_PROJECT.Controllers
             }
             else
             {
-                //var likedfighter = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
+                Fighter selectedFighter;
+                fighters = FighterForMatch.Fighters.Where(a => a.Id != StaticStuff.PrevioseFighterIdM).ToList();
                 Random random = new Random();
                 int index = random.Next(fighters.Count);
-                Fighter selectedFighter = fighters[index];
-                //var likedfighter = _context.Fighter.FirstOrDefault(a => a.Id == selectedFighter.Id);
-                fighters.RemoveAt(index);
-                FighterForMatch.Fighters = fighters;
-                return selectedFighter;
+                if (fighters.Count != 0)
+                {
+
+
+                    selectedFighter = fighters[index];
+                    StaticStuff.PrevioseFighterIdM = selectedFighter.Id;
+                    FighterForMatch.Fighters = fighters;
+                    return selectedFighter;
+                }
+                else 
+                {
+                    selectedFighter = new Fighter();
+                    selectedFighter.Age = -1000;
+                    return selectedFighter;
+                }
+
+              
             }
         }
         private Fighter GetRandomFighterCase2()
@@ -415,11 +414,13 @@ namespace OOP_BIG_PROJECT.Controllers
             }
             else
             {
-                //var likedfighter = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
+                
                 Random random = new Random();
                 int index = random.Next(fighters.Count);
                 Fighter selectedFighter = fighters[index];
-                //var likedfighter = _context.Fighter.FirstOrDefault(a => a.Id == selectedFighter.Id);
+
+                StaticStuff.PrevioseFighterIdM = selectedFighter.Id;
+
                 FighterForMatch.Fighters = fighters;
                 return selectedFighter;
             }
@@ -434,28 +435,38 @@ namespace OOP_BIG_PROJECT.Controllers
             }
             else
             {
-                //var likedfighter = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
-                Random random = new Random();
-                int index = random.Next(sortedfighters.Count);
-                Fighter selectedFighter = sortedfighters[index];
+                
 
-                Fighter selectedFighter1 = fighters.FirstOrDefault(f => f.Id == selectedFighter.Id);
+                Fighter selectedFighter1 = fighters.FirstOrDefault(f => f.Id == StaticStuff.PrevioseFighterIdM);
+                Fighter selectedFighter;
 
-                // int index1= fighters.Where(a=> a.Id== selectedFighter.Id)
-                //var likedfighter = _context.Fighter.FirstOrDefault(a => a.Id == selectedFighter.Id)
                 if (fighters.Count != 0)
                 {
                     FighterForMatch.Fighters.Remove(selectedFighter1);
+                    
                 }
                 if (sortedfighters.Count != 0)
                 {
-                    sortedfighters.RemoveAt(index);
-                }
-                //FighterForMatch.Fighters = fighters;
-                if (sortedfighters.Count != 0)
-                {
-                    FighterForMatch.SortedFighters = sortedfighters;
-                    return selectedFighter;
+                    FighterForMatch.SortedFighters.Remove(selectedFighter1);
+                    sortedfighters = FighterForMatch.SortedFighters;
+                    Random random = new Random();
+                    int index = random.Next(sortedfighters.Count);
+                    if (sortedfighters.Count!= 0)
+                    {
+
+
+                        selectedFighter = sortedfighters[index];
+                        StaticStuff.PrevioseFighterIdM = selectedFighter.Id;
+
+                        return selectedFighter;
+                    }
+                    else 
+                    {
+                        selectedFighter = new Fighter();
+                        selectedFighter.Age = -1000;
+                        return selectedFighter;
+                    }
+
                 }
                 else
                 {
@@ -463,6 +474,34 @@ namespace OOP_BIG_PROJECT.Controllers
                     selectedFighter.Age = -1000;
                     return selectedFighter;
                 }
+               
+                //Random random = new Random();
+                //int index = random.Next(sortedfighters.Count);
+                //Fighter selectedFighter = sortedfighters[index];
+
+                //Fighter selectedFighter1 = fighters.FirstOrDefault(f => f.Id == selectedFighter.Id);
+
+
+                //if (fighters.Count != 0)
+                //{
+                //    FighterForMatch.Fighters.Remove(selectedFighter1);
+                //}
+                //if (sortedfighters.Count != 0)
+                //{
+                //    sortedfighters.RemoveAt(index);
+                //}
+
+                //if (sortedfighters.Count != 0)
+                //{
+                //    FighterForMatch.SortedFighters = sortedfighters;
+                //    return selectedFighter;
+                //}
+                //else
+                //{
+                //    selectedFighter = new Fighter();
+                //    selectedFighter.Age = -1000;
+                //    return selectedFighter;
+                //}
             }
         }
         private Fighter GetRandomSortedFighterCase2()
@@ -485,6 +524,9 @@ namespace OOP_BIG_PROJECT.Controllers
                 // int index1= fighters.Where(a=> a.Id== selectedFighter.Id)
                 //var likedfighter = _context.Fighter.FirstOrDefault(a => a.Id == selectedFighter.Id)
                 //FighterForMatch.Fighters = fighters;
+
+                StaticStuff.PrevioseFighterIdM = selectedFighter.Id;
+
                 FighterForMatch.SortedFighters = sortedfighters;
                 return selectedFighter;
             }

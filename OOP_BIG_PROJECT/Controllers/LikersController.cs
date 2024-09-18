@@ -46,22 +46,7 @@ namespace OOP_BIG_PROJECT.Controllers
             }
             StaticStuff.refererUrl = HttpContext.Request.Path;
 
-            if (StaticStuff.Fighter == null)
-            {
-                // Получаем URL предыдущей страницы из заголовка Referer
-                var refererUrl = Request.Headers["Referer"].ToString();
-
-                // Проверяем, что URL не пустой и является корректным
-                if (!string.IsNullOrEmpty(refererUrl))
-                {
-                    return Redirect(refererUrl);
-                }
-
-                // Если Referer не установлен или пустой, перенаправляем на домашнюю страницу или другую стандартную страницу
-                return RedirectToAction("Index", "Home");
-            }
-
-            if (LikerFighters.Fighters != null)
+            if ((LikerFighters.Fighters != null) && (LikerFighters.Fighters.Count != 0))
             {
                 Fighter selectedFighter = GetLikerFighter();
                 var viewModel = new FighterViewModel

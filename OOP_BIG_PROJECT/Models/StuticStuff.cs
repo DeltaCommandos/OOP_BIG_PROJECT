@@ -8,6 +8,7 @@ namespace OOP_BIG_PROJECT.Models
     {
         public static int ReciverId { get; set; }
         public static Fighter Fighter { get; set; }
+        public static int PrevioseFighterIdM { get; set; }
         public static Admin Admin { get; set; }
         public static string refererUrl { get; set; }
         public static bool Status { get; set; }
