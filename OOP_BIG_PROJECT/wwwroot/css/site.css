@@ -117,27 +117,91 @@ main input:not([type="submit"]) {
 
 
 
+.qq1{
+    height:80px;
+}
 
 
 .whatLike{
     padding:0px;
-    margin-top: -10%;
+    margin-top:  -22%;
     width: 50%;
     text-align:center;
 }
 
+.whatLike0 {
+    padding: 0px;
+    margin-top: -5%;
+    width: 50%;
+    text-align: center;
+}
 
 .whatLike2 {
     padding: 0px;
-    margin-top: -10%;
+    margin-top: -17%;
     width: 300px;
     text-align: center;
     height: 100px;
     align-content: initial;
     margin-left:30px;
 }
+.whatLike3 {
+    padding: 0px;
+    margin-top: -12%;
+    width: 300px;
+    text-align: center;
+    height: 100px;
+    align-content: initial;
+    margin-left: 30px;
+}
 
+.qq4{
 
+    height:60px;
+}
+.qq5 {
+    height: 75px;
+}
+
+.ChLog{
+    
+/*    margin-left: 90px;
+*/    width:800px;
+}
+
+.kot {
+    margin-left: 25px;
+    margin-top:5px;
+
+}
+
+.kot2 {
+    margin-left: 25px;
+    margin-top: -15px;
+}
+
+.chTag {
+   width:700px;
+}
+.chTagBTN{
+    margin-left:-280px;
+}
+
+.changer3 {
+    float: none;
+    border-width: thin;
+    border-style: none;
+    border-radius: 15px;
+    background: linear-gradient(#243720c7,#1e1e1ec7);
+    position: center;
+    width: 420px;
+    height: 650px;
+    margin: 0 auto;
+    margin-left: -20px;
+    margin-top: -150px;
+    padding: 10px;
+    color: white;
+}
 
 .whatLike1 {
     padding: 0px;
@@ -487,17 +551,16 @@ main form span {
 
 
 
-/* Широкое поле для описания */
 .wide-input {
-    width: 100%; /* Ширина поля */
-    max-width: 100%; /* Ограничение максимальной ширины */
-    height: 500px; /* Автоматическая высота */
-    min-height: 120px; /* Минимальная высота для 4 строк */
-    max-height: 700px; /* Максимальная высота, после которой включается прокрутка */
-    overflow-y: auto; /* Вертикальная прокрутка при переполнении */
-    resize: none; /* Запрет изменения размера поля */
-    white-space: normal; /* Разрешить перенос текста */
-    word-wrap: break-word; /* Перенос длинных слов */
+    width: 100%;
+    max-width: 100%;
+    height: 300px; /* Принудительная высота */
+    min-height: 120px;
+    max-height: 300pxt; /* Принудительная максимальная высота */
+    overflow-y: auto;
+    resize: none;
+    white-space: normal;
+    word-wrap: break-word;
 }
 
 
@@ -735,10 +798,10 @@ hohohehe {
     border-radius: 15px;
     background: linear-gradient(#243720c7,#1e1e1ec7);
     position: center;
-    width: 780px;
+    width: 420px;
     height: 450px;
     margin: 0 auto;
-    margin-left: -160px;
+    margin-left:  -20px;
     margin-top: 50px;
     padding: 10px;
     color: white;
@@ -756,7 +819,11 @@ hohohehe {
 }
 
 
-
+.chantag {
+    position: center;
+    justify-content: center;
+    align-items: center;
+}
 
 .tinder1 {
     float: none;
@@ -867,12 +934,22 @@ hohohehe {
     
 }
 
+.container {
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение */
+    height: 400px; /* Задаем высоту контейнера, чтобы flex-grow работал */
+}
+
 textarea {
     flex-grow: 1;
     margin-right: 10px;
     resize: none;
     padding: 10px;
+    min-height: 50px; /* Минимальная высота для textarea */
+    max-height: 200px; /* Опционально — максимальная высота */
+    overflow-y: auto; /* Прокрутка, если контент больше, чем высота */
 }
+
 
 .chatButton {
     background-color: #007bff; /* Customize the button color */

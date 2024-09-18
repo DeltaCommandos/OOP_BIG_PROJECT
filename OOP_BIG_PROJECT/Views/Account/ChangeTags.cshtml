@@ -1,6 +1,6 @@
 ﻿@model OOP_BIG_PROJECT.ViewModels.FighterViewModel
 
-<div class="changer2 txer">
+<div class="changer3 txer">
     <form asp-controller="Account" asp-action="Back" method="post">
         <button type="submit" class="boba">
             <svg xmlns="http://www.w3.org/2000/svg" width="46" height="36" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16" style="color:white">
@@ -13,7 +13,7 @@
 
     
 
-    <form asp-action="ChangeTags" method="post">
+    <form asp-action="ChangeTags" class="chTag" method="post">
         <div class="form-group">
             <label for="SelectedTag1">Тег 1</label>
             <select asp-for="SelectedTag1" class="form-control TagBox">
@@ -84,6 +84,8 @@
             </select>
 
         </div>
-        <button type="submit" class="btn btn-success ">Сохранить изменения</button>
+        <button type="submit" class="btn btn-success chTagBTN">Сохранить изменения</button>
+
     </form>
+    <img src="/Kot1.png" alt="image" border="0" width="130" height="130" class="kot">
 </div>
