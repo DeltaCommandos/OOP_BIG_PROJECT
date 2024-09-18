@@ -413,6 +413,19 @@ namespace OOP_BIG_PROJECT.Controllers
 
             BansForFighters bannedfighter = _context.BansForFighters.FirstOrDefault(a => a.Banned == bannedfighterid);
             _context.BansForFighters.Remove(bannedfighter);
+            Likes NewMatch1= new Likes();
+            NewMatch1.LikerId = StaticStuff.Fighter.Id;
+            NewMatch1.LikedFighterId = receiverId;
+            NewMatch1.IsLiked = true;
+            NewMatch1.LikerStatus = false;
+            Likes NewMatch2 = new Likes();
+            NewMatch2.LikerId = receiverId;
+            NewMatch2.LikedFighterId = StaticStuff.Fighter.Id;
+            NewMatch2.IsLiked = true;
+            NewMatch2.LikerStatus = false;
+            _context.Likes.Add(NewMatch1);
+            _context.Likes.Add(NewMatch2);
+            _context.SaveChanges();
             return RedirectToAction("Blacklist");
         }
         [HttpPost]
