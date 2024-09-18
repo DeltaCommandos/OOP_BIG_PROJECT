@@ -21,90 +21,90 @@
         </td>
         <td>
             <form asp-controller="Account" asp-action="MyInfo" method="get">
-
-                    @if (Model.FighterId != null)
-        {
-
-            <h3 class="fw-bold text-body-emphasis text-center">
-                @StaticStuff.Fighter.Name
-            </h3>
-
-            <div class="tag-container">
-                @if (Model.SelectedTag1 != 2)
+                @if (Model.FighterId != null)  
                 {
-                    @foreach (var tag in Model.AllTags)
+
+                <h3 class="fw-bold text-body-emphasis text-center">
+                    @StaticStuff.Fighter.Name
+                </h3>
+
+                <div class="tag-container">
+                    @if (Model.SelectedTag1 != 2)
                     {
-                        @if (@tag.Id == Model.SelectedTag1)
+                        @foreach (var tag in Model.AllTags)
                         {
-                            <span class="tag t1">@tag.Name</span>
+                            @if (@tag.Id == Model.SelectedTag1 && @tag.Id != 2)
+                            {
+                                <span class="tag t1">@tag.Name</span>
+                            }
                         }
                     }
-                }
-                @if (Model.SelectedTag2 != 2)
-                {
-                    @foreach (var tag in Model.AllTags)
+                    @if (Model.SelectedTag2 != 2)
                     {
-                        @if (@tag.Id == Model.SelectedFighter.TagId2)
+                        @foreach (var tag in Model.AllTags)
                         {
-                            <span class="tag t2">@tag.Name</span>
+                            @if (@tag.Id == Model.SelectedFighter.TagId2 && @tag.Id != 2)
+                            {
+                                <span class="tag t2">@tag.Name</span>
+                            }
                         }
                     }
-                }
-                @if (Model.SelectedTag3 != 2)
-                {
-                    @foreach (var tag in Model.AllTags)
+                    @if (Model.SelectedTag3 != 2)
                     {
-                        @if (@tag.Id == Model.SelectedFighter.TagId3)
+                        @foreach (var tag in Model.AllTags)
                         {
-                            <span class="tag t3">@tag.Name</span>
+                            @if (@tag.Id == Model.SelectedFighter.TagId3 && @tag.Id != 2)
+                            {
+                                <span class="tag t3">@tag.Name</span>
+                            }
                         }
                     }
-                }
-                @if (Model.SelectedTag4 != 2)
-                {
-                    @foreach (var tag in Model.AllTags)
+                    @if (Model.SelectedTag4 != 2)
                     {
-                        @if (@tag.Id == Model.SelectedFighter.TagId4)
+                        @foreach (var tag in Model.AllTags)
                         {
-                            <span class="tag t4">@tag.Name</span>
+                            @if (@tag.Id == Model.SelectedFighter.TagId4 && @tag.Id != 2)
+                            {
+                                <span class="tag t4">@tag.Name</span>
+                            }
                         }
                     }
-                }
-                @if (Model.SelectedTag5 != 2)
-                {
-                    @foreach (var tag in Model.AllTags)
+                    @if (Model.SelectedTag5 != 2)
                     {
-                        @if (@tag.Id == Model.SelectedFighter.TagId5)
+                        @foreach (var tag in Model.AllTags)
                         {
-                            <span class="tag t5">@tag.Name</span>
+                            @if (@tag.Id == Model.SelectedFighter.TagId5 && @tag.Id != 2)
+                            {
+                                <span class="tag t5">@tag.Name</span>
+                            }
                         }
                     }
-                }
-                @if (Model.SelectedTag1 == 2 && Model.SelectedTag2  == 2 && Model.SelectedTag3 == 2 && Model.SelectedTag4 == 2 && Model.SelectedTag5 == 2)
-                {
-                    <b>ㅤㅤ</b>
-                }
-            </div>
+                    @if (Model.SelectedTag1 == 2 && Model.SelectedTag2 == 2 && Model.SelectedTag3 == 2 && Model.SelectedTag4 == 2 && Model.SelectedTag5 == 2)
+                    {
+                        <b>ㅤㅤ</b>
+                    }
+                </div>
 
-            @if (!Model.SelectedFighter.Sex)
-            {
-                <p class="col-lg-8 mx-auto fs-5 text-start" style="color:white">
-                    мужчина - @Model.SelectedFighter.Age
-                </p>
-            }
-            else
-            {
-                <p class="col-lg-8 mx-auto fs-5 text-start" style="color:white">
-                    женщина - @Model.SelectedFighter.Age
-                </p>
-            }
+                @if (!Model.SelectedFighter.Sex)
+                {
+                    <p class="col-lg-8 mx-auto fs-5 text-start" style="color:white">
+                        мужчина - @Model.SelectedFighter.Age
+                    </p>
+                }
+                else
+                {
+                    <p class="col-lg-8 mx-auto fs-5 text-start" style="color:white">
+                        женщина - @Model.SelectedFighter.Age
+                    </p>
+                }
 
-            <div class="col-lg-8 mx-auto fs-5 scroll-s" style="color:white">
-                @Model.SelectedFighter.Skills
-            </div>
-            }
+                <div class="col-lg-8 mx-auto fs-5 scroll-s" style="color:white">
+                    @Model.SelectedFighter.Skills
+                </div>
+                }
             </form>
         </td>
 
         
 </div>
+
