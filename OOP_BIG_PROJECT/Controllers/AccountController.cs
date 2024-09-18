@@ -330,23 +330,25 @@ namespace OOP_BIG_PROJECT.Controllers
             return RedirectToAction("AccountHome");
         }
 
-        //[HttpPost]
-        //public IActionResult ChangeInfo(FighterViewModel A)
-        //{
-        //    Fighter fighterToUpdate = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
-        //    if (fighterToUpdate == null)
-        //    {
-        //        return View(A);
-        //    }
-        //    else
-        //    {
-        //        fighterToUpdate.Skills = A.SelectedFighter.Skills;
-        //        _context.Fighter.Update(fighterToUpdate);
-        //        _context.SaveChanges();
-        //        return RedirectToAction("AccountHome");
-        //    }
-        //}
-        //дополить кнопку
+
+        [HttpPost]
+        public IActionResult ChangeAge(FighterViewModel model)
+        {
+            if (model.SelectedFighter != null)
+            {
+                // Обновляем данные о бойце
+                var fighterToUpdate = StaticStuff.Fighter;
+                fighterToUpdate.Age = model.SelectedFighter.Age;
+
+                // Логика для сохранения изменений в базе данных (если нужно)
+                // Например:
+                // _context.Update(fighterToUpdate);
+                // _context.SaveChanges();
+            }
+
+            return RedirectToAction("AccountHome");
+        }
+
         [HttpPost]
         public IActionResult ChangeTags(FighterViewModel A)
         {
