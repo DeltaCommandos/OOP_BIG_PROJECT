@@ -254,8 +254,10 @@ namespace OOP_BIG_PROJECT.Controllers
                 User userToUpdate = _context.User.FirstOrDefault(a => a.Id == StaticStuff.Fighter.UserId);
                 //меняем имя User
                 userToUpdate.Username=A.Username;
+               
                 if (userToUpdate.Username != null || fighterToUpdate.Name != null)
                 {
+                    StaticStuff.Fighter.Name = fighterToUpdate.Name;
                     _context.Fighter.Update(fighterToUpdate);
                     _context.User.Update(userToUpdate);
                     _context.SaveChanges();
