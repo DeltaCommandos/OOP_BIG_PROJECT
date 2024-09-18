@@ -54,7 +54,57 @@ namespace OOP_BIG_PROJECT.Controllers
                             //int WBLikedFighterId
                         }
                     }
-                    else
+                    if (BannedByCurrentFigher.Count != 0 )
+                    {
+                        foreach (int LikedFighterId in LikedFightersId)
+                        {
+                            foreach (int bannedByCurrentFigher in BannedByCurrentFigher)
+                            {
+                                
+                                    //bool WBLikedFighterId = _context.Fighter.Any(l => l.Id == bannedByCurrentFigher || l.Id == bannedCurrentFigher);
+                                    if ((LikedFighterId == bannedByCurrentFigher))
+                                    {
+                                        WBProverka = true;
+                                    }
+                                    else
+                                    {
+                                        WBProverka = false;
+                                    }
+                                    if (!WBProverka)
+                                    {
+                                        WBLikedFightersId.Add(LikedFighterId);
+                                    }
+                                
+                            }
+                            //int WBLikedFighterId
+                        }
+                    }
+                    if (BannedCurrentFigher.Count != 0)
+                    {
+                        foreach (int LikedFighterId in LikedFightersId)
+                        {
+                            foreach (int bannedCurrentFigher in BannedCurrentFigher)
+                            {
+
+                                //bool WBLikedFighterId = _context.Fighter.Any(l => l.Id == bannedByCurrentFigher || l.Id == bannedCurrentFigher);
+                                if ((LikedFighterId == bannedCurrentFigher))
+                                {
+                                    WBProverka = true;
+                                }
+                                else
+                                {
+                                    WBProverka = false;
+                                }
+                                if (!WBProverka)
+                                {
+                                    WBLikedFightersId.Add(LikedFighterId);
+                                }
+
+                            }
+                            //int WBLikedFighterId
+                        }
+                    }
+                    if (BannedByCurrentFigher.Count == 0 && BannedCurrentFigher.Count == 0)
                     {
                         WBLikedFightersId = LikedFightersId;
                     }
@@ -72,6 +122,10 @@ namespace OOP_BIG_PROJECT.Controllers
                             {
                                 _fighters.Add(LikedFighter);
                             }
+                        }
+                        else
+                        {
+                            ;
                         }
 
                     }
