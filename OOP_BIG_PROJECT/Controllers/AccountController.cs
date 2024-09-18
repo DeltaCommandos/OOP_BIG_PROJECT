@@ -372,6 +372,7 @@ namespace OOP_BIG_PROJECT.Controllers
         public IActionResult MyInfo(FighterViewModel A)
         {
             var Fighter = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
+            A.AllTags=_context.Tags.ToList();   
             if (Fighter != null) 
                 {
                 A.SelectedFighter= Fighter;
