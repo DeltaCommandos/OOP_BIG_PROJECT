@@ -387,6 +387,14 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpGet]
         public IActionResult Blacklist(FighterViewModel viewModel)
         {
+            List <int> bannedfightersId=_context.BansForFighters.Where(a=>a.Banner==StaticStuff.Fighter.Id).Select(a=>a.Banned).ToList();
+            List<Fighter> bannedfighters = new List<Fighter>();
+            foreach (int bannedfighterId in bannedfightersId)
+            {
+                Fighter bannedfighter = _context.Fighter.FirstOrDefault(a => a.Id == bannedfighterId);
+                bannedfighters.Add(bannedfighter);
+            }
+            viewModel.BlackListFighters= bannedfighters;
             return View(viewModel);
         }
             [HttpPost]
@@ -396,9 +404,8 @@ namespace OOP_BIG_PROJECT.Controllers
 
             BansForFighters bannedfighter = _context.BansForFighters.FirstOrDefault(a => a.Banned == bannedfighterid);
             _context.BansForFighters.Remove(bannedfighter);
-            return View();
+            return RedirectToAction("Blacklist");
         }
-
         [HttpPost]
         public IActionResult OpenChat(int receiverId)
         {
