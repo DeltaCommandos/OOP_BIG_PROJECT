@@ -210,7 +210,7 @@ namespace OOP_BIG_PROJECT.Controllers
             List<Fighter> fighters = _context.Fighter.Where(a => a.Id != currentFighterId).ToList();
 
             List<int> likedFighterIds = _context.Likes
-                                              .Where(l => l.LikerId == currentFighterId)
+                                              .Where(l => l.LikerId == currentFighterId && l.IsLiked == true)
                                               .Select(l => l.LikedFighterId)
                                               .ToList();
 
@@ -221,7 +221,7 @@ namespace OOP_BIG_PROJECT.Controllers
             foreach (int likedFighterId in likedFighterIds)
             {
                 // Проверяем, лайкнул ли текущий боец бойца с идентификатором likedFighterId
-                bool isMutualLike = _context.Likes.Any(l => l.LikerId == likedFighterId && l.LikedFighterId == currentFighterId);
+                bool isMutualLike = _context.Likes.Any(l => l.LikerId == likedFighterId && l.LikedFighterId == currentFighterId && l.IsLiked==true);
 
                 if (isMutualLike)
                 {
@@ -464,13 +464,13 @@ namespace OOP_BIG_PROJECT.Controllers
             ;
             List<Likes> receiverlikes = _context.Likes.Where(l => l.LikerId == receiverId && l.LikedFighterId == StaticStuff.Fighter.Id).ToList();
             List<Likes> senderlikes = _context.Likes.Where(l => l.LikerId == StaticStuff.Fighter.Id && l.LikedFighterId == receiverId).ToList();
-            List<Messages> receiverMessages = _context.Messages.Where(l => l.SenderId == receiverId && l.ReceiverId == StaticStuff.Fighter.Id).ToList();
-            List<Messages> senderMessages = _context.Messages.Where(l => l.SenderId == StaticStuff.Fighter.Id && l.ReceiverId == receiverId).ToList();
+            //List<Messages> receiverMessages = _context.Messages.Where(l => l.SenderId == receiverId && l.ReceiverId == StaticStuff.Fighter.Id).ToList();
+            //List<Messages> senderMessages = _context.Messages.Where(l => l.SenderId == StaticStuff.Fighter.Id && l.ReceiverId == receiverId).ToList();
             _context.BansForFighters.Add(Ban);
             _context.RemoveRange(receiverlikes);
             _context.RemoveRange(senderlikes);
-            _context.RemoveRange(receiverMessages);
-            _context.RemoveRange(senderMessages);
+            //_context.RemoveRange(receiverMessages);
+            //_context.RemoveRange(senderMessages);
             _context.SaveChanges();
             return RedirectToAction("ViewMatches");
         }

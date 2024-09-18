@@ -113,8 +113,8 @@ namespace OOP_BIG_PROJECT.Controllers
                         //List < Likes > CorrentFighter=_context.Likes.Where(a=>a.LikerId== StaticStuff.Fighter.Id).ToList();
                         // List<Likes> LikedFighter = _context.Likes.Where(a => a.LikerId == LikedFighterId).ToList();
 
-                        bool Liker = _context.Likes.Any(l => (l.LikerId == WBLikedFighterId && l.LikedFighterId == StaticStuff.Fighter.Id));
-                        bool liked = _context.Likes.Any(l => (l.LikerId == StaticStuff.Fighter.Id && l.LikedFighterId == WBLikedFighterId));
+                        bool Liker = _context.Likes.Any(l => (l.LikerId == WBLikedFighterId && l.LikedFighterId == StaticStuff.Fighter.Id && l.IsLiked == true));
+                        bool liked = _context.Likes.Any(l => (l.LikerId == StaticStuff.Fighter.Id && l.LikedFighterId == WBLikedFighterId && l.IsLiked == true));
                         if (!(Liker && liked))
                         {
                             var LikedFighter = _context.Fighter.FirstOrDefault(a => a.Id == WBLikedFighterId);
