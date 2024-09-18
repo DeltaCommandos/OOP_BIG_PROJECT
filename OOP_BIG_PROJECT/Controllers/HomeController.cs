@@ -177,13 +177,6 @@ namespace OOP_BIG_PROJECT.Controllers
                     _context.SaveChanges();
                     if (!StaticStuff.Status)
                     {
-
-                        //A.userViewModel.Password1 = A.Password;
-                        // Добавляем пользователя в контекст и сохраняем изменения
-
-
-
-                        // Создаем бойца, связанный с новым пользователем
                         User User = _context.User.Where<User>(a => a.Username == A.Username).ToList()[0];
                         _context.Fighter.Add(new Fighter
                         {
@@ -280,26 +273,3 @@ namespace OOP_BIG_PROJECT.Controllers
 
     }
 }
-
-//	public class HomeController : Controller
-//	{
-//		// Действие для домашней страницы
-//		public IActionResult Index()
-//		{
-//			return View();
-//		}
-
-//		// Действие для страницы конфиденциальности
-//		public IActionResult Privacy()
-//		{
-//			return View();
-//		}
-
-//		// Действие для обработки ошибок
-//		[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-//		public IActionResult Error()
-//		{
-//			return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-//		}
-//	}
-//}
