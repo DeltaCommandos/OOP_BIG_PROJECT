@@ -54,7 +54,7 @@ namespace OOP_BIG_PROJECT.Controllers
                             //int WBLikedFighterId
                         }
                     }
-                    if (BannedByCurrentFigher.Count != 0 )
+                    else if (BannedByCurrentFigher.Count != 0 )
                     {
                         foreach (int LikedFighterId in LikedFightersId)
                         {
@@ -79,7 +79,7 @@ namespace OOP_BIG_PROJECT.Controllers
                             //int WBLikedFighterId
                         }
                     }
-                    if (BannedCurrentFigher.Count != 0)
+                    else if (BannedCurrentFigher.Count != 0)
                     {
                         foreach (int LikedFighterId in LikedFightersId)
                         {
@@ -104,7 +104,7 @@ namespace OOP_BIG_PROJECT.Controllers
                             //int WBLikedFighterId
                         }
                     }
-                    if (BannedByCurrentFigher.Count == 0 && BannedCurrentFigher.Count == 0)
+                    else if (BannedByCurrentFigher.Count == 0 && BannedCurrentFigher.Count == 0)
                     {
                         WBLikedFightersId = LikedFightersId;
                     }

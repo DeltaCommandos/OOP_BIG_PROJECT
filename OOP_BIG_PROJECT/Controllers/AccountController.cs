@@ -249,23 +249,32 @@ namespace OOP_BIG_PROJECT.Controllers
             }
             else
             {
-                //меняем имя fighter
-                fighterToUpdate.Name = A.Username;
-                User userToUpdate = _context.User.FirstOrDefault(a => a.Id == StaticStuff.Fighter.UserId);
-                //меняем имя User
-                userToUpdate.Username = A.Username;
-
-                if (userToUpdate.Username != null || fighterToUpdate.Name != null)
+                 List<User> accounts = _context.User.Where<User>(a => a.Username == A.Username).ToList();
+                if (accounts.Count != 0)
                 {
-                    StaticStuff.Fighter.Name = fighterToUpdate.Name;
-                    _context.Fighter.Update(fighterToUpdate);
-                    _context.User.Update(userToUpdate);
-                    _context.SaveChanges();
-                    return RedirectToAction("AccountHome");
+                    A.IsUserExistingRelogin = true;
+                    return View(A); // Возвращаем представление с сообщением об ошибке
                 }
                 else
                 {
-                    return View(A);
+                    //меняем имя fighter
+                    fighterToUpdate.Name = A.Username;
+                    User userToUpdate = _context.User.FirstOrDefault(a => a.Id == StaticStuff.Fighter.UserId);
+                    //меняем имя User
+                    userToUpdate.Username = A.Username;
+
+                    if (userToUpdate.Username != null || fighterToUpdate.Name != null)
+                    {
+                        StaticStuff.Fighter.Name = fighterToUpdate.Name;
+                        _context.Fighter.Update(fighterToUpdate);
+                        _context.User.Update(userToUpdate);
+                        _context.SaveChanges();
+                        return RedirectToAction("AccountHome");
+                    }
+                    else
+                    {
+                        return View(A);
+                    }
                 }
             }
 

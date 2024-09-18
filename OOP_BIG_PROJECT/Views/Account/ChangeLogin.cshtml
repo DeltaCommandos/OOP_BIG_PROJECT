@@ -29,8 +29,13 @@
                     <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z" />
                 </svg>
             </button>
-
         </p>
+        @if (Model.IsUserExistingRelogin)
+        {
+            <div>
+                Такой пользователь уже существует!
+            </div>
+        }
 
     </form>
     <img src="/Kot2.png" alt="image" border="0" width="200" height="200" class="kot2">

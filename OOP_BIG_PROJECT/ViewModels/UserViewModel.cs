@@ -9,7 +9,8 @@ namespace OOP_BIG_PROJECT.ViewModels
         public string Username { get; set; }
         public bool IsPasswordCorrect { get; set; } = true;
 		public bool IsUserExisting { get; set; } = true;
-		public bool IsPasswordSame { get; set; } = true;
+        public bool IsUserExistingRelogin { get; set; } = false;
+        public bool IsPasswordSame { get; set; } = true;
         public bool Ban { get; set; } = false;
         [Required]
         [DataType(DataType.Password)]
