@@ -77,7 +77,11 @@
 </div>
 
 
-<!-- Добавим JavaScript для toggle switch -->
+
+
+
+
+
 <script>
     document.getElementById('sexSwitch').addEventListener('change', function () {
         if (this.checked) {
@@ -107,4 +111,20 @@
 
     // Выполним функцию после загрузки страницы
     document.addEventListener('DOMContentLoaded', removeTagWithId2);
+
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        // Если мы на странице PostRegister, скрываем кнопку с классом achom3
+        if (window.location.pathname.includes('PostRegister')) {
+            $('.achom3').css('display', 'none'); // Скрывает элемент с классом achom3
+        }
+
+        // Отключение действия кнопки duel3
+        $('.duel3 a').on('click', function (e) {
+            e.preventDefault(); // Останавливаем действие кнопки
+        });
+    });
 </script>
