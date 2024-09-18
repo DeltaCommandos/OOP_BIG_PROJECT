@@ -7,14 +7,21 @@ body {
     /*    background: #1e1e1e;
 */ background: linear-gradient(#1e1e1e,#161616);
     /*    background: linear-gradient(#1e1e1e, #006008);*/
-     background-image: url(https://i.ibb.co/NpsXZXj/image.png);
-    width: 100%;
+     background-image: url(../background.png);
+    width: auto;
     background-repeat: no-repeat;
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
     font-family: Lato Regular, sans-serif;
     overflow-x: hidden
+}
+
+
+#content .obvod p {
+    font-size: 50px;
+    color: #fff;
+    text-shadow: 1px 0 1px brown, 0 1px 1px brown, -1px 0 1px brown, 0 -1px 1px brown;
 }
 
 .neonTextG {
@@ -484,9 +491,9 @@ main form span {
 .wide-input {
     width: 100%; /* Ширина поля */
     max-width: 100%; /* Ограничение максимальной ширины */
-    height: auto; /* Автоматическая высота */
+    height: 500px; /* Автоматическая высота */
     min-height: 120px; /* Минимальная высота для 4 строк */
-    max-height: 500px; /* Максимальная высота, после которой включается прокрутка */
+    max-height: 700px; /* Максимальная высота, после которой включается прокрутка */
     overflow-y: auto; /* Вертикальная прокрутка при переполнении */
     resize: none; /* Запрет изменения размера поля */
     white-space: normal; /* Разрешить перенос текста */

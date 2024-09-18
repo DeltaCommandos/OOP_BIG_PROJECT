@@ -133,18 +133,31 @@ namespace OOP_BIG_PROJECT.Controllers
             var response = new UserViewModel();
             return View(response);
         }
+
+
+
+
         [HttpGet]
         public IActionResult ChangeInfo()
         {
             if (StaticStuff.Fighter == null)
             {
-                // Переходим на страницу с адресом refererUrl
                 return Redirect(StaticStuff.refererUrl);
             }
             StaticStuff.refererUrl = HttpContext.Request.Path;
-            var response = new FighterViewModel();
+
+            // Предположим, что данные о бойце хранятся в StaticStuff.Fighter
+            var response = new FighterViewModel
+            {
+                SelectedFighter = StaticStuff.Fighter // Передача бойца в модель
+            };
+
             return View(response);
         }
+
+
+
+
         [HttpGet]
         public IActionResult ChangeTags()
         {
@@ -241,8 +254,10 @@ namespace OOP_BIG_PROJECT.Controllers
                 User userToUpdate = _context.User.FirstOrDefault(a => a.Id == StaticStuff.Fighter.UserId);
                 //меняем имя User
                 userToUpdate.Username=A.Username;
+               
                 if (userToUpdate.Username != null || fighterToUpdate.Name != null)
                 {
+                    StaticStuff.Fighter.Name = fighterToUpdate.Name;
                     _context.Fighter.Update(fighterToUpdate);
                     _context.User.Update(userToUpdate);
                     _context.SaveChanges();
@@ -287,22 +302,41 @@ namespace OOP_BIG_PROJECT.Controllers
                 return RedirectToAction("AccountHome");
             }
         }
+
         [HttpPost]
-        public IActionResult ChangeInfo(FighterViewModel A)
+        public IActionResult ChangeInfo(FighterViewModel model)
         {
-            Fighter fighterToUpdate = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
-            if (fighterToUpdate == null)
+            if (model.SelectedFighter != null)
             {
-                return View(A);
+                // Обновляем данные о бойце
+                var fighterToUpdate = StaticStuff.Fighter;
+                fighterToUpdate.Skills = model.SelectedFighter.Skills;
+
+                // Логика для сохранения изменений в базе данных (если нужно)
+                // Например:
+                // _context.Update(fighterToUpdate);
+                // _context.SaveChanges();
             }
-            else
-            {
-                fighterToUpdate.Skills = A.SelectedFighter.Skills;
-                _context.Fighter.Update(fighterToUpdate);
-                _context.SaveChanges();
-                return RedirectToAction("AccountHome");
-            }
+
+            return RedirectToAction("AccountHome"); 
         }
+
+        //[HttpPost]
+        //public IActionResult ChangeInfo(FighterViewModel A)
+        //{
+        //    Fighter fighterToUpdate = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
+        //    if (fighterToUpdate == null)
+        //    {
+        //        return View(A);
+        //    }
+        //    else
+        //    {
+        //        fighterToUpdate.Skills = A.SelectedFighter.Skills;
+        //        _context.Fighter.Update(fighterToUpdate);
+        //        _context.SaveChanges();
+        //        return RedirectToAction("AccountHome");
+        //    }
+        //}
         //дополить кнопку
         [HttpPost]
         public IActionResult ChangeTags(FighterViewModel A)

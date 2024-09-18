@@ -16,10 +16,10 @@
     <form asp-action="ChangeInfo" method="post">
         <div class="form-floating mb-3">
             <textarea class="form-control wide-input" id="floatingInput" asp-for="SelectedFighter.Skills"></textarea>
+            <span asp-validation-for="SelectedFighter.Skills" class="text-danger"></span>
         </div>
         <hr class="my-4">
-
-            <button type="submit" class="btn btn-success">Сохранить изменения</button>
+        <button type="submit" class="btn btn-success">Сохранить изменения</button>
     </form>
 
 
