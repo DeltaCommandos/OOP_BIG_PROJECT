@@ -406,7 +406,7 @@ namespace OOP_BIG_PROJECT.Controllers
             viewModel.BlackListFighters= bannedfighters;
             return View(viewModel);
         }
-            [HttpPost]
+        [HttpPost]
         public IActionResult BlacklistUnban(int receiverId)
         {
             int? bannedfighterid = _context.BansForFighters.Where(a => a.Banned == receiverId && a.Banner == StaticStuff.Fighter.Id).Select(l => l.Banned).FirstOrDefault();
