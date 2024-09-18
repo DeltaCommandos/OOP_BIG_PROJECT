@@ -33,7 +33,7 @@ namespace OOP_BIG_PROJECT.ViewModels
         public int? TagId4 { get; set; } = 2;
         public int? TagId5 { get; set; } = 2;
         public List<Tags> Tags { get; set; }
-      public int UserId { get; set; }
+        public int UserId { get; set; }
         public int AvatarId { get; set; }
         //для админа
         public string AdminPassword { get; set; } = "Sharikov";

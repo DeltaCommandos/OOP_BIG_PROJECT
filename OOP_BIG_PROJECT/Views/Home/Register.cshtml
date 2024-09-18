@@ -10,7 +10,12 @@
             <input type="text" class="form-control" id="floatingInput" asp-for="Username" required> <span asp-validation-for="Username" class="text-danger"></span>
             <label for="floatingInput text-black">Никнейм</label>
         </div>
-
+        @if (Model.IsUserExisting)
+        {
+            <div>
+                Такой пользователь уже существует!
+            </div>
+        }
 
         <div class="form-floating mb-3 text-black" width="70%">
             <input type="password" class="form-control" id="floatingPassword" asp-for="Password" required> <span asp-validation-for="Password" class="text-danger"></span>
