@@ -21,7 +21,12 @@
             <input asp-for="Username" type="text" class="form-control text-black chgtxbx" />
             <label for="floatingPassword text-black">@Model.Username</label>
                 <span asp-validation-for="Username" class="text-success"></span>
-
+            @if (Model.IsUserExisting)
+            {
+                <div>
+                    Такой пользователь уже существует!
+                </div>
+            }
          
             <button type="submit" class="btn btn-success chgbtn">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16">

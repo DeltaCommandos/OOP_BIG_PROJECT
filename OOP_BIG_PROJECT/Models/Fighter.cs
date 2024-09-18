@@ -16,7 +16,7 @@ namespace OOP_BIG_PROJECT.Models
         public int? TagId4 { get; set; }
         public int? TagId5{ get; set; }
         public bool Ban { get; set; }
-        public int? Age { get; set; }
+        public int? Age { get; set; } = 33;
         public string? Skills { get; set; }
         public int UserId{ get; set; }
         public User User { get; set; }
