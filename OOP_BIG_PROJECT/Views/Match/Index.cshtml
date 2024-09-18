@@ -270,25 +270,27 @@
         popUp.style.display = 'none';  // Скрываем popup
     });
 
+</script>
 
+<script>
 
-    // Функция для удаления опции с value="2" из выпадающих списков
-    function removeTagWithId2() {
-        // Найдем все выпадающие списки с классом 'tagchos'
-        const tagSelects = document.querySelectorAll('.tagchos');
-        
-        // Для каждого выпадающего списка
-        tagSelects.forEach(select => {
-            // Найдем опцию с value="2"
-            const optionToRemove = select.querySelector('option[value="2"]');
-            
-            // Если такая опция существует, удалим ее
-            if (optionToRemove) {
-                select.removeChild(optionToRemove);
-            }
-        });
+// Функция для удаления опции с value="2" из выпадающих списков
+function removeTagWithId2() {
+// Найдем все выпадающие списки с классом 'tagchos'
+const tagSelects = document.querySelectorAll('.tagchos');
+
+// Для каждого выпадающего списка
+tagSelects.forEach(select => {
+    // Найдем опцию с value="2"
+    const optionToRemove = select.querySelector('option[value="2"]');
+
+    // Если такая опция существует, удалим ее
+    if (optionToRemove) {
+        select.removeChild(optionToRemove);
     }
+});
+}
 
-    // Выполним функцию после загрузки страницы
-    document.addEventListener('DOMContentLoaded', removeTagWithId2);
+// Выполним функцию после загрузки страницы
+document.addEventListener('DOMContentLoaded', removeTagWithId2);
 </script>
