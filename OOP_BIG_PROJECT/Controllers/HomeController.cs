@@ -212,7 +212,7 @@ namespace OOP_BIG_PROJECT.Controllers
                         _context.SaveChanges();
                         StaticStuff.Admin = _context.Admin.FirstOrDefault(a => a.UserId == User.Id);
                         //Добавить переход на аккаунт админа
-                        return RedirectToAction("Admin");
+                        return RedirectToAction("Index", "Admin");
                     }
                 }
             }

@@ -24,17 +24,17 @@
             </h3>
 
             <div class="tag-container">
-                @if (Model.SelectedFighter.TagId1 != 2)
+                @if (Model.SelectedTag1 != 2)
                 {
                     @foreach (var tag in Model.AllTags)
                     {
-                        @if (@tag.Id == Model.SelectedFighter.TagId1)
+                        @if (@tag.Id == Model.SelectedTag1)
                         {
                             <span class="tag t1">@tag.Name</span>
                         }
                     }
                 }
-                @if (Model.SelectedFighter.TagId2 != 2)
+                @if (Model.SelectedTag2 != 2)
                 {
                     @foreach (var tag in Model.AllTags)
                     {
@@ -44,7 +44,7 @@
                         }
                     }
                 }
-                @if (Model.SelectedFighter.TagId3 != 2)
+                @if (Model.SelectedTag3 != 2)
                 {
                     @foreach (var tag in Model.AllTags)
                     {
@@ -54,7 +54,7 @@
                         }
                     }
                 }
-                @if (Model.SelectedFighter.TagId4 != 2)
+                @if (Model.SelectedTag4 != 2)
                 {
                     @foreach (var tag in Model.AllTags)
                     {
@@ -64,7 +64,7 @@
                         }
                     }
                 }
-                @if (Model.SelectedFighter.TagId5 != 2)
+                @if (Model.SelectedTag5 != 2)
                 {
                     @foreach (var tag in Model.AllTags)
                     {
@@ -74,7 +74,7 @@
                         }
                     }
                 }
-                @if (Model.SelectedFighter.TagId1 == 2 && Model.SelectedFighter.TagId2 == 2 && Model.SelectedFighter.TagId3 == 2 && Model.SelectedFighter.TagId4 == 2 && Model.SelectedFighter.TagId5 == 2)
+                @if (Model.SelectedTag1 == 2 && Model.SelectedTag2  == 2 && Model.SelectedTag3 == 2 && Model.SelectedTag4 == 2 && Model.SelectedTag5 == 2)
                 {
                     <b>ㅤㅤ</b>
                 }
