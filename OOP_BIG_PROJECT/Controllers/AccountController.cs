@@ -15,8 +15,8 @@ namespace OOP_BIG_PROJECT.Controllers
     //кнопку "начать поиск". аву в углу сделать. рядом с ней изменить фото. сделать изменить увлечения. меню с предстоящими боями. 
     // ник указать 
     public class AccountController : Controller
-	{
-		private readonly ApplicationDbContext _context;
+    {
+        private readonly ApplicationDbContext _context;
         public AccountController(ApplicationDbContext context)
         {
             _context = context;
@@ -84,7 +84,7 @@ namespace OOP_BIG_PROJECT.Controllers
             var response = new FighterViewModel();
             return View(response);
         }
-       
+
         [HttpGet]
         public IActionResult AccountHome()
         {
@@ -167,10 +167,10 @@ namespace OOP_BIG_PROJECT.Controllers
                 return Redirect(StaticStuff.refererUrl);
             }
             StaticStuff.refererUrl = HttpContext.Request.Path;
-            var allTags = _context.Tags.ToList(); 
+            var allTags = _context.Tags.ToList();
             var response = new FighterViewModel
             {
-                AllTags = allTags,  
+                AllTags = allTags,
             };
             return View(response);
         }
@@ -253,8 +253,8 @@ namespace OOP_BIG_PROJECT.Controllers
                 fighterToUpdate.Name = A.Username;
                 User userToUpdate = _context.User.FirstOrDefault(a => a.Id == StaticStuff.Fighter.UserId);
                 //меняем имя User
-                userToUpdate.Username=A.Username;
-               
+                userToUpdate.Username = A.Username;
+
                 if (userToUpdate.Username != null || fighterToUpdate.Name != null)
                 {
                     StaticStuff.Fighter.Name = fighterToUpdate.Name;
@@ -268,7 +268,7 @@ namespace OOP_BIG_PROJECT.Controllers
                     return View(A);
                 }
             }
-            
+
             return View(A);
         }
         [HttpPost]
@@ -276,8 +276,8 @@ namespace OOP_BIG_PROJECT.Controllers
         {
             return RedirectToAction("ChangeLoginAndPassword", "Account");
         }
-      
-      
+
+
         [HttpPost]
         public IActionResult ChangePassword(UserViewModel A)
         {
@@ -318,7 +318,7 @@ namespace OOP_BIG_PROJECT.Controllers
                 // _context.SaveChanges();
             }
 
-            return RedirectToAction("AccountHome"); 
+            return RedirectToAction("AccountHome");
         }
 
         //[HttpPost]
@@ -372,10 +372,10 @@ namespace OOP_BIG_PROJECT.Controllers
         public IActionResult MyInfo(FighterViewModel A)
         {
             var Fighter = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
-            A.AllTags=_context.Tags.ToList();   
-            if (Fighter != null) 
-                {
-                A.SelectedFighter= Fighter;
+            A.AllTags = _context.Tags.ToList();
+            if (Fighter != null)
+            {
+                A.SelectedFighter = Fighter;
                 _context.SaveChanges();
                 return View(A);
             }
@@ -384,6 +384,21 @@ namespace OOP_BIG_PROJECT.Controllers
                 return null;
             }
         }
+        [HttpGet]
+        public IActionResult Blacklist(FighterViewModel viewModel)
+        {
+            return View(viewModel);
+        }
+            [HttpPost]
+        public IActionResult BlacklistUnban(int receiverId)
+        {
+            int? bannedfighterid = _context.BansForFighters.Where(a => a.Banned == receiverId && a.Banner == StaticStuff.Fighter.Id).Select(l => l.Banned).FirstOrDefault();
+
+            BansForFighters bannedfighter = _context.BansForFighters.FirstOrDefault(a => a.Banned == bannedfighterid);
+            _context.BansForFighters.Remove(bannedfighter);
+            return View();
+        }
+
         [HttpPost]
         public IActionResult OpenChat(int receiverId)
         {
