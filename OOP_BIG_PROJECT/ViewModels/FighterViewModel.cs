@@ -12,6 +12,7 @@ namespace OOP_BIG_PROJECT.ViewModels
         public List<Fighter> AllFighters { get; set; }
         public Fighter? SelectedFighter { get; set; } = null;
         public List<Tuple<Fighter, Fighter>> MutualLikes { get; set; }
+        public List<Fighter> BlackListFighters { get; set; }
         public List<Tags> AllTags { get; set; }
         public int? SelectedTag1 { get; set; }
         public int? SelectedTag2 { get; set; }
