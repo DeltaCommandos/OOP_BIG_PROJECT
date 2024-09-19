@@ -79,7 +79,7 @@ namespace OOP_BIG_PROJECT.Controllers
                 AllTags = _context.Tags.ToList() // Заполнение списка тегов из базы данных
             };
             return View(TagsViewModel);
-           
+
         }
 
         [HttpGet]
@@ -100,7 +100,7 @@ namespace OOP_BIG_PROJECT.Controllers
         public IActionResult TagChangeName(TagsViewModel A)
         {
             Tags tagToUpdate = _context.Tags.FirstOrDefault(l => l.Id == StaticStuff.ChangeTag);
-            var alltags= _context.Tags.Where(l => l.Id != StaticStuff.ChangeTag).ToList();
+            var alltags = _context.Tags.Where(l => l.Id != StaticStuff.ChangeTag).ToList();
             A.AllTags = alltags;
             if (tagToUpdate == null)
             {
@@ -133,10 +133,10 @@ namespace OOP_BIG_PROJECT.Controllers
             StaticStuff.refererUrl = HttpContext.Request.Path;
 
             Tags tag = _context.Tags.FirstOrDefault(l => l.Id == TagId);
-            var FightersWithTag=_context.Fighter.Where(l => l.TagId1==tag.Id || l.TagId2 == tag.Id || l.TagId3 == tag.Id || l.TagId4 == tag.Id || l.TagId5 == tag.Id).ToList();
-            foreach ( var fighter in FightersWithTag )
+            var FightersWithTag = _context.Fighter.Where(l => l.TagId1 == tag.Id || l.TagId2 == tag.Id || l.TagId3 == tag.Id || l.TagId4 == tag.Id || l.TagId5 == tag.Id).ToList();
+            foreach (var fighter in FightersWithTag)
             {
-                if(fighter.TagId1== tag.Id)
+                if (fighter.TagId1 == tag.Id)
                 {
                     fighter.TagId1 = 2;
                     _context.Fighter.Update(fighter);
@@ -202,7 +202,7 @@ namespace OOP_BIG_PROJECT.Controllers
             {
                 A.IsTagExisting = true;
                 ModelState.AddModelError("Name", "Тег с таким именем уже существует.");
-                return View("TagAdd", A); 
+                return View("TagAdd", A);
             }
             else
             {

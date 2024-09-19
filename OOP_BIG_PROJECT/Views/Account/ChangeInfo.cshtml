@@ -1,7 +1,7 @@
 ﻿@model OOP_BIG_PROJECT.ViewModels.FighterViewModel
 
 
-<div class="changer2 txer">
+<div class="changer24 txer">
     <form asp-controller="Account" asp-action="Back" method="post">
         <button type="submit" class="boba">
             <svg xmlns="http://www.w3.org/2000/svg" width="46" height="36" fill="currentColor" class="bi bi-arrow-left-circle" viewBox="0 0 16 16" style="color:white">
@@ -14,9 +14,11 @@
 
 
     <form asp-action="ChangeInfo" method="post">
-        <div class="form-floating mb-3">
-            <textarea class="form-control wide-input" id="floatingInput" asp-for="SelectedFighter.Skills"></textarea>
-            <span asp-validation-for="SelectedFighter.Skills" class="text-danger"></span>
+        <div class="form-group fgTA">
+            <div class="input-group inputTA">
+                <textarea class="form-control wide-input" id="floatingInput" asp-for="SelectedFighter.Skills"></textarea>
+                <span asp-validation-for="SelectedFighter.Skills" class="text-danger"></span>
+            </div>
         </div>
         <button type="submit" class="btn btn-success">Сохранить изменения</button>
     </form>

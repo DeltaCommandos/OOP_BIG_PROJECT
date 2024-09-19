@@ -524,7 +524,11 @@ namespace OOP_BIG_PROJECT.Controllers
             StaticStuff.refererUrl = HttpContext.Request.Path;
 
             var Sender = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
-            var Receiver = _context.Fighter.FirstOrDefault(a => a.Id == receiverId); 
+            var Receiver = _context.Fighter.FirstOrDefault(a => a.Id == receiverId);
+            if (_context.Messages != null)
+            {
+
+            }
             var response = new ChatViewModel
             {
 

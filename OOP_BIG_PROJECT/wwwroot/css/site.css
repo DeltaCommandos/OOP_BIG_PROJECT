@@ -746,18 +746,6 @@ hohohehe {
     margin-right: 15px; /* Отступ между переключателем и текстом "Мужской" */
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
 .fgTA {
     display: flex;
     flex-direction: column;
@@ -855,6 +843,42 @@ hohohehe {
     padding: 10px;
     color: white;
 }
+.changer24 {
+    float: none;
+    border-width: thin;
+    border-style: none;
+    border-radius: 15px;
+    background: linear-gradient(#243720c7,#1e1e1ec7);
+    position: center;
+    width: 720px;
+    height: 566px;
+    margin: 0 auto;
+    margin-left: -150px;
+    margin-top: -50px;
+    padding: 10px;
+    color: white;
+}
+
+.bebebu{
+    margin-left:325px;
+}
+
+.changer2part2 {
+    float: none;
+    border-width: thin;
+    border-style: none;
+    border-radius: 15px;
+    background: linear-gradient(#243720c7,#1e1e1ec7);
+    position: center;
+    width: 520px;
+    height: 520px;
+    margin: 0 auto;
+    margin-left: -20px;
+    margin-top: 50px;
+    padding: 10px;
+    color: white;
+}
+
 
 .skills{
     width: 1000px;
