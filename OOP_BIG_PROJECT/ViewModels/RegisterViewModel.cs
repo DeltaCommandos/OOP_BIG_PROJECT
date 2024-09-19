@@ -7,9 +7,11 @@ namespace OOP_BIG_PROJECT.ViewModels
     public class RegisterViewModel : User
     {
         [Required]
+        [StringLength(20, ErrorMessage = "Логин не может быть длиннее 30 символов.")]
         public string Username { get; set; }
 
         [Required]
+        [StringLength(40, ErrorMessage = "Пароль не может быть длиннее 30 символов.")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
