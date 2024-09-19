@@ -550,6 +550,7 @@ namespace OOP_BIG_PROJECT.Controllers
             var Sender = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
             var Receiver = _context.Fighter.FirstOrDefault(a => a.Id == receiverId);
 
+
             if (Sender != null && Receiver != null)
             {
        

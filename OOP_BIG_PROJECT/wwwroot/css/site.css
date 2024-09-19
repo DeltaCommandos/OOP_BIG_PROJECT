@@ -979,13 +979,19 @@ hohohehe {
 }
 
 
+.message h4 {
+    word-wrap: break-word; /* Автоматический перенос длинных слов */
+    word-break: break-all; /* Перенос слова, если оно слишком длинное для строки */
+    max-width: 100%; /* Максимальная ширина сообщения */
+    white-space: pre-wrap; /* Сохраняет переносы строк и переносит длинные слова */
+}
 
 .messages.tabler {
     flex-grow: 1;
     padding-bottom: 10px;
-    height: 100%; /* Высота блока */
+    height: 100%;
     overflow-y: scroll; /* Включаем вертикальную прокрутку */
-    overflow-x: unset;
+    overflow-x: unset; /* Отключаем горизонтальную прокрутку */
 }
 
 .message {

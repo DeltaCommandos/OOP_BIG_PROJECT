@@ -58,3 +58,17 @@
         });
     </script>
 </div>
+
+<script>
+    document.querySelector('.chat-form').addEventListener('submit', function (event) {
+    const textarea = document.getElementById('Content');
+    const messageContent = textarea.value.trim();
+
+    // Если сообщение пустое, отменяем отправку формы
+    if (messageContent === "") {
+    event.preventDefault(); // Не отправляем форму
+    return false; // Возвращаем false, чтобы остановить дальнейшую обработку
+    }
+    });
+
+</script>
