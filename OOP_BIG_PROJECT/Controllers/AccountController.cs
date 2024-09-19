@@ -407,13 +407,21 @@ namespace OOP_BIG_PROJECT.Controllers
         public IActionResult Blacklist(FighterViewModel viewModel)
         {
             List <int> bannedfightersId=_context.BansForFighters.Where(a=>a.Banner==StaticStuff.Fighter.Id).Select(a=>a.Banned).ToList();
+            List<int> idsToRemove = new List<int>();
             List<Fighter> bannedfighters = new List<Fighter>();
             foreach (int bannedfighterId in bannedfightersId)
             {
                 Fighter bannedfighter = _context.Fighter.FirstOrDefault(a => a.Id == bannedfighterId);
-                bannedfighters.Add(bannedfighter);
+                if (bannedfighter != null && !idsToRemove.Contains(bannedfighter.Id))
+                {
+                    bannedfighters.Add(bannedfighter);
+                    idsToRemove.Add(bannedfighter.Id); 
+                }
             }
-            viewModel.BlackListFighters= bannedfighters;
+
+            bannedfightersId.RemoveAll(id => idsToRemove.Contains(id));
+
+            viewModel.BlackListFighters = bannedfighters;
             return View(viewModel);
         }
         [HttpPost]
@@ -421,8 +429,8 @@ namespace OOP_BIG_PROJECT.Controllers
         {
             int? bannedfighterid = _context.BansForFighters.Where(a => a.Banned == receiverId && a.Banner == StaticStuff.Fighter.Id).Select(l => l.Banned).FirstOrDefault();
 
-            BansForFighters bannedfighter = _context.BansForFighters.FirstOrDefault(a => a.Banned == bannedfighterid);
-            _context.BansForFighters.Remove(bannedfighter);
+            List <BansForFighters> bannedfighter = _context.BansForFighters.Where(a => a.Banned == bannedfighterid).ToList();
+            _context.BansForFighters.RemoveRange(bannedfighter);
             Likes NewMatch1= new Likes();
             NewMatch1.LikerId = StaticStuff.Fighter.Id;
             NewMatch1.LikedFighterId = receiverId;

@@ -19,11 +19,11 @@ namespace OOP_BIG_PROJECT.Controllers
             //List<bool> LikerFightersS = _context.Likes.Where(a => a.LikedFighterId == StaticStuff.Fighter.Id).Select(a => a.LikerStatus).ToList();
             if (StaticStuff.Fighter!=null)
             {
-                List<int> LikerFightersId = _context.Likes.Where(a => a.LikedFighterId == StaticStuff.Fighter.Id).Select(a => a.LikerId).ToList();
+                List<int> LikerFightersId = _context.Likes.Where(a => a.LikedFighterId == StaticStuff.Fighter.Id && a.IsLiked == true).Select(a => a.LikerId).ToList();
                 foreach (int LikerFighterId in LikerFightersId)
                 {
-                    bool liker = _context.Likes.Any(l => ((l.LikerId == StaticStuff.Fighter.Id && l.LikedFighterId == LikerFighterId)));
-                    bool likerstatus = _context.Likes.Any(l => ((l.LikerId == LikerFighterId) && (l.LikedFighterId == StaticStuff.Fighter.Id) && l.LikerStatus == true));
+                    bool liker = _context.Likes.Any(l => ((l.LikerId == StaticStuff.Fighter.Id && l.LikedFighterId == LikerFighterId && l.IsLiked == true)));
+                    bool likerstatus = _context.Likes.Any(l => ((l.LikerId == LikerFighterId) && (l.LikedFighterId == StaticStuff.Fighter.Id) && (l.LikerStatus == true)));
                     if ((!liker) && (!likerstatus))
                     {
                         var likerfighter = _context.Fighter.FirstOrDefault(a => LikerFighterId == a.Id);
