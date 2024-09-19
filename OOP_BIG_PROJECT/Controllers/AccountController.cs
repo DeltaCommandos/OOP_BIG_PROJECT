@@ -548,6 +548,7 @@ namespace OOP_BIG_PROJECT.Controllers
 
             if (Sender != null && Receiver != null)
             {
+       
                 bool messageExists = _context.Messages.Any(m =>
                     (m.SenderId == Sender.Id && m.ReceiverId == Receiver.Id) ||
                     (m.SenderId == Receiver.Id && m.ReceiverId == Sender.Id));

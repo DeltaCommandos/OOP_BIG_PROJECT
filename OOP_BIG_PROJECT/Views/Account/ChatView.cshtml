@@ -33,10 +33,10 @@
 
     <hr />
 
-    <form asp-action="Chat" asp-controller="Account" class="chat-form">
+    <form asp-action="Chat" asp-controller="Account" class="chat-form" novalidate>
         <input type="hidden" asp-for="ReceiverId" />
         <div class="form-group d-flex align-items-center">
-            <textarea class="form-control form-control_M" id="Content" name="Content" rows="3" asp-for="Content" placeholder="Напишите сообщение..."></textarea>
+            <textarea class="form-control form-control_M" id="Content" name="Content" rows="3" asp-for="Content" placeholder="Напишите сообщение..." required></textarea>
             <button type="submit" class="chatButton">
                 <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
                     <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393" />
@@ -44,4 +44,17 @@
             </button>
         </div>
     </form>
+
+    <script>
+        document.querySelector('.chat-form').addEventListener('submit', function (event) {
+            const textarea = document.getElementById('Content');
+            const messageContent = textarea.value.trim();
+
+            // Если сообщение пустое, отменяем отправку формы
+            if (messageContent === "") {
+                event.preventDefault(); // Не отправляем форму
+                return false; // Возвращаем false, чтобы остановить дальнейшую обработку
+            }
+        });
+    </script>
 </div>
