@@ -17,13 +17,17 @@
         <div class="form-group">
             <label for="SelectedTag1">Тег 1</label>
             <select asp-for="SelectedTag1" class="form-control TagBox">
-                <option value="">@Model.SelectedTag1</option>
+                
                 @if (Model.AllTags != null)
                 {
                     @foreach (var tag in Model.AllTags)
                     {
-                        <option value="@tag.Id" selected="@(tag.Id == Model.SelectedTag1 ? "selected" : null)">@tag.Name</option>
+                        if (tag.Id != 2)
+                        {
+                            <option value="@tag.Id" selected="@(tag.Id == Model.SelectedTag1 ? "selected" : null)">@tag.Name</option>
+                        }
                     }
+                    <option value="2" selected="@(Model.SelectedTag1 == null ? "selected" : null)"></option>
                 }
             </select>
 
@@ -31,13 +35,17 @@
         <div class="form-group">
             <label for="SelectedTag2">Тег 2</label>
             <select asp-for="SelectedTag2" class="form-control TagBox">
-                <option value="">@Model.SelectedTag2</option>
+                
                 @if (Model.AllTags != null)
                 {
                     @foreach (var tag in Model.AllTags)
                     {
-                        <option value="@tag.Id" selected="@(tag.Id == Model.SelectedTag2 ? "selected" : null)">@tag.Name</option>
+                        if (tag.Id != 2)
+                        {
+                            <option value="@tag.Id" selected="@(tag.Id == Model.SelectedTag2 ? "selected" : null)">@tag.Name</option>
+                        }
                     }
+                    <option value="2" selected="@(Model.SelectedTag2 == null ? "selected" : null)"></option>
                 }
             </select>
 
@@ -45,13 +53,17 @@
         <div class="form-group">
             <label for="SelectedTag3">Тег 3</label>
             <select asp-for="SelectedTag3" class="form-control TagBox">
-                <option value="">@Model.SelectedTag3</option>
+                
                 @if (Model.AllTags != null)
                 {
                     @foreach (var tag in Model.AllTags)
                     {
-                        <option value="@tag.Id" selected="@(tag.Id == Model.SelectedTag3 ? "selected" : null)">@tag.Name</option>
+                        if (tag.Id != 2)
+                        {
+                            <option value="@tag.Id" selected="@(tag.Id == Model.SelectedTag3 ? "selected" : null)">@tag.Name</option>
+                        }
                     }
+                    <option value="2" selected="@(Model.SelectedTag3 == null ? "selected" : null)"></option>
                 }
             </select>
 
@@ -59,13 +71,17 @@
         <div class="form-group">
             <label for="SelectedTag4">Тег 4</label>
             <select asp-for="SelectedTag4" class="form-control TagBox">
-                <option value="">@Model.SelectedTag4</option>
+                
                 @if (Model.AllTags != null)
                 {
                     @foreach (var tag in Model.AllTags)
                     {
-                        <option value="@tag.Id" selected="@(tag.Id == Model.SelectedTag4 ? "selected" : null)">@tag.Name</option>
+                        if (tag.Id != 2)
+                        {
+                            <option value="@tag.Id" selected="@(tag.Id == Model.SelectedTag4 ? "selected" : null)">@tag.Name</option>
+                        }
                     }
+                    <option value="2" selected="@(Model.SelectedTag4 == null ? "selected" : null)"></option>
                 }
             </select>
 
@@ -73,13 +89,17 @@
         <div class="form-group">
             <label for="SelectedTag5">Тег 5</label>
             <select asp-for="SelectedTag5" class="form-control TagBox">
-                <option value="">@Model.SelectedTag5</option>
+                
                 @if (Model.AllTags != null)
                 {
                     @foreach (var tag in Model.AllTags)
                     {
-                        <option value="@tag.Id" selected="@(tag.Id == Model.SelectedTag5 ? "selected" : null)">@tag.Name</option>
+                        if (tag.Id != 2)
+                        {
+                            <option value="@tag.Id" selected="@(tag.Id == Model.SelectedTag5 ? "selected" : null)">@tag.Name</option>
+                        }
                     }
+                   <option value="2" selected="@(Model.SelectedTag5 == null ? "selected" : null)"></option>
                 }
             </select>
 

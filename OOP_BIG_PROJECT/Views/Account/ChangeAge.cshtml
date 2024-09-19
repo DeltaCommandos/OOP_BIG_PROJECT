@@ -1,6 +1,5 @@
 ﻿@model OOP_BIG_PROJECT.ViewModels.FighterViewModel
 
-
 <div class="changer2 txer">
     <form asp-controller="Account" asp-action="Back" method="post">
         <button type="submit" class="boba">
@@ -12,30 +11,17 @@
 
     <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Изменение возраста</h1>
 
-
     <form asp-action="ChangeAge" method="post">
         <div class="form-group row align-items-center fig3">
-            <h2 class="col-sm-2">Возраст</h2>
-            <div class="col-sm-4 ">
-                <input type="number" min="14" max="999" class="form-control ager" id="floatingInput" asp-for="Age">
+            <label class="col-sm-2 col-form-label">Возраст</label>
+            <div class="col-sm-3">        
+                <input type="number" min="14" max="999" class="form-control ager" id="floatingInput" asp-for="SelectedFighter.Age" style="height: 50px; font-size: 1.2em; color: black; background-color: white; width: 100%;">
             </div>
-            @* <h2 class="col-sm-2">Пол</h2>
-            <div class="col-sm-4">
-                <label class="switch">
-                    <input type="checkbox" id="sexSwitch" name="Sex">
-                    <span class="slider round"></span>
-
-                </label>
-                <span id="sexLabel" class="d-inline-block ml-2 sexlab">Мужской</span>
-            </div> *@
-
         </div>
         <button type="submit" class="btn btn-success">Сохранить изменения</button>
     </form>
 
-
     <img src="/Kot4.png" alt="image" border="0" width="140" height="140" class="kot">
-
 </div>
 
 @* 

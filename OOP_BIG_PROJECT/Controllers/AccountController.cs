@@ -155,7 +155,21 @@ namespace OOP_BIG_PROJECT.Controllers
             return View(response);
         }
 
-
+        [HttpGet]
+        public IActionResult ChangeAge()
+        {
+            if (StaticStuff.Fighter == null)
+            {
+                // Переходим на страницу с адресом refererUrl
+                return Redirect(StaticStuff.refererUrl);
+            }
+            StaticStuff.refererUrl = HttpContext.Request.Path;
+            var response = new FighterViewModel
+            {
+                SelectedFighter = StaticStuff.Fighter
+            };
+            return View(response);
+        }
 
 
         [HttpGet]
@@ -320,11 +334,8 @@ namespace OOP_BIG_PROJECT.Controllers
                 // Обновляем данные о бойце
                 var fighterToUpdate = StaticStuff.Fighter;
                 fighterToUpdate.Skills = model.SelectedFighter.Skills;
-
-                // Логика для сохранения изменений в базе данных (если нужно)
-                // Например:
-                // _context.Update(fighterToUpdate);
-                // _context.SaveChanges();
+                _context.Update(fighterToUpdate); // Обновите запись в контексте
+                _context.SaveChanges(); // Сохраните изменения
             }
 
             return RedirectToAction("AccountHome");
@@ -339,11 +350,8 @@ namespace OOP_BIG_PROJECT.Controllers
                 // Обновляем данные о бойце
                 var fighterToUpdate = StaticStuff.Fighter;
                 fighterToUpdate.Age = model.SelectedFighter.Age;
-
-                // Логика для сохранения изменений в базе данных (если нужно)
-                // Например:
-                // _context.Update(fighterToUpdate);
-                // _context.SaveChanges();
+                _context.Update(fighterToUpdate); // Обновите запись в контексте
+                _context.SaveChanges(); // Сохраните изменения
             }
 
             return RedirectToAction("AccountHome");
