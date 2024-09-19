@@ -117,6 +117,7 @@ namespace OOP_BIG_PROJECT.Controllers
                 // Переходим на страницу с адресом refererUrl
                 return Redirect(StaticStuff.refererUrl);
             }
+            
             StaticStuff.refererUrl = HttpContext.Request.Path;
             var response = new UserViewModel();
             return View(response);
@@ -316,11 +317,16 @@ namespace OOP_BIG_PROJECT.Controllers
             {
                 return View(A);
             }
+            else if(user.Password.Contains("Sharikov"))
+            {
+                A.IsPasswordSame = true;
+                return View(A);
+            }
             else
             {
                 _context.User.Update(user);
                 _context.SaveChanges();
-
+                A.IsPasswordSame = false;
 
                 return RedirectToAction("AccountHome");
             }
@@ -573,15 +579,7 @@ namespace OOP_BIG_PROJECT.Controllers
 
                     _context.Messages.Add(chatMessage);
                 }
-                //Messages chatMessage = new Messages
-                //{
-                //    SenderId = Sender.Id,
-                //    ReceiverId = Receiver.Id,
-                //    Content = A.Content,
-                //    Timestamp = DateTime.UtcNow // Добавляем временную метку сообщения
-                //};
-
-                //_context.Messages.Add(chatMessage);
+             
 
                 // Подготавливаем модель представления для отображения чата
                 ChatViewModel viewModel = new ChatViewModel
@@ -619,77 +617,3 @@ namespace OOP_BIG_PROJECT.Controllers
 
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        //      private readonly UserManager<IdentityUser> _userManager;
-        //private readonly SignInManager<IdentityUser> _signInManager;
-
-//	public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
-//	{
-//		_userManager = userManager;
-//		_signInManager = signInManager;
-//	}
-
-//	[HttpGet]
-//	public IActionResult Register()
-//	{
-//		return View();
-//	}
-
-//	[HttpPost]
-//	public async Task<IActionResult> Register(RegisterViewModel model)
-//	{
-//		if (ModelState.IsValid)
-//		{
-//			var user = new IdentityUser { UserName = model.Username, Username = model.Username };
-//			var result = await _userManager.CreateAsync(user, model.Password);
-//			if (result.Succeeded)
-//			{
-//				await _signInManager.SignInAsync(user, isPersistent: false);
-//				return RedirectToAction("Index", "Home");
-//			}
-//			foreach (var error in result.Errors)
-//			{
-//				ModelState.AddModelError(string.Empty, error.Description);
-//			}
-//		}
-//		return View(model);
-//	}
-
-//	[HttpGet]
-//	public IActionResult Login()
-//	{
-//		return View();
-//	}
-
-//	[HttpPost]
-//	public async Task<IActionResult> Login(LoginViewModel model)
-//	{
-//		if (ModelState.IsValid)
-//		{
-//			var result = await _signInManager.PasswordSignInAsync(model.Username, model.Password, model.RememberMe, lockoutOnFailure: false);
-//			if (result.Succeeded)
-//			{
-//				return RedirectToAction("Index", "Home");
-//			}
-//			ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-//		}
-//		return View(model);
-//	}

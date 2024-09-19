@@ -159,7 +159,7 @@ main input:not([type="submit"]) {
 }
 
 .wL2{
-    margin-left:50px;
+    margin-left:170px;
 }
 
 .whatLike3 {
@@ -182,6 +182,7 @@ main input:not([type="submit"]) {
     margin-left: 30px;
 }
 
+
 .qq4{
 
     height:60px;
@@ -197,8 +198,12 @@ main input:not([type="submit"]) {
 }
 
 
-.tttt{
+.tttt1{
     margin-left:-380px;
+}
+
+.tttt {
+    margin-left: 10px;
 }
 
 .kot {
@@ -278,7 +283,7 @@ main input:not([type="submit"]) {
 
     .chgstr chgtxbx {
         display: flex;
-        justify-content: space-between;
+        /*justify-content: space-between;*/
         align-items: center;
         text-align: center;
         width: 100%;
@@ -289,14 +294,18 @@ main input:not([type="submit"]) {
         margin-right: 0;
     }
 
+.ChBU {
+    height: 45px;
+    width: 45px;
+    margin-top: 5px;
+}
 
 
 
 
 
-.namer{
-    
-    color:aliceblue;
+.namer {
+    color: aliceblue;
 }
 
 .red {
@@ -818,7 +827,7 @@ hohohehe {
     background: linear-gradient(#243720c7,#1e1e1ec7);
     position: center;
     width: 700px;
-    height: 500px;
+    height: 525px;
     margin: 0 auto;
     margin-left: -150px;
     margin-top: 50px;
