@@ -1,19 +1,21 @@
 ﻿@model OOP_BIG_PROJECT.ViewModels.TagsViewModel
 
 <div class="changer2">
-    
-    <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Изменение тега</h1>
 
+    <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Изменение тега</h1>
 
     <form asp-action="TagChangeName" method="post">
         <div class="form-group">
             <label asp-for="Name">Название тега:</label>
             <input asp-for="Name" class="form-control" />
-            <span asp-validation-for="Name" class="text-success"></span>
+        </div>
+
+        <div class="form-group">
             <label asp-for="Description">Описание тега:</label>
             <input asp-for="Description" class="form-control" />
-            <span asp-validation-for="Description" class="text-success"></span>
+            
         </div>
+
         <hr class="my-4">
         <button type="submit" class="btn btn-success">
             Изменить тег
@@ -22,6 +24,13 @@
             </svg>
         </button>
 
+        
+        @if (!ViewData.ModelState.IsValid && ViewData.ModelState["Name"]?.Errors.Count > 0)
+        {
+            <div class="alert alert-danger mt-2">
+                @ViewData.ModelState["Name"].Errors[0].ErrorMessage
+            </div>
+        }
     </form>
 
     <hr class="my-4">
@@ -33,5 +42,4 @@
             </svg>
         </button>
     </form>
-
 </div>

@@ -17,7 +17,7 @@
             <label>Название тега</label>
             <div class="input-group inputTA">
                 <input asp-for="Name" class="form-control textboxer" />
-                <span asp-validation-for="Name" class="text-success"></span>
+                
             </div>
             <label>Описание тега</label>
             <div class="input-group inputTA">
@@ -37,6 +37,12 @@
             </svg>
         </button>
 
+        @if (!ViewData.ModelState.IsValid && ViewData.ModelState["Name"]?.Errors.Count > 0)
+        {
+            <div class="alert alert-danger mt-2">
+                @ViewData.ModelState["Name"].Errors[0].ErrorMessage
+            </div>
+        }
     </form>
 
     <hr class="my-4">

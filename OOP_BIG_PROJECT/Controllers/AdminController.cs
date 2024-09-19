@@ -100,12 +100,19 @@ namespace OOP_BIG_PROJECT.Controllers
         public IActionResult TagChangeName(TagsViewModel A)
         {
             Tags tagToUpdate = _context.Tags.FirstOrDefault(l => l.Id == StaticStuff.ChangeTag);
+            var alltags= _context.Tags.Where(l => l.Id != StaticStuff.ChangeTag).ToList();
+            A.AllTags = alltags;
             if (tagToUpdate == null)
             {
                 return View("TagChange", A);
             }
             else
             {
+                if (A.Name != null && alltags.Any(tag => tag.Name.Equals(A.Name, StringComparison.OrdinalIgnoreCase)))
+                {
+                    ModelState.AddModelError("Name", "Тег с таким именем уже существует.");
+                    return View("TagChange", A);
+                }
                 tagToUpdate.Name = A.Name;
                 tagToUpdate.Description = A.Description;
                 _context.Tags.Update(tagToUpdate);
@@ -114,6 +121,7 @@ namespace OOP_BIG_PROJECT.Controllers
                 return RedirectToAction("TagMenu");
             }
         }
+
         [HttpPost]
         public IActionResult TagDelete(int TagId)
         {
@@ -125,6 +133,36 @@ namespace OOP_BIG_PROJECT.Controllers
             StaticStuff.refererUrl = HttpContext.Request.Path;
 
             Tags tag = _context.Tags.FirstOrDefault(l => l.Id == TagId);
+            var FightersWithTag=_context.Fighter.Where(l => l.TagId1==tag.Id || l.TagId2 == tag.Id || l.TagId3 == tag.Id || l.TagId4 == tag.Id || l.TagId5 == tag.Id).ToList();
+            foreach ( var fighter in FightersWithTag )
+            {
+                if(fighter.TagId1== tag.Id)
+                {
+                    fighter.TagId1 = 2;
+                    _context.Fighter.Update(fighter);
+                }
+                if (fighter.TagId2 == tag.Id)
+                {
+                    fighter.TagId2 = 2;
+                    _context.Fighter.Update(fighter);
+                }
+                if (fighter.TagId3 == tag.Id)
+                {
+                    fighter.TagId3 = 2;
+                    _context.Fighter.Update(fighter);
+                }
+                if (fighter.TagId4 == tag.Id)
+                {
+                    fighter.TagId4 = 2;
+                    _context.Fighter.Update(fighter);
+                }
+                if (fighter.TagId5 == tag.Id)
+                {
+                    fighter.TagId5 = 2;
+                    _context.Fighter.Update(fighter);
+                }
+
+            }
             _context.Tags.Remove(tag);
             _context.SaveChanges();
             return RedirectToAction("TagChangeDelete");
@@ -157,12 +195,14 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpPost]
         public IActionResult TagMake(TagsViewModel A)
         {
+
             //Tags tag = _context.Tags.FirstOrDefault(a => a.Id == A.Id);
             List<Tags> tags = _context.Tags.Where<Tags>(a => a.Name == A.Name).ToList();
             if (tags.Count != 0)
             {
                 A.IsTagExisting = true;
-                return View("TagAdd", A); // Возвращаем представление с сообщением об ошибке
+                ModelState.AddModelError("Name", "Тег с таким именем уже существует.");
+                return View("TagAdd", A); 
             }
             else
             {
