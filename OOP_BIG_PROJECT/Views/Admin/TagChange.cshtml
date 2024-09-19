@@ -17,19 +17,14 @@
 
 
                 <input asp-for="Name" class="form-control textboxer" required />
-                <span asp-validation-for="Name" class="text-success"></span>
+                
 
             </div>
             <label>Описание тега</label>
             <div class="input-group inputTA">
                 @* <input asp-for="Description" class="form-control textboxer" />
                 <span asp-validation-for="Description" class="text-success"></span> *@
-                @if (Model.IsTagExisting)
-                {
-                    <p>
-                        Такой тег уже существует!
-                    </p>
-                }
+                
                 <textarea class="form-control wide-input" id="floatingInput" asp-for="Description"></textarea>
             </div>
 
