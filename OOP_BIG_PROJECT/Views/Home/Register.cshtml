@@ -6,9 +6,10 @@
     <form asp-action="Register" class="p-4 p-md-5 bg-body-tertiary">
         <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3 text-light">Регистрация</h1>
 
-        <div class="form-floating mb-3 text-black" width="70%">
-            <input type="text" class="form-control" id="floatingInput" asp-for="Username" required> <span asp-validation-for="Username" class="text-danger"></span>
-            <label for="floatingInput text-black">Никнейм</label>
+        <div class="form-floating mb-3 text-black okoshko" width="70%">
+            <input type="text" class="form-control" id="floatingInput" asp-for="Username" required maxlength="30">
+            <span asp-validation-for="Username" class="text-danger"></span>
+            <label for="floatingInput">Никнейм</label>
         </div>
         @if (Model.IsUserExisting)
         {
@@ -17,9 +18,10 @@
             </div>
         }
 
-        <div class="form-floating mb-3 text-black" width="70%">
-            <input type="password" class="form-control" id="floatingPassword" asp-for="Password" required> <span asp-validation-for="Password" class="text-danger"></span>
-            <label for="floatingPassword text-black">Пароль</label>
+        <div class="form-floating mb-3 text-black okoshko" width="70%">
+            <input type="password" class="form-control" id="floatingPassword" asp-for="Password" required maxlength="30">
+            <span asp-validation-for="Password" class="text-danger"></span>
+            <label for="floatingPassword">Пароль</label>
         </div>
 
 

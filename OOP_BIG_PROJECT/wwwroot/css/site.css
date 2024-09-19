@@ -162,6 +162,11 @@ main input:not([type="submit"]) {
     margin-left:170px;
 }
 
+.okoshko{
+    width:500px;
+}
+
+
 .whatLike3 {
     padding: 0px;
     margin-top: -12%;
