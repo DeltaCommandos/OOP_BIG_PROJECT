@@ -48,14 +48,29 @@ namespace OOP_BIG_PROJECT.Controllers
 
             if ((LikerFighters.Fighters != null) && (LikerFighters.Fighters.Count != 0))
             {
-                Fighter selectedFighter = GetLikerFighter();
-                var viewModel = new FighterViewModel
+                if (LikerFighters.Flag)
                 {
-                    AllTags = _context.Tags.ToList(),
-                    SelectedFighter = selectedFighter
-                };
-                //LikerFighters.Flag = false;
-                return View(viewModel);
+                    Fighter selectedFighter = GetLikerFighter();
+                    var viewModel = new FighterViewModel
+                    {
+                        AllTags = _context.Tags.ToList(),
+                        SelectedFighter = selectedFighter
+                    };
+                    //LikerFighters.Flag = false;
+                    return View(viewModel);
+                }
+                else
+                {
+                    Fighter selectedFighter = GetLikerFighterCase2();
+                    var viewModel = new FighterViewModel
+                    {
+                        AllTags = _context.Tags.ToList(),
+                        SelectedFighter = selectedFighter
+                    };
+                    FighterForMatch.Flag = false;
+                    return View(viewModel);
+                }
+
             }
             else
             {
@@ -81,12 +96,47 @@ namespace OOP_BIG_PROJECT.Controllers
             }
             else
             {
-                //var likedfighter = _context.Fighter.FirstOrDefault(a => a.Id == StaticStuff.Fighter.Id);
+                Fighter selectedFighter;
+                fighters = LikerFighters.Fighters.Where(a => a.Id != StaticStuff.PrevioseFighterIdL).ToList();
+                Random random = new Random();
+                int index = random.Next(fighters.Count);
+                if (fighters.Count != 0)
+                {
+
+
+                    selectedFighter = fighters[index];
+                    StaticStuff.PrevioseFighterIdL = selectedFighter.Id;
+                    LikerFighters.Fighters = fighters;
+                    return selectedFighter;
+                }
+                else
+                {
+                    selectedFighter = new Fighter();
+                    selectedFighter.Age = -1000;
+                    StaticStuff.PrevioseFighterIdL = selectedFighter.Id;
+                    LikerFighters.Fighters = fighters;
+                    return selectedFighter;
+                }
+
+
+            }
+        }
+        private Fighter GetLikerFighterCase2()
+        {
+            var fighters = LikerFighters.Fighters;
+            if (fighters.Count == 0)
+            {
+                return null;
+            }
+            else
+            {
+
                 Random random = new Random();
                 int index = random.Next(fighters.Count);
                 Fighter selectedFighter = fighters[index];
-                //var likedfighter = _context.Fighter.FirstOrDefault(a => a.Id == selectedFighter.Id);
-                fighters.RemoveAt(index);
+
+                StaticStuff.PrevioseFighterIdL = selectedFighter.Id;
+
                 LikerFighters.Fighters = fighters;
                 return selectedFighter;
             }
@@ -110,9 +160,10 @@ namespace OOP_BIG_PROJECT.Controllers
                     OverLike.LikerStatus = true; 
                     _context.Likes.Update(OverLike); 
                 }
-                //LikerFighters.Flag = true;
+                LikerFighters.Flag = true;
                 _context.SaveChanges();
             }
+            StaticStuff.ProverkaIsLikeLike = true;
             return RedirectToAction("Index");
 
         }
@@ -135,7 +186,7 @@ namespace OOP_BIG_PROJECT.Controllers
                     OverLike.LikerStatus = true;
                     _context.Likes.Update(OverLike);
                 }
-                //FighterForMatch.Flag = true;
+                FighterForMatch.Flag = true;
                 _context.SaveChanges();
             }
 

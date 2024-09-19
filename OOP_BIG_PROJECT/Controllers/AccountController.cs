@@ -444,6 +444,7 @@ namespace OOP_BIG_PROJECT.Controllers
             _context.Likes.Add(NewMatch1);
             _context.Likes.Add(NewMatch2);
             _context.SaveChanges();
+            StaticStuff.ProverkaIsLikeLike = true;
             return RedirectToAction("Blacklist");
         }
         [HttpPost]
@@ -503,6 +504,7 @@ namespace OOP_BIG_PROJECT.Controllers
             //_context.RemoveRange(receiverMessages);
             //_context.RemoveRange(senderMessages);
             _context.SaveChanges();
+            StaticStuff.ProverkaIsBanned = true;
             return RedirectToAction("ViewMatches");
         }
         [HttpGet]
