@@ -130,108 +130,110 @@ namespace OOP_BIG_PROJECT.Controllers
                 return Redirect(StaticStuff.refererUrl);
             }
             StaticStuff.refererUrl = HttpContext.Request.Path;
-
-            if(StaticStuff.ProverkaIsLikeLike == true)
+            if (StaticStuff.ProverkaIsLikeMatch != false)
             {
-                List<int> LikedFightersId = _context.Fighter.Where(a => a.Id != (StaticStuff.Fighter.Id)).Select(a => a.Id).ToList();
-                foreach (int LikedFighterId in LikedFightersId)
+                if (StaticStuff.ProverkaIsLikeLike == true)
                 {
-                    //List < Likes > CorrentFighter=_context.Likes.Where(a=>a.LikerId== StaticStuff.Fighter.Id).ToList();
-                    // List<Likes> LikedFighter = _context.Likes.Where(a => a.LikerId == LikedFighterId).ToList();
-
-                    bool Liker = _context.Likes.Any(l => (l.LikerId == LikedFighterId && l.LikedFighterId == StaticStuff.Fighter.Id && l.IsLiked == true));
-                    bool liked = _context.Likes.Any(l => (l.LikerId == StaticStuff.Fighter.Id && l.LikedFighterId == LikedFighterId && l.IsLiked == true));
-                    if ((Liker && liked))
-                    {
-                        var LikedFighter = _context.Fighter.FirstOrDefault(a => a.Id == LikedFighterId);
-                        if (LikedFighter != null)
-                        {
-                            FighterForMatch.Fighters = FighterForMatch.Fighters.Where(f => f.Id != LikedFighter.Id).ToList();
-                        }
-                    }
-                    else
-                    {
-                        ;
-                    }
-
-                }
-                StaticStuff.ProverkaIsLikeLike = false;
-            }
-            if (StaticStuff.ProverkaIsBanned == true)
-            {
-                _fighters = new List<Fighter>();
-                List<int> LikedFightersId = _context.Fighter.Where(a => a.Id != (StaticStuff.Fighter.Id)).Select(a => a.Id).ToList();
-                List<int> WBLikedFightersId = new List<int>();
-                List<int> BannedByCurrentFigher = _context.BansForFighters.Where(a => a.Banner == StaticStuff.Fighter.Id).Select(a => a.Banned).ToList();
-                List<int> BannedCurrentFigher = _context.BansForFighters.Where(a => a.Banned == StaticStuff.Fighter.Id).Select(a => a.Banner).ToList();
-                bool WBProverka;
-                if (BannedByCurrentFigher.Count != 0 && BannedCurrentFigher.Count != 0)
-                {
+                    List<int> LikedFightersId = _context.Fighter.Where(a => a.Id != (StaticStuff.Fighter.Id)).Select(a => a.Id).ToList();
                     foreach (int LikedFighterId in LikedFightersId)
                     {
-                        // Если LikedFighterId совпадает с любым из забаненных бойцов, не добавляем его
-                        if ((BannedByCurrentFigher.Contains(LikedFighterId) || BannedCurrentFigher.Contains(LikedFighterId)))
-                        {
-                            FighterForMatch.Fighters = FighterForMatch.Fighters.Where(f => f.Id != LikedFighterId).ToList();
-                        }
-                    }
-                }
-                else if (BannedByCurrentFigher.Count != 0)
-                {
-                    foreach (int LikedFighterId in LikedFightersId)
-                    {
-                        foreach (int bannedByCurrentFigher in BannedByCurrentFigher)
-                        {
+                        //List < Likes > CorrentFighter=_context.Likes.Where(a=>a.LikerId== StaticStuff.Fighter.Id).ToList();
+                        // List<Likes> LikedFighter = _context.Likes.Where(a => a.LikerId == LikedFighterId).ToList();
 
-                            //bool WBLikedFighterId = _context.Fighter.Any(l => l.Id == bannedByCurrentFigher || l.Id == bannedCurrentFigher);
-                            if ((LikedFighterId == bannedByCurrentFigher))
+                        bool Liker = _context.Likes.Any(l => (l.LikerId == LikedFighterId && l.LikedFighterId == StaticStuff.Fighter.Id && l.IsLiked == true));
+                        bool liked = _context.Likes.Any(l => (l.LikerId == StaticStuff.Fighter.Id && l.LikedFighterId == LikedFighterId && l.IsLiked == true));
+                        if ((Liker && liked))
+                        {
+                            var LikedFighter = _context.Fighter.FirstOrDefault(a => a.Id == LikedFighterId);
+                            if (LikedFighter != null)
                             {
-                                WBProverka = true;
+                                FighterForMatch.Fighters = FighterForMatch.Fighters.Where(f => f.Id != LikedFighter.Id).ToList();
                             }
-                            else
-                            {
-                                WBProverka = false;
-                            }
-                            if (WBProverka)
+                        }
+                        else
+                        {
+                            ;
+                        }
+
+                    }
+                    StaticStuff.ProverkaIsLikeLike = false;
+                }
+                if (StaticStuff.ProverkaIsBanned == true)
+                {
+                    _fighters = new List<Fighter>();
+                    List<int> LikedFightersId = _context.Fighter.Where(a => a.Id != (StaticStuff.Fighter.Id)).Select(a => a.Id).ToList();
+                    List<int> WBLikedFightersId = new List<int>();
+                    List<int> BannedByCurrentFigher = _context.BansForFighters.Where(a => a.Banner == StaticStuff.Fighter.Id).Select(a => a.Banned).ToList();
+                    List<int> BannedCurrentFigher = _context.BansForFighters.Where(a => a.Banned == StaticStuff.Fighter.Id).Select(a => a.Banner).ToList();
+                    bool WBProverka;
+                    if (BannedByCurrentFigher.Count != 0 && BannedCurrentFigher.Count != 0)
+                    {
+                        foreach (int LikedFighterId in LikedFightersId)
+                        {
+                            // Если LikedFighterId совпадает с любым из забаненных бойцов, не добавляем его
+                            if ((BannedByCurrentFigher.Contains(LikedFighterId) || BannedCurrentFigher.Contains(LikedFighterId)))
                             {
                                 FighterForMatch.Fighters = FighterForMatch.Fighters.Where(f => f.Id != LikedFighterId).ToList();
                             }
-
                         }
-                        //int WBLikedFighterId
                     }
-                }
-                else if (BannedCurrentFigher.Count != 0)
-                {
-                    foreach (int LikedFighterId in LikedFightersId)
+                    else if (BannedByCurrentFigher.Count != 0)
                     {
-                        foreach (int bannedCurrentFigher in BannedCurrentFigher)
+                        foreach (int LikedFighterId in LikedFightersId)
                         {
+                            foreach (int bannedByCurrentFigher in BannedByCurrentFigher)
+                            {
 
-                            //bool WBLikedFighterId = _context.Fighter.Any(l => l.Id == bannedByCurrentFigher || l.Id == bannedCurrentFigher);
-                            if ((LikedFighterId == bannedCurrentFigher))
-                            {
-                                WBProverka = true;
-                            }
-                            else
-                            {
-                                WBProverka = false;
-                            }
-                            if (WBProverka)
-                            {
-                                FighterForMatch.Fighters = FighterForMatch.Fighters.Where(f => f.Id != LikedFighterId).ToList();
-                            }
+                                //bool WBLikedFighterId = _context.Fighter.Any(l => l.Id == bannedByCurrentFigher || l.Id == bannedCurrentFigher);
+                                if ((LikedFighterId == bannedByCurrentFigher))
+                                {
+                                    WBProverka = true;
+                                }
+                                else
+                                {
+                                    WBProverka = false;
+                                }
+                                if (WBProverka)
+                                {
+                                    FighterForMatch.Fighters = FighterForMatch.Fighters.Where(f => f.Id != LikedFighterId).ToList();
+                                }
 
+                            }
+                            //int WBLikedFighterId
                         }
-                        //int WBLikedFighterId
                     }
+                    else if (BannedCurrentFigher.Count != 0)
+                    {
+                        foreach (int LikedFighterId in LikedFightersId)
+                        {
+                            foreach (int bannedCurrentFigher in BannedCurrentFigher)
+                            {
+
+                                //bool WBLikedFighterId = _context.Fighter.Any(l => l.Id == bannedByCurrentFigher || l.Id == bannedCurrentFigher);
+                                if ((LikedFighterId == bannedCurrentFigher))
+                                {
+                                    WBProverka = true;
+                                }
+                                else
+                                {
+                                    WBProverka = false;
+                                }
+                                if (WBProverka)
+                                {
+                                    FighterForMatch.Fighters = FighterForMatch.Fighters.Where(f => f.Id != LikedFighterId).ToList();
+                                }
+
+                            }
+                            //int WBLikedFighterId
+                        }
+                    }
+                    StaticStuff.ProverkaIsBanned = false;
+                    //else if (BannedByCurrentFigher.Count == 0 && BannedCurrentFigher.Count == 0)
+                    //{
+                    //    WBLikedFightersId = LikedFightersId;
+                    //    StaticStuff.ProverkaIsBanned = false;
+                    //}
                 }
-                StaticStuff.ProverkaIsBanned = false;
-                //else if (BannedByCurrentFigher.Count == 0 && BannedCurrentFigher.Count == 0)
-                //{
-                //    WBLikedFightersId = LikedFightersId;
-                //    StaticStuff.ProverkaIsBanned = false;
-                //}
             }
             if (FighterForMatch.IsSorted && FighterForMatch.SortedFighters.Count == 0)
             {

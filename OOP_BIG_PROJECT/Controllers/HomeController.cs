@@ -24,6 +24,11 @@ namespace OOP_BIG_PROJECT.Controllers
         public IActionResult Index()
         {
             StaticStuff.refererUrl = HttpContext.Request.Path;
+
+            StaticStuff.ProverkaIsLikeMatch = false;
+            StaticStuff.ProverkaIsLikeLike = false;
+            StaticStuff.ProverkaIsBanned = false;
+
             if (StaticStuff.Fighter != null)
                 StaticStuff.Fighter = null;
 
@@ -49,6 +54,10 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpPost]
         public IActionResult Login(UserViewModel A)
         {
+            StaticStuff.ProverkaIsLikeMatch = false;
+            StaticStuff.ProverkaIsLikeLike = false;
+            StaticStuff.ProverkaIsBanned = false;
+
             if (FighterForMatch.Fighters != null)
                 FighterForMatch.Fighters = null;
 
@@ -133,6 +142,10 @@ namespace OOP_BIG_PROJECT.Controllers
         [HttpPost]
         public IActionResult Register(RegisterViewModel A)
         {
+            StaticStuff.ProverkaIsLikeMatch = false;
+            StaticStuff.ProverkaIsLikeLike = false;
+            StaticStuff.ProverkaIsBanned = false;
+
             if (FighterForMatch.Fighters != null)
                 FighterForMatch.Fighters = null;
 
